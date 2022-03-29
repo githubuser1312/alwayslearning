@@ -120,3 +120,33 @@ print(f"{miRobot4.physical_feat()} and {miRobot4.post(position)}")
 
 #tambien se pued hacer lo mismo con un método. Supongamos que el robot tiene que hace run chequeo interno cuando le decimos que arranque. Si el chequeo interno (aceite es ok, bateria ok) da todo ok, entonces arranca. Si no es todo ok, no arranca. El método del cheque interno no puede ser accesible desde el exterior de la clase (para evitar manipulacion de datos).
 
+class robot():
+    def __init__(self):
+        self.__legs=2
+        self.__arms=2
+        self.__wheels=2
+        self.__eyes=4
+        self.__started=False
+    def autochecking(self):
+        print("Cheking levels...")
+        self.oil="ok"
+        self.battery="No ok"
+        if self.oil=="ok" and self.battery=="ok":
+            return True
+        else:
+            return False
+    def starting(self, start):
+        self.__started=start
+        if self.__started:#esta linea simboliza la autocomprobacion que se hace de los niveles cuando se le da al boton de encendido, guardamos en una variable el diagnostico del chequeo
+            checking=self.autochecking()
+        if self.__started and checking:
+            return "levels checked are ok, the robot is started"
+        elif self.__started and checking==False:
+            return "is trying to start but something is wrong with levels"
+        else:
+            return "is not started"
+    def physical_feat(self):
+        return f"My robot3 has {self.__legs} legs, {self.__arms} arms, {self.__wheels} wheels, {self.__eyes} eyes"
+
+miRobot3=robot()
+print(f"{miRobot3.physical_feat()} and {miRobot3.starting(True)}")
