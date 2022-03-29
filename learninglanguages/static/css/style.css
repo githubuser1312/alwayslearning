@@ -1,0 +1,26 @@
+
+table, caption{
+    background-color: antiquewhite;
+}
+thead,th{
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    background-color: bisque;
+}
+td{
+    border: 1px;
+    border-color: black;
+    text-align: center;
+    
+    width: 80px;
+}
+td:nth-child(2n){
+    background-color: rgb(153, 204, 245);
+}
+col:nth-child(1){
+    background-color: aquamarine;
+    border: 1px;
+    border-color: black;
+    border-style: dotted;
+}

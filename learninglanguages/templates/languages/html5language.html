@@ -1,0 +1,352 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    HTML5 LANGUAGE
+{% endblock%}
+
+{% block content %}
+
+    <!-- (Para comprobar si la estructura de un documento es correcta, podemos hacerlo en https://validator.w3.org/#validate_by_input ) -->
+
+    <main>
+        <h1>Mi aprendizaje de html5.</h1>
+        <section>
+            <h2>Sobre Navegadores</h2>
+            <section>
+                <h3>Noticias historicas</h3>
+                <article>
+                    <h4>Noticia 1</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla hic modi sapiente .</p>
+                </article>
+                <article>
+                    <h4>Noticia 2</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eveniet ipsa, natus cumq.</p>
+                </article>       
+            </section>
+        </section>
+        <article>
+            <h3>Navegadores mas utilizados</h3>
+            <section>
+                <h4>Chrome</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem ullam hic quae!</p>
+            </section>
+            <aside>visita Chrome</aside>
+            <section>
+                <h4>Firefox</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo magni quidem autem maxime quisquam eaque earum culpa perferendis tempore voluptate?</p>
+            </section>
+            <aside>visita Firefox</aside>
+        </article>
+        <section>
+            <h3>Elementos de linea</h3>
+            <p><em>La etiqueta em da mas importancia a esta parte</em>  <strong>pero strong da mas importancia que em a esta parte</strong> <small>sin embargo small da menos importancia a lo escrito en small</small> . <br> <span> <em> br da un salto de linea, no usar <strong>br</strong> para ello se usa css</em></span>. <br>Sin embargo, existen 3 etiquetas para dar estilo en html5 que son <u>underline</u>, <b>bold</b> e <i>italic</i> ademas están <sup>superindice</sup>y <sub>subindice</sub>.</p>
+            <!-- etiqueta para indicar tiempo -->
+            <time>24/10/2022 10:35</time>
+        </section>
+        <h2>Listas</h2>
+        <p>En las listas desordenadas podemos usar los tipos:</p>
+        <ul>
+            <li type="disc">disc</li>
+            <li type="circle">circle</li>
+            <li type="square">square</li>
+            <li type="none">none</li>
+        </ul>
+        <p>El tipo se pone en la etiqueta ul</p>
+        <ul type="square">
+            <li>primera</li>
+            <li>segunda</li>
+        </ul>
+        <p>En las listas ordenadas podemos usar:</p>
+        <ol>
+            <li type="1">numerico</li>
+            <li type="a">alfabético minúscula</li>
+            <li type="A">alfabético mayúscula</li>
+            <li type="i">romano minúscula</li>
+            <li type="I">romano mayúscula</li>
+        </ol>
+        <p>El tipo se pone en la etiqueta ul</p>
+        <ol type="i">
+            <li>primera</li>
+            <li>segunda</li>
+        </ol>
+        <h2>Tabla</h2>
+        <table>
+            <caption>Titulo de la tabla con <u><strong>caption</strong></u> </caption>
+            <colgroup>
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>L</th>
+                    <th>M</th>
+                    <th>J</th>
+                    <th>V</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td>mes</td>
+                    <td>enero</td>
+                    <td>febrero</td>
+                    <td>marzo</td>
+                    <td>abril</td>
+                </tr>
+                <tr>
+                    <td>asignatura1</td>
+                    <td colspan="2">matematicas</td>
+                    <td colspan="2">lengua</td>
+                </tr>
+                <tr>
+                    <td>asignatura2</td>
+                    <td rowspan="2">tecnologia</td>
+                    <td colspan="2">fisica</td>
+                    <td>quimica</td>
+                </tr>
+                <tr>
+                    <td>asignatura3</td>
+                    <td>musica</td>
+                    <td>historia</td>
+                    <td>ed fisica</td>
+                </tr>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">total asignaturas</td>
+                    <td>5</td>
+                </tr>
+            </tfoot>
+        </table>
+
+
+        </main>
+    <footer> 
+        <p> este es elpie de la tabla</p>
+    </footer>
+    <h2>Etiqueta Address</h2>
+    <address>
+        <strong>Address</strong> <br>
+        C/batalla de San quintin <br>
+        41701 Dos Hermanas <br>
+        Sevilla <br>
+    </address>
+    <hr>
+    <p> <u> La etiqueta hr sirve para cambiar de tema</u></p>
+    <blockquote>
+            <strong>BLOCKQUOTE</strong> tag esto es una cita, Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, inventore possimus! Quod corporis laborum ducimus officiis fugit consequatur, reprehenderit tempora unde, aliquid quam voluptatem aspernatur similique dolorum voluptas nulla sint sequi ullam porro tempore omnis. Laudantium aliquid, ex possimus officiis doloribus molestiae rerum eligendi ipsum consequuntur vel asperiores hic ullam.
+    </blockquote>
+    <p>Para poner una cita en una linea en lugar de en bloque (que es el caso anterior) se usa la <q>etiqueta q</q></p>
+    <pre>
+        <strong>PRE</strong> tag
+        se ve igual 
+        que lo escribimos y 
+        es util para escribir
+        poemas
+    </pre>
+    <p>Para escribir codigo se usa la etiqueta "code" (en combinacion con la etiqueta pre)por ejemplo:</p>
+    <pre>
+        <p>Ponemos el codigo ASCII correspondiente para representar '<' y '>' </p>
+        <code> &#60;h1&#62;{
+            background-color: blue;
+        }</code>
+    </pre>
+
+    <h2>Formularios</h2>
+    <form>
+        <p> <strong>LABEL</strong></p>
+        <p>En el atributo for se coloca el id del input al que hace referencia el label</p>
+        <label for="name">Nombre:</label>
+        <p> <strong>INPUT</strong> </p>
+        <ol>
+            <p>A continuacion tipos de input</p>
+            <li>
+                <input type="button" value="input-button">
+                Input de tipo button NO sirve para enviar los datos del formulario NI para recargar la pagina    
+            </li>
+            <li><input type="submit" value="Enviar con un input-submit"> Input de tipo submit SI sirve para enviar los datos del formulario</li>
+            <li><input type="date">Input tipo date</li>
+            <li><input type="datetime-local">Input tipo datetime_local, pero NO funciona en Firefox, en su caso usar input date e input time</li>
+            <li><input type="time">Input de tipo time</li>
+            <li><input type="month">Input tipo mes (no funciona ??)</li>
+            <li><input type="week">Input tipo semana  (no funciona ??)</li>
+            <li><input type="search">Input tipo search (especialmente útil en móviles)</li>
+            <li><input type="tel">input tipo telefono  (especialmente útil en móviles)</li>
+            <li><input type="email">input tipo email (especialmente útil en móviles)</li>
+            <li><input type="password">input tipo password (especialmente útil en móviles)</li>
+            <li><input type="url">input tipo url (especialmente útil en móviles)</li>
+            <li><input type="color">input tipo color</li>
+            <li><input type="number">input tipo numero</li>
+            <li><input type="range" step="5" min="0" max="20">input tipo rango</li>
+            <li><input type="reset">input tipo reseteo que borra todos lo datos introducidos en el formulario y los deja como al principio por defecto</li>
+            <li><input type="text">input tipo text</li>
+            <li><input type="hidden">input tipo hidden es el que no se muestra</li>
+            <li>Input tipo RADIO, para que solo se pueda elegir uno de los inputs hay que dar un name igual a todos los input radio. Poner checked en el que tiene que estar marcado por defecto
+                <ol type="i">
+                    <li><label for="gender">Masculino</label><input type="radio" name="gender" value="masculino"></li>
+                    <li><label for="gender">Femenino</label><input type="radio" name="gender" value="femenino"></li>
+                    <li><label for="gender">Otro</label><input type="radio" name="gender"  value="otro" checked></li>
+                </ol>
+            </li>
+            <li> <p>Input tipo CHECKBOX permiten elegir varias opciones. El atributo value es el que indica al programa la opcion elegida y el atributo checked es por si existe una opcion que hay que definir por omisión (y pueden ser varios)</p>
+                <ol>
+                    <li><label for="language">HTML</label><input type="checkbox" name="language" value="HTML"></li>
+                    <li><label for="language">CSS</label><input type="checkbox" name="language" value="CSS" checked></li>
+                    <li><label for="language">Python</label><input type="checkbox" name="language" value="Python" checked></li>
+                </ol>
+            </li>
+            <li>Input tipo SELECT con atributo multiple para seleccionar mas de 1
+                <ol type="i">
+                    <li>
+                        <select name="languages" id="" multiple>
+                            <option value="HTML">HTML</option>
+                            <option value="CSS">CSS</option>
+                            <option value="Python">Python</option>
+                        </select>      
+                    </li>
+                    <li>Input tipo SELECT con agrupacion por categorias con OPTGROUP
+                        <select name="mascotas" id="">
+                            <optgroup label="4 patas">
+                                <option value="perro">PERRO</option>
+                                <option value="gato">GATO</option>
+                                <option value="hamster">HAMSTER</option>
+                                <option value="conejo">CONEJO</option>
+                            </optgroup>
+                            <optgroup label="aves">
+                                <option value="loro">LORO</option>
+                                <option value="canario">CANARIO</option>
+                            </optgroup>
+                            <optgroup label="varios">
+                                <option value="serpiente">SERPIENTE</option>
+                                <option value="araña">ARAÑA</option>
+                            </optgroup>
+                        </select>
+                    </li>
+                </ol>         
+            </li>
+            <li>Input ELEMENTOS SELECCIONABLES tienen una ventaja sobre SELECT y es que podemos poner una letra en ella y asi que aparezcan sólo los elementos que contengan esa letra
+                <input type="list" list="mascotas">
+                <datalist id="mascotas">
+                    <option value="perro"></option>
+                    <option value="gato"></option>
+                    <option value="hamster"></option>
+                    <option value="conejo"></option>
+                    <option value="loro"></option>
+                    <option value="canario"></option>
+                    <option value="serpiente"></option>
+                    <option value="araña"></option>
+                </datalist>
+            </li>
+            <li>FIELDSET y LEGEND es un recuadro o linea que engloba una parte del formulario y da un titulo a esa parte del mismo
+                <form action="">
+                    <fieldset>
+                        <legend>Datos Personales</legend>
+                        <div>
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name">
+                        </div>
+                        <div>
+                            <label for="surname">Apellidos:</label>
+                            <input type="text"  id="apellidos">
+                        </div>                       
+                    </fieldset>
+                </form>
+            </li>
+            <li>FILE es un input que se utiliza para cargar archivos y enviarlos desde un formulario
+                <input type="file" name="" id="">
+            </li>
+            <li>METER representa un valor dentro de un rango conocido (hugh y low cambian el color desde esos valores)
+                <label for="fuel">Combustible</label>
+                <meter id="fuel" min="0" max="150" value="20" low="25" high="150"></meter>
+            </li>
+            <li>PROGRESS se utiliza para representar el progreso de una tarea
+                <label for="task">Tarea 1</label>
+                <progress id="task" max="100" value="75"></progress>
+            </li>
+            <li> TEXTAREA se utiliza para escribir un texto en un area marcada
+                <label for="message">MENSAJE</label>
+                <textarea name="texto" id="message" cols="30" rows="10">aqui puede escribir su mensaje</textarea>
+            </li>
+        </ol>
+       
+        <p> <strong>BUTTON</strong></p>
+        <p>Button (a difererncia del input del tipo button) SI sirve para enviar los datos del formulario y SI para recargar la pagina</p>
+        <button>Enviar formulario</button>
+        <p> <strong>ATRIBUTOS</strong> de los formularios</p>
+        <ol>
+            <li><strong>PLACEHOLDER</strong>
+            Con un texto se da una idea al ususario de lo que tiene que introducir. <input type="text" placeholder="introduce tu nombre"></li>
+            <li><strong>REQUIERE</strong> significa que el campo es obligatorio (CUIDADO, este requisito lo puede eliminar el usuario desde el inspector web, asi que es mejor asegurarse haciendo el campo requiere con Python o JavaScript</li>
+            <li><strong>READONLY</strong>No se puede modificar por el usuario (a no ser que sea desde el inspector web)</li>
+            <li><strong>DISABLE</strong> significa que lo que tiene el campo no se va a enviar (ni modificar)</li>
+            <li><strong>MIN-MAX</strong> sirven para especificar los valores minimos y maximos que se pueden introducir, se puede especificar uno de los dos</li>
+            <li><strong>MINLENGTH o MAXLENGTH</strong> sirven para especificar lo minimo o maximo de la longitud del texto <input type="text" minlength="5" maxlength="10" required></li>
+            <li><strong>SELECTED</strong> es como un checked pero para los campos SELECT</li>
+            <li><strong>AUTOFOCUS</strong> es para remarcar el campo donde introducir el dato</li>
+        </ol>
+        <p style="font-size: 20px;"><u> Para enviar un formulario se usa <strong>METHOD</strong> con valor <strong>GET</strong> o con valor <strong>POST</strong>. ES MUY IMPORTANTE QUE PARA QUE ESTOS DOS METODOS FUNCIONEN EL FORMULARIO TENGA EL ATRIBUTO <strong>NAME</strong></u></p>
+    </form>
+
+    <h2>Imágenes</h2>
+    <p>Podemos usar img o picture (siendo el ultimo más nuevo y recomendado). Formatos admitidos: .svg, .jpeg, .gif, .png, .webp (este ultimo es el mas ligero y ademas tiene las ventajas de jpeg, gif y png)</p>
+    <img src="{% static 'img/prueba.jpeg' %}" alt="imagenjpeg">
+
+    <p>En la página <strong>https://whatismyviewport.com</strong> podemos comprobar el tamaño de nuestra pantalla y el DPR: DEVICE PIXEL RATIO que es la relacion entre los Pixeles reales y los pixeles lógicos. Por ejemplo un iphone5 tiene pixeles reales 960x640 pero lo pixeles logicos son de 480x320 por eso DPR es 2 en su caso.</p>
+    <p>Por ejemplo iphoneX tiene 1135x2436 px de resolución pero el viewport da 375x634 px siendo DPR: 3.00 (la relacion entre 2436/634 no es 3 porque el viewpor quita los espacios que ocupan los bordes superior e inferior donde estan los iconos del navegador).</p>
+    <p>Para usar diferentes tamaños de imagenes dependiendo del tipo de device usaremos el atributo srcset.</p>
+  
+        <code>
+            &#60img srcset="/media/prueba.webp, /media/prueba2.webp 2x, /media/prueba3.webp 3x" src="prueba.jpeg" alt="pruebajpeg"&#62
+        </code>
+    <p>En el ejemplo anterior tenemos prueba para pantallas normales, prueba2 para pantallas moviles con DPR:2 y prueba3 para pantallas moviles con DPR:3. Se usa src para el caso en que no se admiten las webp o el atributo srcset por parte del navegador</p>
+    <img srcset="{% static 'img/Rabbitmq.png' %} , {% static 'img/prueba.webp' %} 1x" alt="pruebajpg">
+    
+    <p>Picture, es obligatorio incluir dentro la etiqueta img que es de seguridad, por si no funciona source</p>
+    <p>En el siguiente ejemplo si la pantalla es menor que 600px se usará prueba2 (para móviles) y si es mayor se usará prueba</p>
+    <code>
+        &#60picture&#62
+        &#60source srcset="/media/prueba2.webp 2x" media="(max-width:600px)"&#62
+        &#60img src="/media/prueba.jpeg" alt=""&#62
+        &#60/picture&#62
+    </code>
+
+    <h2>Audio</h2>
+    <p>Controls pone la imagen de los controles, autoplay reproduce en cuanto se abre la pagina, aunque ultimamente los navegadores no lo estan permitiendo. Para dejar autoplay puesto hay que poner muted para que el altavoz este apagado inicialmente y sea el usuario quien decida escuchar activando el altavoz. Loop reproduce desde el principio cuando termina</p>
+   <audio src="/media/sonido.mp3" controls autoplay muted loop></audio> 
+        &#60audio&#62
+    <code>
+        &#60audio src="/media/sonido.mp3" controls autoplay mute&#62 
+        &#60/audio&#62
+    </code>
+    
+    <h2>Video</h2>
+    <p>Los atributos son iguales a los de Audio. Añadimos poster que sería la imagen que aparece al principio</p>
+    <video src="/media/video.mp4" controls autoplay muted loop poster="/media/prueba.jpg"></video>
+    &#60video src="/media/video.mp4" controls autoplay muted loop poster="/media/prueba.jpg"&#62&#60/video&#62
+
+    <h2>IFrame</h2>
+    <p>sirven para traer una pagina web externa (o video de youtube) a nuestra web, pero eso supone que se ralentice mucho nuestra web</p>
+    &#60iframe width="" height="" src="" frameborder="0"&#62&#60/iframe&#62
+
+    <h2>Figure</h2>
+    <p>Se usa para insertar contenido relacionado con el articulo que se este escribiendo, pero que si se quitase no pasaria nada (es prescindible)</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, non fugiat eveniet amet in consequuntur vitae voluptatem, quam voluptas ut, porro alias? Minus, pariatur perferendis?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, ducimus dolor autem voluptatibus vitae error amet. Officia quo ratione delectus dignissimos ipsa eum, laborum facere quasi earum asperiores.</p>
+    <figure>
+        <img src="/media/prueba.jpeg" alt="figura">
+        <figcaption>imagen para ejemplo de figure</figcaption>
+    </figure>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima dignissimos aliquam ut ad. Fugit optio dicta iure.</p>
+
+    <h2>Etiquetas Meta</h2>
+
+    <p>Meta desc es para escribir una breve descripcion de nuestro sitio web y asi que los buscadores tengan algo que poner como descripcion en el listado de búsqueda</p>
+    &#60meta name="description" content="Este sitio sirve para vender productos de limpieza de la casa y el automovil"&#62
+    <p>Meta para indicar el autor de la web</p>
+    &#meta name="author" content="JAP"&#62
+
+    <h2>Favicon</h2>
+    <p>visitamos la pagina : www.favico-generator.org  y en ella subimos el archivo del dibujo que queremos usar como icono para los distintos dispositivos. La pagina nos devuelve una serie de archivos a descargar y que podemos usar en nuestra web y que nos servira para diferentes dispositivos. las pegamos en head de nuestra web. </p>   
+  
+{% endblock %}
