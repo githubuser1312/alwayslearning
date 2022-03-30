@@ -1,0 +1,9 @@
+setup.py
+paquete_calculos/__init__.py
+paquete_calculos/calculos_generales.py
+paquete_calculos/calculos_complicados/__init__.py
+paquete_calculos/calculos_complicados/calculos_complicados.py
+paquetecalculos.egg-info/PKG-INFO
+paquetecalculos.egg-info/SOURCES.txt
+paquetecalculos.egg-info/dependency_links.txt
+paquetecalculos.egg-info/top_level.txt

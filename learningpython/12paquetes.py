@@ -7,3 +7,4 @@ from paquete_calculos.calculos_complicados.calculos_complicados import *
 
 dividir(8,4)
 redondear(5.6)
+potencia(5,7)
