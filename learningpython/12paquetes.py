@@ -3,6 +3,7 @@
 
 #usando el paquete_calculos
 from paquete_calculos.calculos_generales import *
+from paquete_calculos.calculos_complicados.calculos_complicados import *
 
 dividir(8,4)
 redondear(5.6)
