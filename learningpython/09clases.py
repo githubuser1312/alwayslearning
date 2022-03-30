@@ -358,4 +358,4 @@ def desplazamientoVehiculo(vehiculo):
     vehiculo.desplazamiento()
 
 miVehiculo=Camion()
-desplazamientoVehiculo(miVehiculo)#gracias al polimorfismo de Python esta funcion sabe que tiene que llamar a la funcion desplazmiento de la clase Camion()
+desplazamientoVehiculo(miVehiculo)#gracias al polimorfismo de Python esta funcion sabe que tiene que llamar a la funcion desplazamiento de la clase Camion()
