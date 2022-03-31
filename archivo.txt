@@ -1,0 +1,3 @@
+Comienzo del texto: studiar Python 
+Esta linea la he cambiado desde fuera 
+ siempre es una buena ocasion para estudiar Python
