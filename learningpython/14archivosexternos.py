@@ -2,19 +2,19 @@
 
 #Hay que utilizar el modulo IO de Python (ver la web docs.python.org en el apartado generic operating system services)
 
-#en primer lugar abrimos el archivo con el método OPEN() del módulo IO. Ese método admite: lectura, escritura, append
-
+#en primer lugar abrimos el archivo con el método OPEN() del módulo IO. Ese método admite: lectura, escritura, añadir(appends) (w,r,a)
+#El módulo io provee las facilidades principales de Python para manejar diferentes tipos de E/S
 from io import open
 
-archivo_texto=open("archivo.txt","w") #abrimos un archivo con el nombre archivo.txt en modo escritura (indicado en el segundo parámetro "w"). Al ejecutar por primera vez esta línea de código se crea automáticamente un archivo con ese nombre en nuestro directorio de trabajo.
+archivo_texto=open("archivo.txt","w") #abrimos un archivo con el nombre archivo.txt en modo escritura (indicado en el segundo parámetro "w"). Al ejecutar por primera vez esta línea de código se crea automáticamente un archivo con nombre "archivo" en nuestro directorio de trabajo y se abre un archivo temporal en memoria que se llama "archivo_texto"
 
 # Creamos el código que queremos incluir dentro de ese archivo.
 frase = "Estupendo dia para estudiar Python \n el miércoles"
 
-#Ahora lo incluimos:
+#Ahora lo incluimos usando el método WRITE:
 archivo_texto.write(frase)
 
-#Cerramos el archivo:
+#Cerramos el archivo usando el método CLOSE():
 archivo_texto.close()
 
 #ahora leemos lo que hay en el archivo y lo metemos en una variable que luego imprimimos
@@ -38,7 +38,7 @@ archivo_texto=open("archivo.txt","r")
 texto=archivo_texto.read()
 print(texto)
 
-#usar un PUNTERO dentro de un fichero de texto. Cuando abrimos un fichero el puntero se coloca al inicio del archivo y cuando termina de leer se coloca al final del mismo. Si nos interesa modificar la posicion del puntero usamos el método SEEK() dando como parámetro la posición deonde se coloca el puntero. Por ejemplo el cursor, despues de leer el archivo se coloca al final y con la funcion SEEK(0) le decimos que se vuelva a colocar en la posicion inicial (0)
+#usar un PUNTERO dentro de un fichero de texto. Cuando abrimos un fichero el puntero se coloca al inicio del archivo y cuando termina de leer se coloca al final del mismo. Si nos interesa modificar la posicion del puntero usamos el método SEEK() dando como parámetro la posición donde se coloca el puntero. Por ejemplo el cursor, despues de leer el archivo se coloca al final y con la funcion SEEK(0) le decimos que se vuelva a colocar en la posicion inicial (0)
 archivo_texto=open("archivo.txt","r")
 texto=archivo_texto.read()
 print(texto)
@@ -59,7 +59,7 @@ archivo_texto.seek(0) #tenemos que colocar el puntero al principio si queremos q
 texto=archivo_texto.read()
 print(texto)
 
-#otra forma seria usando WRITELINES().
+#otra forma de sustituir parte del texto seria usando WRITELINES().
 archivo_texto=open("archivo.txt","r+")
 lista_texto=archivo_texto.readlines()#genera un lista con las lineas de texto
 lista_texto[1]="Esta linea la he cambiado desde fuera \n" #queremos cambiar la linea en la posicion 1 por esta linea
