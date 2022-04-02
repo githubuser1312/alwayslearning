@@ -3,8 +3,6 @@
 
 import pickle
 
-from click import make_pass_decorator
-
 lista_nombres=["Pedro", "ana", "Maria", "Isabel"]
 
 fichero_binario=open("lista_nombres", "wb") #creamos fichero externo de nombre lista_nombres y del tipo wb (escritura binaria)
