@@ -6,7 +6,7 @@
 
 miTupla=("Pedro",2,True)
 
-#para extraer un valor de la tupla se usan cochertes, NO PARENTESIS
+#para extraer un valor de la tupla se usan corchetes, NO PARENTESIS
 print(miTupla[2])
 
 #para hacer una busqueda se usa INDEX igual que en Listas

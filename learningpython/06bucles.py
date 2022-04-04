@@ -12,7 +12,7 @@ for i in ("a","b","c"):
     print(i)
 
 for i in ("a","b","c"):
-    print(i, end=" ")
+    print(i, end=" ")#imprime en una linea con un espacio entre ellos
 
 for i in "ave":
     print("hola", end=" ")
