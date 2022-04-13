@@ -6,6 +6,8 @@
 
 #consultar docs.pyton.org/librarytk
 
+from cProfile import label
+from email.errors import NoBoundaryInMultipartDefect
 from tkinter import *
 
 from click import command
@@ -132,7 +134,67 @@ Checkbutton(frame, text="Turismo Rural", variable=turismoRural, onvalue=1, offva
 textoFinal=Label(frame)
 textoFinal.pack()
 
+#MENU
 
+#!!!!!!!IMPORTANTE¡¡¡¡¡¡¡¡----EL MENU NO APARECE EN ROOT APARECE EN LA PARTE SUPERIOR EN MAC (EN WINDOWS SI APARECE DENTRO DE ROOT)
+barraMenu=Menu(root)
+root.config(menu=barraMenu) #lo asignamos a la base
+
+archivoMenu=Menu(barraMenu, tearoff=0) #tearoff es para quitar una linea discontinua que aparece en windows (no en Mac)
+archivoMenu.add_command(label="Nuevo")#elemento del menu desplegable
+archivoMenu.add_command(label="Guardar")#elemento del menu desplegable
+archivoMenu.add_command(label="Guardar como")#elemento del menu desplegable
+archivoMenu.add_separator() #añade una linea de separacion dentro del menu desplegable
+
+
+
+archivoEdicion=Menu(barraMenu, tearoff=0)
+archivoEdicion.add_command(label="Copiar")
+archivoEdicion.add_command(label="Cortar")
+archivoEdicion.add_command(label="Pegar")
+
+archivoHerramientas=Menu(barraMenu, tearoff=0)
+
+archivoAyuda=Menu(barraMenu, tearoff=0)#el submenu se vera en el siguiente apartado de VENTANA EMERGENTE
+
+
+barraMenu.add_cascade(label="Archivo", menu=archivoMenu)
+barraMenu.add_cascade(label="Edicion", menu=archivoEdicion)
+barraMenu.add_cascade(label="Herramientas", menu=archivoHerramientas)
+barraMenu.add_cascade(label="Ayuda", menu=archivoAyuda)
+
+
+
+#VENTANA EMERGENTE
+from tkinter import messagebox
+
+def infoAdicional():
+    messagebox.showinfo("Procesador JAP", "Procesador de textos 2018")#showinfo gestina el sómbolo que aparece en el cuadro del mensaje
+def avisoLicencia():
+    messagebox.showwarning("licencia", "producto bajo licencia GNU") #"licencia" es el titulo de la ventana pero no aparece en mac (si en windows), Showwarning cambia el símbolo que utiliza el cuadro de mensaje
+def salirAplicacion():
+    #valor=messagebox.askokcancel("salir", "Deseas salir de la aplicación?")#este messagebox devuelve un valor "true" o "false"
+    valor=messagebox.askquestion("salir", "Deseas salir de la aplicación?")#este messagebox devuelve un valor "yes" o un valor "no" que se puede almacenar en una variable, ene ste caso la llamo "valor", para luego usarla y hacer algo.
+    if valor=="yes":
+        root.destroy() #para salir de la aplicacion
+def cerrarDocumento():
+    valor=messagebox.askretrycancel("Reintentar","No es posible cerrar. Documento bloqueado")
+    if valor==False:
+        root.destroy()
+archivoAyuda.add_command(label="Acerca de", command=infoAdicional) 
+archivoAyuda.add_command(label="Licencia", command=avisoLicencia)
+
+archivoMenu.add_command(label="Salir", command=salirAplicacion)#elemento del menu desplegable anterior que pongo aqui para usarla como ejemplo de messagebox
+archivoMenu.add_command(label="Cerrar", command=cerrarDocumento)#elemento del menu desplegable
+
+
+
+from tkinter import filedialog
+
+def abreFichero():
+    fichero=filedialog.askopenfilename(title="Abrir", initialdir="C:", filetypes=(("Ficheros de Excel","*.xlsx"),("Ficheros de texto","*.txt"))) #IMPORTANTE¡¡¡¡¡¡¡¡: EN LA TUPLA HAY QUE PONER AL MENOS DOS TIPOS DE ARCHIVOS¡¡¡¡¡¡¡¡¡
+    print(fichero)
+Button(root, text="Abrir Fichero", command=abreFichero).pack()
 
 root.mainloop() #este método lo que hace es un "bucle infinito" para que la ventana este siempre a la escuche de "eventos". ¡¡¡¡ SIEMPRE TIENE QUE ESTAR AL FINAL DEL CODIGO!!!!!!!!
 
