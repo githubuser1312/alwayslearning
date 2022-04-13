@@ -8,6 +8,8 @@
 
 from tkinter import *
 
+from click import command
+
 root=Tk()
 
 root.title("Ventana de pruebas") 
@@ -81,13 +83,54 @@ botonEnvio.pack()
 
 
 
+#RADIOBUTTON
+
+varOpcion=IntVar()
+
+def imprimir():
+    if varOpcion.get()==1:
+        etiqueta.config(text="Has elegido Masculino")
+    else:
+        etiqueta.config(text="Has elegido Femenino")
+
+Label(root, text="Genero: ").pack()
+Radiobutton(root, text="Masculino", variable=varOpcion, value=1, command=imprimir).pack()
+Radiobutton(root, text="Femenino", variable=varOpcion, value=2, command=imprimir).pack()
+etiqueta=Label(root)
+etiqueta.pack()
 
 
 
+#CHECKBUTTON 
+#A diferencia de Radiobutton, este nos deja elegir varias opciones al mismo tiempo
+
+playa=IntVar()
+montana=IntVar()
+turismoRural=IntVar()
+
+def opcionViaje():
+    opcionEscogida=""
+    if playa.get()==1:
+        opcionEscogida+=" playa"
+    if montana.get()==1:
+        opcionEscogida+=" montaña"
+    if turismoRural.get()==1:
+        opcionEscogida+=" turismo rural"
+    textoFinal.config(text=opcionEscogida)
 
 
 
+imagen=PhotoImage(file="learningpython/pictures/flores.png")
+Label(root, image=imagen).pack()
+frame=Frame(root)
+frame.pack()
+Label(frame, text="Elije destinos", width=50).pack()
+Checkbutton(frame, text="Playa", variable=playa, onvalue=1, offvalue=0, command=opcionViaje).pack()
+Checkbutton(frame, text="Montaña", variable=montana, onvalue=1, offvalue=0, command=opcionViaje).pack()
+Checkbutton(frame, text="Turismo Rural", variable=turismoRural, onvalue=1, offvalue=0, command=opcionViaje).pack()
 
+textoFinal=Label(frame)
+textoFinal.pack()
 
 
 
