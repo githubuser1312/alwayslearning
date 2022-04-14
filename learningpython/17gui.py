@@ -188,13 +188,14 @@ archivoMenu.add_command(label="Salir", command=salirAplicacion)#elemento del men
 archivoMenu.add_command(label="Cerrar", command=cerrarDocumento)#elemento del menu desplegable
 
 
-
 from tkinter import filedialog
 
 def abreFichero():
     fichero=filedialog.askopenfilename(title="Abrir", initialdir="C:", filetypes=(("Ficheros de Excel","*.xlsx"),("Ficheros de texto","*.txt"))) #IMPORTANTE¡¡¡¡¡¡¡¡: EN LA TUPLA HAY QUE PONER AL MENOS DOS TIPOS DE ARCHIVOS¡¡¡¡¡¡¡¡¡
     print(fichero)
 Button(root, text="Abrir Fichero", command=abreFichero).pack()
+
+
 
 root.mainloop() #este método lo que hace es un "bucle infinito" para que la ventana este siempre a la escuche de "eventos". ¡¡¡¡ SIEMPRE TIENE QUE ESTAR AL FINAL DEL CODIGO!!!!!!!!
 
