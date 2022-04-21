@@ -113,3 +113,48 @@ for pedido in lista_pedidos:
 for pedido in lista_pedidos:
     if re.findall('ES_[3-5A-B]', pedido):
         print(pedido)
+
+
+# MATCH busca si hay coincidencias en un patrón de búsqueda al COMIENZO de una cadena de texto. Admite 3 parámetros: lo buscado, donde se busca y un "flag"
+
+nombre1="Sandra López"
+nombre2="Antonio Gómez"
+nombre3="2aría Ló4ez"
+nombre4="sandra Pérez"
+nombre5="Mandra Roca"
+
+if re.match("Sandra", nombre1):
+    print("hemos encontrado el nombre")
+else:
+    print("no lo hemos encontrado")
+
+#otro ejemplo:
+if re.match("Sandra", nombre4, re.IGNORECASE):#en este caso ignorará mayúsculas y minúsculas
+    print("hemos encontrado el segundo nombre")
+else:
+    print("no lo hemos encontrado")
+
+
+# se puede usar el COMODIN "." como en el siguiente ejemplo
+if re.match(".andra", nombre5, re.IGNORECASE):#en este caso ignorará mayúsculas y minúsculas
+    print("hemos encontrado el tercer nombre")
+else:
+    print("no lo hemos encontrado")
+
+#con \d  se puede saber si una cadena empieza por un número (digit)
+if re.match("\d", nombre3):
+    print("hemos encontrado que el nombre empieza con un número")
+else:
+    print("no lo hemos encontrado")
+
+
+#SEARCH es como MATCH pero busca en toda la cadena de texto. Tiene los mismos parámetros que MATCH
+if re.search("López", nombre1, re.IGNORECASE):
+    print("hemos encontrado cuarto nombre con SEARCH")
+else:
+    print("no lo hemos encontrado")
+
+if re.search("4", nombre3):
+    print("hemos encontrado el numero 4 con SEARCH")
+else:
+    print("no lo hemos encontrado")
