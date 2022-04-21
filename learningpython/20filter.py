@@ -9,7 +9,7 @@ def numeroPar(x):
 
 numeros=[27, 34,6,8,9,15,37]
 
-print(list(filter(numeroPar, numeros)))  #usamos la función "list" para que alñ usar filter se visualice una lista y no una direccion. La función FILTER tiene dos parámetros: la función y la lista a la que aplicar dicha función
+print(list(filter(numeroPar, numeros)))  #usamos la función "list" para que al usar filter se visualice una lista y no una direccion. La función FILTER tiene dos parámetros: la función y la lista a la que aplicar dicha función
 numerillospares=filter
 #otra forma de hacerlo usando lambda (no seria necesaria la funcion numeroPar) sería:
 print(list(filter(lambda y: y % 2==0, numeros)))
