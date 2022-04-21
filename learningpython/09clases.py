@@ -1,6 +1,5 @@
 #las CLASES tienen: propiedades, estado y comportamiento(método)
 
-from inspect import CO_ASYNC_GENERATOR
 
 
 class Coche():
@@ -359,3 +358,6 @@ def desplazamientoVehiculo(vehiculo):
 
 miVehiculo=Camion()
 desplazamientoVehiculo(miVehiculo)#gracias al polimorfismo de Python esta funcion sabe que tiene que llamar a la funcion desplazamiento de la clase Camion()
+
+
+#NOTA: la funcion especial __STR__ DE PYTHON se ve en 16guardadopermanente.py

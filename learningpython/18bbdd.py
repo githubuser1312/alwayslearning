@@ -121,12 +121,12 @@ print(productos)
 
 
 #UPDATE__________________________________________________________________________________
-miCursor3.execute("UPDATE PRODUCTOS3 SET PRECIO=35 WHERE NOMBRE_ARTICULO='pelota'")
+miCursor3.execute("UPDATE PRODUCTOS3 SET PRECIO=35 WHERE NOMBRE_ARTICULO='pelota'")  #si no ponemos WHERE se cambiaran todos los precios
 
 
 
 #DELETE__________________________________________________________________________________
-miCursor3.execute("DELETE FROM PRODUCTOS3 WHERE NOMBRE_ARTICULO='pantalones'")
+miCursor3.execute("DELETE FROM PRODUCTOS3 WHERE NOMBRE_ARTICULO='pantalones'") #si no ponemos WHERE se borraria toda la bbdd.
 
 
 #a continuacion un commit y un close por cada una de las bbdd creadas como ejemplo

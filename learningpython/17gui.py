@@ -53,7 +53,7 @@ myLabel2.place(x=0,y=560) #AQUI PODEMOS USAR PLACE PORQUE NO USAMOS GRID en root
 #ENTRY
 miNombre=StringVar()#esta linea se añade para mostrar como funciona el Button de más abajo
 
-nameframe=Entry(myFrame, textvariable=miNombre)#textvariable es para linkar la variaboe miNombre a este cuadro de texto.
+nameframe=Entry(myFrame, textvariable=miNombre)#textvariable es para linkar la variable miNombre a este cuadro de texto.
 nameframe.grid(row=0,column=1)
 nameframe.config(fg="red", justify="center")
 apellidoframe=Entry(myFrame)
@@ -66,6 +66,7 @@ passwordframe.config(show="*")
 
 
 #TEXT
+#los cuadros de texto no tienen "textvariable" asi que no se le puede adjudicar una variable al valor que alojan del tipo StringVar o similar. Ver el ejemplo de bbdd.py creado para ver como se resuelven algunos temas con este tipo de cuadro
 textComentario=Text(myFrame, width=26, height=10)
 textComentario.grid(row=4,column=1)
 scrollVert=Scrollbar(myFrame, command=textComentario.yview)
@@ -169,7 +170,7 @@ barraMenu.add_cascade(label="Ayuda", menu=archivoAyuda)
 from tkinter import messagebox
 
 def infoAdicional():
-    messagebox.showinfo("Procesador JAP", "Procesador de textos 2018")#showinfo gestina el sómbolo que aparece en el cuadro del mensaje
+    messagebox.showinfo("Procesador JAP", "Procesador de textos 2018")#showinfo gestina el símbolo que aparece en el cuadro del mensaje
 def avisoLicencia():
     messagebox.showwarning("licencia", "producto bajo licencia GNU") #"licencia" es el titulo de la ventana pero no aparece en mac (si en windows), Showwarning cambia el símbolo que utiliza el cuadro de mensaje
 def salirAplicacion():
