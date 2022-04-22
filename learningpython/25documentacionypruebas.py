@@ -94,5 +94,84 @@ def compruebaMail(mailUsuario):
         
 doctest.testmod()
 
+#pruebas con expresiones ANIDADAS. En este caso hay que usar los 3 puntos '...' 
+# como se ve en el ejemplo
+import math
+
+def raizCuadrada(listaNumeros):
+    '''
+    La funcion devuelve una lista con la raiz cuadrada de los 
+    elementos numericos pasados por parametros en otra
+    lista.
+    >>> lista=[]
+    >>> for i in [4,9,16]:
+    ...     lista.append(i)
+    >>> raizCuadrada(lista)
+    [2.0, 3.0, 4.0]
+
+    '''
+    return[math.sqrt(n) for n in listaNumeros]
 
 
+#print(raizCuadrada([9,16,25,36]))
+
+doctest.testmod()
+
+#supongamos ahora que queremos evaluar/probar la posibilidad de que la funcion de un error. 
+# En el ejmplo anterior vamos a dar en la lista un numero negativo (que da error al querer calcular su raiz cuadrada) y copiamos el error que nos sale por la terminal y lo pegamos debajo.
+
+def raizCuadrada2(listaNumeros):
+    '''
+    La funcion devuelve una lista con la raiz cuadrada de los 
+    elementos numericos pasados por parametros en otra
+    lista.
+    >>> lista=[]
+    >>> for i in [4,9,16]:
+    ...     lista.append(i)
+    >>> raizCuadrada(lista)
+    [2.0, 3.0, 4.0]
+
+    '''
+    return[math.sqrt(n) for n in listaNumeros]
+
+
+print(raizCuadrada2([9,-16,25,36]))
+
+'''
+Traceback (most recent call last):
+  File "/Users/JAP/Documents/REPOSITORIOS/alwayslearning/learningpython/25documentacionypruebas.py", line 138, in <module>
+    print(raizCuadrada2([9,-16,25,36]))
+  File "/Users/JAP/Documents/REPOSITORIOS/alwayslearning/learningpython/25documentacionypruebas.py", line 135, in raizCuadrada2
+    return[math.sqrt(n) for n in listaNumeros]
+  File "/Users/JAP/Documents/REPOSITORIOS/alwayslearning/learningpython/25documentacionypruebas.py", line 135, in <listcomp>
+    return[math.sqrt(n) for n in listaNumeros]
+ValueError: math domain error
+'''
+#para que ese error quede contemplado en la zona de pruebas 
+# de la función introduciremos el error que nos salido pero sin incluir las 
+# lineas intermedias por esas lineas hacen referencia a una lista de numeros 
+# que puede ser diferente a la que usamos en la prueba,
+#  y las SUSTITUIMOS por los 3 puntos "...":
+
+def raizCuadrada3(listaNumeros):
+    '''
+    La funcion devuelve una lista con la raiz cuadrada de los 
+    elementos numericos pasados por parametros en otra
+    lista.
+    >>> lista=[]
+    >>> for i in [4,9,16]:
+    ...     lista.append(i)
+    >>> raizCuadrada(lista)
+    [2.0, 3.0, 4.0]
+
+    >>> lista=[]
+    >>> for i in [4,-9,16]:
+    ...     lista.append(i)
+    >>> raizCuadrada(lista)
+    Traceback (most recent call last):
+        ...
+    ValueError: math domain error   
+    '''
+    return[math.sqrt(n) for n in listaNumeros]
+
+doctest.testmod()
