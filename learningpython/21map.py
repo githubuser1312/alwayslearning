@@ -38,3 +38,4 @@ def bonus2(empleado):
 listaBonusEmpleados=map(bonus2,listaEmpleados)#creamos una lista donde almacenamos lo que crea la funcion MAP
 for empleado in listaBonusEmpleados: #hacemos un for para ir imprimiendo cada empleado con sus valores
     print(empleado)
+
