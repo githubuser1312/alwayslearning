@@ -79,17 +79,20 @@ def compruebaMail(mailUsuario):
     Esta funcion comprueba que la direccion 
     de email tenga sólo una arroba y además no 
     puede estar al final de la dirección.
-    >>> compruebaMail(pepe@google)
+    >>> compruebaMail("pepe@google")
     True
-    >>> compruebaMail(pepegoogle@)
+    >>> compruebaMail("pepegoogle@")
     False
-    >>> compruebaMail(pepegoogle)
+    >>> compruebaMail("pepegoogle")
     False
     '''
     arroba=mailUsuario.count('@')
     if arroba != 1 or mailUsuario.rfind('@')==len(mailUsuario)-1 or mailUsuario.find('@')==0:
-        False
+        return False
     else:
-        True
+        return True
+        
+doctest.testmod()
+
 
 
