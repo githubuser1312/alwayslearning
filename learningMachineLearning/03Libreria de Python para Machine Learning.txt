@@ -29,6 +29,13 @@ Si no estuviera instalado:
     *Crear arrays con Numpy.
     Se pueden crear a partir de listas o tuplas, haciendo uso de funciones de Numpy, leyendo datos desde un fichero o copiando otro array.
     La principal función del módulo Numpy es la creación modificación de ARRAYS MULTIDIMENSIONALES, lo que se consigue gracias a los métodos y funciones de la clase NDARRAY.
+
+    >>> from numpy import *
+    >>> x=array([[1,2],[1,2]])
+    >>> print(x)
+    [[1 2]
+    [1 2]]
+
     Funciones:
         ** ndim: devuelve el número de dimensiones del array.
         ** shape: dimensión del array, o sea una tupla de enteros indicando el tamaño del array en cada dimensión.
@@ -36,6 +43,29 @@ Si no estuviera instalado:
         ** dtype: es un objeto que describe el tipo de elementos del array (integer, float, ..)
         ** itemsize: devuelve el tamaño en bytes del array.
         ** data: la direccion del buffer que contiene los elementos actuales del array.
+        P.e.:
+        >>> f=np.eye(5,4,1,int) (mas adelante se verá este tipo de array)
+            [
+                [0 1 0 0]
+                [0 0 1 0]
+                [0 0 0 1]
+                [0 0 0 0]
+                [0 0 0 0]
+            ]
+        >>> f.ndim
+        2
+        >>> f.shape
+        (5,4)
+        >>> f.size
+        20
+        >>> f.dtype
+        dtype('int64')
+        >>> f.itemsize
+        8
+        >>> f.data
+        <memory at 0x7fb0137a6040>
+
+
     Funciones para crear arrays:
         ** identity(n,dtype): crea una matriz identidad (cuadrada con unos en la diagonal, donde n es el tamaño de la matriz y dtype el tipo de dato que contiene).
             >>> a=np.identity(2,int)
@@ -86,5 +116,368 @@ Si no estuviera instalado:
                 [0 0 0 1]
                 [0 0 0 0]
             ]
-        ** arange([start], end,[step],dtype=None): crea un array con un rango
+        ** arange([start], end,[step],dtype=None): crea un array con un rango de valores desde el valor inicial start al final end con un paso entre valores de step.
+            >>> f=np.arange(1,10,2,int)
+            [1 3 5 7 9]
+        ** linspace(start,stop,num,endpoint=True,retstep=False): crea un array con valor inicial start, valor final stop y num elementos.
+            >>> f=np.linspace(3,28,8)
+            [ 3.          6.57142857 10.14285714 13.71428571 17.28571429 20.85714286
+            24.42857143 28.        ]
+        ** meshgrid(x,y) : genera una matriz de coordenadas a partir de dos arrays x e y.
+        (ver: https://interactivechaos.com/es/manual/tutorial-de-numpy/la-funcion-meshgrid)
+            >>>coord_x=(0,1,2)
+            >>>coord_y=(0,1,2)
+            >>>x,y=np.meshgrid((0,1,2),(0,1,2))
+            [array([[0, 1, 2],
+                    [0, 1, 2],
+                    [0, 1, 2]]), 
+            array([[0, 0, 0],
+                    [1, 1, 1],
+                    [2, 2, 2]])]
+    
+    MATRICES:
+    Son arrays bidimensionales que conservan la propiedad de la multipllicación (además de la transposicion, diagonalización y otras funciones del algebra lineal) de las matrices (en lugar de los arrays donde se multiplican elemento por elemento):
+    >>>array(((2,3),(3,5)))*array(((1,2),(5,1)))
+    array([[ 2,  6],
+       [15,  5]])
+    >>>matrix(((2,3),(3,5)))*matrix(((1,2),(5,1)))
+    matrix([[17,  7],
+        [28, 11]])
+    >>>a = matrix(((2,3),(3,5)))
+    >>>a.T #calculamos la traspuesta
+    matrix([[2, 3],
+        [3, 5]])
+    >>>a.I #calcula la inversa
+    matrix([[ 5., -3.],
+        [-3.,  2.]])
+    >>>a.H #calcula la traspuesta y conjugada
+    matrix([[2, 3],
+        [3, 5]])
+
+        ** Paquete LINALG sirve ara calcular el determinante (det), resolver euaciones lineales (solve) y calcular autovalores y autovectores.
+        >>> a=matrix([[2,3,5],[-1,4,9],[7,-3,-5]])
+        >>> linalg.det(a) #calcula determinante
+        63.00000000000005
+        >>> c=linalg.eig(a) #calcula autovalor y autovector
+        >>> c[0]
+        array([ 6.56956917+0.j        , -2.78478459+1.35449059j,
+       -2.78478459-1.35449059j])
+        >>> c[1] 
+        matrix([[ 0.714506  +0.j        , -0.13363473+0.07757244j,
+         -0.13363473-0.07757244j],
+        [ 0.64777231+0.j        , -0.79106222+0.j        ,
+         -0.79106222-0.j        ],
+        [ 0.26433353+0.j        ,  0.58150578-0.11043488j,
+          0.58150578+0.11043488j]])
+
+    POLINOMIOS:
+    Numpy dispone de una clase para trebajar con polinomios: NUMPY.POLYNOMIAL
+    >>> from numpy.polynomial import Polynomial as P
+    >>> poli = P([1,2,3]) #se declara el polinomio 1.0 + 2.0·x¹ + 3.0·x²
+    >>> print(poli*poli) #multiplicacion polinomios
+    1.0 + 4.0·x¹ + 10.0·x² + 12.0·x³ + 9.0·x⁴
+    >>> print(poli ** 3)
+    1.0 + 6.0·x¹ + 21.0·x² + 44.0·x³ + 63.0·x⁴ + 54.0·x⁵ + 27.0·x⁶
+    >>> print(poli(2)) #evaluar el polinomio con x=2
+    17
+
+    BROADCASTING:
+    Es un mecanismo muy potente que permite a numpy trabajar con arrays de diferentes dimensiones (adapta algunas de ellas para completar la operacion).
+    >>> x=np.zeros((3,3))
+    array([[0., 0., 0.],
+       [0., 0., 0.],
+       [0., 0., 0.]])
+    >>> y=np.array([1,2,3])
+     array([1, 2, 3])
+    >>> x+y # se expande la dimension del menor
+    array([[1., 2., 3.],
+       [1., 2., 3.],
+       [1., 2., 3.]])
+    >>>x2 = np.arange(4)
+    array([0, 1, 2, 3])
+    >>>y2 = np.arange(4).reshape((4,1))
+    array([[0],
+       [1],
+       [2],
+       [3]])
+    >>> x2+y2 #se expande la primera dimension de x2 más la segundad e y2
+    array([[0, 1, 2, 3],
+       [1, 2, 3, 4],
+       [2, 3, 4, 5],
+       [3, 4, 5, 6]])
+    
+    >>> x2+y2*1j #al mutiplicaro por 1j podemos ver como se suman los numeros :-)
+    array([[0.+0.j, 1.+0.j, 2.+0.j, 3.+0.j],
+       [0.+1.j, 1.+1.j, 2.+1.j, 3.+1.j],
+       [0.+2.j, 1.+2.j, 2.+2.j, 3.+2.j],
+       [0.+3.j, 1.+3.j, 2.+3.j, 3.+3.j]])
+
+
+    EJEMPLOS DE CODIGO CON NUMPY.
+    In [73]: #crear un nuevo ndarray
+    In [74]: import numpy as np
+    In [75]: a=np.array([1,2,3])
+    In [76]: print(a)
+    [1 2 3]
+
+    In [77]: #mas de una dimension
+    In [78]: a=np.array([[1,2],[3,4]])
+    In [79]: print(a)
+    [[1 2]
+     [3 4]]
+
+    In [80]: #parámetro dtype para forzar un tipo de datos complejo en el array
+    In [81]: a=np.array([1,2,3],dtype=complex)
+    In [82]: print(a)
+    [1.+0.j 2.+0.j 3.+0.j]
+
+    In [8 ]: #crear un array de valores especificos
+    In [83]: x=np.arange(5)
+    In [84]: print(x)
+    [0 1 2 3 4]
+
+    In [85]: #crear un array de valores float
+    In [86]: x=np.array(5,dtype=float)
+    In [87]: print(x)
+    5.0
+
+    In [88]: #crear un array dando inicio, final y espacio entre valores
+    In [89]: x=np.arange(10,20,2)
+    In [90]: print(x)
+    [10 12 14 16 18]
+
+    In [91]: #mostrar la forma del array
+    In [92]: a=np.array([[1,2,3],[4,5,6]])
+    In [93]: print(a)
+    [[1 2 3]
+     [4 5 6]]
+    In [95]: a.shape=(3,2)
+    In [96]: print(a)
+    [[1 2]
+     [3 4]
+     [5 6]]
+
+    In [97]: #remodelar el array
+    In [98]: a=np.array([[1,2,3],[4,5,6]])
+    In [99]: b=a.reshape(3,2)
+    In [100]: print(b)
+    [[1 2]
+     [3 4]
+     [5 6]]
+
+    In [101]: #iterar sobre un array
+    In [103]: a=np.arange(0,60,5)
+    In [104]: a=a.reshape(3,4)
+    In [105]: print('Array original:')
+    In [106]: print(a)
+    In [107]: print('\n')
+    In [108]: print('Array modificado:')
+    In [109]: for x in np.nditer(a):
+         ...:     print(x)
+    Array original:
+    [[ 0  5 10 15]
+     [20 25 30 35]
+     [40 45 50 55]]
+
+    Array modificado:
+    0
+    5
+    10
+    15
+    20
+    25
+    30
+    35
+    40
+    45
+    50
+    55
+
+
+
+    In [110]: #modificar el orden de las iteraciones
+    In [111]: a=np.arange(0,60,5)
+    In [112]: a=a.reshape(3,4)
+    In [113]: print('Array original:')
+    In [118]: print(f'{a}\n')
+    In [119]: b=a.T
+    In [120]: print(b,'\n')
+    In [121]: print('Orden según el estilo C:')
+    In [122]: c=b.copy(order='C')
+    In [123]: print(c)
+    In [124]: for x in np.nditer(c):
+         ...:     print(x,)
+         ...: 
+    In [125]: print('Orden según el estilo F:')
+    In [126]: c=b.copy(order='F')
+    In [127]: print(c)
+    In [129]: for x in np.nditer(c):
+         ...:     print(x)
+         ...: 
+
+    Array original:
+    [[ 0  5 10 15]
+     [20 25 30 35]
+     [40 45 50 55]]
+
+     [[ 0 20 40]
+     [ 5 25 45]
+     [10 30 50]
+     [15 35 55]] 
+
+    Orden según el estilo C:
+    [[ 0 20 40]
+     [ 5 25 45]
+     [10 30 50]
+     [15 35 55]]
+
+    0 
+    20 
+    40 
+    5 
+    25 
+    45 
+    10 
+    30 
+    50 
+    15 
+    35 
+    55 
+
+    Orden según el estilo F:
+     [[ 0 20 40]
+     [ 5 25 45]
+     [10 30 50]
+     [15 35 55]]
+
+    0
+    5
+    10
+    15
+    20
+    25
+    30
+    35
+    40
+    45
+    50
+    55
+
+
+
+PANDAS 
+Se utiliza para la analitica de datos (datos heterogéneos, series temporales o grandes volumenes de datos).
+Por convenio el alias de Pandas es pd.
+
+Estructuras de datos flexibles de Pandas:
+
+    *SERIES: son arrays unidimensionales con indexación, similares a los diccionarios, de hecho se pueden generar a partir de diccionarios o listas. (si no se asigna un indice, se hará de forma interna).
+    Un objeto definido como Serie tiene dos componentes:
+        1. Indice
+        2. Vector de datos.
+    Ambos componentes son listas con la misma longitud, de manera que el primer elemento de la lista de índices se corresponde con el primer elemento de la lista de datos y así sucesivamente. La lisa de índices debe tener por lo general valores únicos y ordenados pues se usn para acceder a los valores de los datos del vector.
+
+    >>> s=Series([1,2,3], index=['a','a','c'])
+
+    a    1
+    a    2
+    c    3
+    dtype: int64
+
+    *DATAFRAMES: son estructuras de datos que crean objetos similares a una tabla de bases de DATOS RELACIONAL. Un objeto de la clase DataFrame se construye a partir de un objeto de tipo Series, ya que cada columna de la table tiene un objeto Series que comparte un unico índice (lo que sería la clave principal en una base de datos). Para crear un DataFrames se puede hacer a partir de diccionarios, listas diccionarios de listas o de Series y podemos especificar tanto el nombre de las filas (index) como de las columnas (columns).
+
+    >>> d=DataFrame({'uno':Series([1,2,3],index=['a','b','c']), 'dos':Series([1,2,3,4],index=['a','b','c','d'])})
+       uno  dos
+    a  1.0    1
+    b  2.0    2
+    c  3.0    3
+    d  NaN    4
+
+    Para EXTRAER DATOS de las Series o DataFrame se usan los siguientes mètodos:
+
+        loc: para seleccionar datos a partir de las etiquetas de las filas y columnas
+        >>> s.loc['a']
+        a    1
+        a    2
+        dtype: int64
+        >>> d.loc['a']
+        uno    1.0
+        dos    1.0
+        Name: a, dtype: float64
+        >>> d.loc['a','dos']
+        1
+
+        iloc: para seleccionar datos a partir de la posición de los mismos dentro de la estructura de datos.
+        >>> s.iloc[2]
+        3
+        >>> d.iloc[1]
+        uno    2.0
+        dos    2.0
+        Name: b, dtype: float64
+        >>> d.iloc[1,0]
+        2.0
+
+        ix: se utiliza para seleccionar datos tanto a partir delas etiquetas como de la posicion de los datos.
+         (PARECE QUE YA NO SE USA ESTE METODO EN PANDAS)
+
+    Para filtrar datos se usan los FILTROS BOOLEANOS:
+        >>> filtroserie=s[s>=3]
+        >>> filtroserie
+        c    3
+        dtype: int64    
+
+        >>> filtrodataframe=d[d['dos']>1]
+        >>> filtrodataframe
+           uno  dos
+        b  2.0    2
+        c  3.0    3
+        d  NaN    4
+
+    Para VISUALIZAR DATOS con Pandas usamos los siguientes métodos:
+
+        describe: imprime una tabla resumen de datos estadísticos sobre los valores, como mínimo, máximo, media, etc., por columna
+
+        >>> s.describe
+        <bound method NDFrame.describe of a    1
+        a    2
+        c    3
+        dtype: int64>
+        >>> d.describe
+        <bound method NDFrame.describe of    uno  dos
+        a  1.0    1
+        b  2.0    2
+        c  3.0    3
+        d  NaN    4>
+
+
+        head y tail: muestran las primeras y últimas 'x' filas respectivamente de una tabla, en función del valor que le pasemos como argumento
+        >>> s.head
+        <bound method NDFrame.head of a    1
+        a    2
+        c    3
+        dtype: int64>
+        >>> s.tail
+        <bound method NDFrame.tail of a    1
+        a    2
+        c    3
+        dtype: int64>    
+        >>> d.head()
+           uno  dos
+        a  1.0    1
+        b  2.0    2
+        c  3.0    3
+        d  NaN    4
+        >>> d.tail()
+           uno  dos
+        a  1.0    1
+        b  2.0    2
+        c  3.0    3
+        d  NaN    4
+        
+        sort: permite ordenar los datos a partir de una determinada columna
+         NO FUNCIONA !!!!!!!!
+
+        columns: devuelve una lista de las columnas del DataFrame
+        >>> d.columns
+        Index(['uno', 'dos'], dtype='object')
 
