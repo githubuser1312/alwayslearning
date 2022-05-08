@@ -1,0 +1,62 @@
+Python es un lenguaje MULTIPARADIGMA osea soporta: POO (progamacion orientada a objetos), programación imperativa y en menor medida programacion funcional.
+
+Python usa TIPADO DINAMICO (osea una variable puede tomar valores de distintos tipos), es multiplataforma y tiene infinidad de librerías creadas por la comunidad de desarrolladores Python por ser este un lenguaje libre.
+
+Python en CASE SENSITIVE.
+
+ANACONDA:
+
+    SPYDER:
+        Es un entorno de desarrollo de Python orientado a científicos y con características parecidas a MATLAB:
+            *Consola con visualizador de variables
+            *Visualizador de sys.path.
+            *Visualizador de variables de entorno
+            *Funciones de dibujo de gráficos integrados
+            *Autocompletado
+            *Editor con resaltado de sintaxis
+            *Navegador de clases/Funciones
+            *Análisis de código
+            *Autocompletado de código
+    
+    IPython:
+        Es un Shell (interfaz o programa qu interpreta las lineas de comandos enviadas por la termional) que tiene:
+            *Resaltado de líneas y errores mediante colores
+            *Sintaxis adicionales
+            *Autocompletado mediante tabulador de variables, módulos y atributos
+            *Historial (como las entradas de IPython están numeradas, sólo hay que hacer referencia a la salida correspodiente, p.e: si queremos recuperar el resultado obtenido en OUT[1], utilizamos la variable _1)
+                IN[1]:2*2
+                Out[1]:4
+                IN[2]:_  #esta variable almacena el último resultado
+                Out[2]:4
+                IN[3]:_ * 3 #multiplica la variable por 3
+                Out[3]:12
+                IN[4]:_1   #recuperamos el resultado de 2*2
+                Out[4]:4
+
+            *Ayuda, se invoca con ?. Tambien se puede pedir ayuda de una funcion o método pe: ?%magic. Para pedir una ayuda rápida: %quickref.
+            *Guardar, editar, cargar archivos.
+                ** El comando %edit lanza el editor de texto en consola por defecto
+                ** La función %save recibe como argumentos el nombre del archivo que queremos y las lineas que queremos guardar en él.
+                ** El comando %run nos permite cargar y ejecutar archivos (sin olvidar ubicarnos en la carpeta de dichos archivos).
+            * Carpetas y consola: podemos navegar en las carpetas con 'cd' de la siguiente manera:
+                IN[14]: %cd C:\Users\JAP\Documents\archivo.txt
+            *Pruebas de Red con !ping (pe: IN[23]:!ping www.google.com)
+            *Directorio en que nos encontramos con %pwd
+            %Carpetas y archivos en directorio actual con: ls
+    
+    Jupyter Notebook:
+        Es una aplicacion web que permite crear y compartir documentos que contiene codigo vivo, ecuaciones, visualizaciones, etc. es un entorno interactivo web de ejecucion de código.
+        En Mac con alt+Enter se ejecuta el código introducido.
+        En Mac con mayus+Enter se añade un nuevo bloque.
+            *Nombre del Notebook: se puede cambiar haciendo click sobre él. La extensión es .ypynb
+            *Menú: Es el menú de navegación
+            *Kernel: es el nombre del kernel con el que trabaja el Notebbok, se puede cambiar el lenguaje del kernel desde la opción Kernel del Menú.
+            *Barra de Herramientas: contiene los iconos para las acciones más comunes.
+            *Celda para el código: Es el espacio donde se escribe el código.
+
+    Jupyter QTConsole:
+        Es una aplicación muy ligera que se asemeja a un terminal pero tiene mejoras coo figuras en línea, edición de varias líneas con realtado de sintais, gráficos, etc. La posibildad de incrustar figuras en línea se representan con matploit en IPython o la biblioteca plotting elegida en el kernel seleccionado.
+        
+
+
+

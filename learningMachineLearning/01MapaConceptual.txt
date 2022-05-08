@@ -1,0 +1,18 @@
+PYTHON:
+
+    LIBRERIAS:
+        CALCULOS MATEMATICOS:
+            Numpy
+            Pandas
+        MACHINE LEARNING:
+            Sckit Learn 
+            Theano
+            TensorFlow
+            Keras
+        VISUALIZACION
+            Matplotlib
+    
+    IA:
+        MACHINE LEARNING:
+            Deep Learning 
+            

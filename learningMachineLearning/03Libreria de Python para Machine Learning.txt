@@ -1,0 +1,90 @@
+NUMPY
+
+Implementa funciones para vectores y matrices y otros de álgebra lineal.
+
+Para comprobar si tenemos instalado Numpy ejecutamos en un terminal Anaconda:
+
+>>> import numpy as np 
+
+Si no tenemos error es que está instalado.
+
+Para usar las funciones de la libreria numpy usamos su 'alias' que por convenio es 'np'.
+
+Otra forma de comprobar si está ionstalado es 
+
+>>> conda list
+
+que nos da una lista completa de los paquetes instalados con Anaconda y sus versiones.
+
+
+Otra forma:
+
+>>> conda search <nombre del paquete>
+
+
+Si no estuviera instalado:
+
+>>> conda install <nombre del paquete>
+
+    *Crear arrays con Numpy.
+    Se pueden crear a partir de listas o tuplas, haciendo uso de funciones de Numpy, leyendo datos desde un fichero o copiando otro array.
+    La principal función del módulo Numpy es la creación modificación de ARRAYS MULTIDIMENSIONALES, lo que se consigue gracias a los métodos y funciones de la clase NDARRAY.
+    Funciones:
+        ** ndim: devuelve el número de dimensiones del array.
+        ** shape: dimensión del array, o sea una tupla de enteros indicando el tamaño del array en cada dimensión.
+        ** size: número de elementos del array.
+        ** dtype: es un objeto que describe el tipo de elementos del array (integer, float, ..)
+        ** itemsize: devuelve el tamaño en bytes del array.
+        ** data: la direccion del buffer que contiene los elementos actuales del array.
+    Funciones para crear arrays:
+        ** identity(n,dtype): crea una matriz identidad (cuadrada con unos en la diagonal, donde n es el tamaño de la matriz y dtype el tipo de dato que contiene).
+            >>> a=np.identity(2,int)
+            [
+                [1,0],
+                [0,1]
+            ]
+        ** ones(shape,dtype): crea un array de unos compuesto de shape elementos.
+            >>> b=np.ones((2,3),int)
+            [
+                [1,1,1],
+                [1,1,1]
+            ]
+        ** zeros(shape,dtype): crea un array de ceros:
+            >>> c=np.zeros((2,2),int)
+                [
+                [0,0],
+                [0,0]
+                ]
+        ** empty(shape, dtype): crea un array de shape elementos sin entradas.
+            >>> c=np.empty((2,2),int)
+                [
+                [0,0],
+                [0,0]
+                ]   
+        ** eye(N,M,k,dtype): crea un array de 2 dimensiones con unos en la diagonal k y ceros en el resto(es similar a identity). Los argumentos son opcionales (N es el numero de filas, M el numero de columnas y k el índice de la diagonal siendo k=0 la diagonal principal).
+            >>> f=np.eye(5,4,1,int)
+            [
+                [0 1 0 0]
+                [0 0 1 0]
+                [0 0 0 1]
+                [0 0 0 0]
+                [0 0 0 0]
+            ]
+            >>> f=np.eye(5,4,-1,int)
+            [
+                [0 0 0 0]
+                [1 0 0 0]
+                [0 1 0 0]
+                [0 0 1 0]
+                [0 0 0 1]
+            ]
+            >>> f=np.eye(5,4,0,int)
+            [   
+                [1 0 0 0]
+                [0 1 0 0]
+                [0 0 1 0]
+                [0 0 0 1]
+                [0 0 0 0]
+            ]
+        ** arange([start], end,[step],dtype=None): crea un array con un rango
+

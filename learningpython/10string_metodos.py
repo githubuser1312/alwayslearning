@@ -2,7 +2,8 @@
 
 # upper()=todo en mayusculas
 # lower()= todo en minusculas
-# capitalize() = pone en mayuscula la primera Letra 
+# capitalize() = pone en mayuscula la primera Letra de la PRIMERA palabra de una frase
+# title() = pone en mayuscula la primera Letra de una palabra o de CADA palabra de una frase
 # count()=cuenta cuantas veces se repite una letra o grupo de letras
 # find()= da el indice donde se encuentra la letra o grupo dentro de una cadena
 # isdigit()= devuelve True o False (es o no un numero o no)
