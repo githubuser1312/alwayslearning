@@ -481,3 +481,610 @@ Estructuras de datos flexibles de Pandas:
         >>> d.columns
         Index(['uno', 'dos'], dtype='object')
 
+    Datos NAN (no hallados). Pandas hace uso de numpy.nan para representar los datos faltantes (nulos o que no se han definido), Algunas operaciones aritméticas consideran NAN como 0 y otras como COUNT no la consideran.
+    Funciones para tratar los datos NAN:
+        *dropna: omite las filas que tienen NAN
+        *isnull: devulve una tabla con valores True o False en fucnión de si el valor es nana o no para un determinado campo
+        *fillna(val): cambia los valores de NAN por el contenido de val
+    
+    LECTURA Y ESCRITURA con Pandas de archivos se hace a través de read y to, respectivamente.
+
+    Ejemplos con PANDAS:
+    In [1]: import numpy as np
+    In [2]: import pandas as pd
+    In [3]: from pandas import *
+
+    In [4]: #crear una serie a partir de un ndarray
+    In [5]: data = np.array(['a','b','c','d'])
+    In [6]: s=pd.Series(data)
+    In [7]: print(s)
+    0    a
+    1    b
+    2    c
+    3    d
+    dtype: object
+
+    In [8]: #Añadior índices a la serie a partir de un ndarray
+    In [11]: s=pd.Series(data,index=[100,101,102,103])
+    In [12]: print(s)
+    100    a
+    101    b
+    102    c
+    103    d
+    dtype: object
+
+    In [13]: #Acceder a la serie por posición
+    In [15]: s=pd.Series([1,2,3,4,5],index=['a','b','c','d','e'])
+    In [16]: print(s[0])
+    1
+
+    In [17]: #acceder a la serie por etiqueta o indice
+    In [18]: print(s['a'])
+    1
+
+    In [19]: #recupoerar varios elementos a la vez
+    In [21]: print(s[['a','b']])
+    a    1
+    b    2
+    dtype: int64
+
+    In [22]: #crear un dataframe vacío
+    In [23]: data=[1,2,3,4,5]
+    In [24]: df=pd.DataFrame(data)
+    In [25]: print(df)
+       0
+    0  1
+    1  2
+    2  3
+    3  4
+    4  5
+
+    In [26]: #crear un dataframe a partir de una lista de dos dimensiones
+    In [27]: data=[['Alex',10],['Bob',12],['Clarke',13]]
+    In [28]: df=pd.DataFrame(data,columns=['Name','Age'])
+    In [29]: print(df)
+         Name  Age
+    0    Alex   10
+    1     Bob   12
+    2  Clarke   13
+
+    In [30]: #crear un DataFrame indexado a paertir de un array
+    In [31]: data={'Name':['Tom','Jack','Steve','Ricky'],'Age':[28,34,29,42]}
+    In [32]: df=pd.DataFrame(data, index=['rank1','rank2','rank3','rank4'])
+    In [33]: print(df)
+            Name  Age
+    rank1    Tom   28
+    rank2   Jack   34
+    rank3  Steve   29
+    rank4  Ricky   42
+
+    In [34]: #seleccionar una columna de un dataframe
+    In [36]: print(df['Name'])
+    rank1      Tom
+    rank2     Jack
+    rank3    Steve
+    rank4    Ricky
+    Name: Name, dtype: object
+
+    In [37]: #seleccionar una fila por etiqueta
+    In [39]: print(df.loc['rank1'])
+    Name    Tom
+    Age      28
+    Name: rank1, dtype: object
+
+    In [41]: #Seleccionar una fila por posición
+    In [42]: print(df.iloc[2])
+    Name    Steve
+    Age        29
+    Name: rank3, dtype: object 
+
+    In [43]: #borrar columnas de un dataframe   
+    In [44]:   d={'one':pd.Series([1,2,3],index=['a','b','c']), 'dos':pd.Series([1,2,3,4],index=['a','b','c','d']),'tres':pd.Series([10,20,30],index=['a','b','c']),'cuatro':pd.Series([101,201,301,401],index=['a','b','c','d'])}
+    In [46]: print(df)
+        one  dos  tres  cuatro
+    a  1.0    1  10.0     101
+    b  2.0    2  20.0     201
+    c  3.0    3  30.0     301
+    d  NaN    4   NaN     401
+    In [48]: del df['one']
+    In [49]: print(df)
+        dos  tres  cuatro
+    a    1  10.0     101
+    b    2  20.0     201
+    c    3  30.0     301
+    d    4   NaN     401
+
+    In [50]: #usando pop
+    In [52]: df.pop('dos')
+    Out[52]: 
+    a    1
+    b    2
+    c    3
+    d    4
+    Name: dos, dtype: int64
+
+    In [53]: #seleccionar varias filas
+    In [55]: print(df[2:4])
+       tres  cuatro
+    c  30.0     301
+    d   NaN     401
+
+    In [56]: #unir filas
+    In [57]:df=pd.DataFrame([[1,2],[3,4]],columns=['a','b'])
+    In [58]:df2=pd.DataFrame([[5,6],[7,8]],columns=['a','b'])
+    In [59]:df=df.append(df2)
+    In [60]:print(df)
+       a  b
+    0  1  2
+    1  3  4
+    0  5  6
+    1  7  8
+
+    In [66]: #eliminar filas
+    In [67]: df=df.drop(0)
+    In [68]: print(df)
+       a  b
+    1  3  4
+    1  7  8
+
+
+
+ALGORITMOS DE APRENDIZAJE AUTOMATICO
+
+El aprendizaje automático (machine Learning) es una rama de la IA que desarolla técnicas mediante la implementación de una serie de algoritmos, que permiten aprender a los ordenadores (mediante algoritmos matemáticos se generalizan comportamientos con el fin de encontrar y reconocer patrones a partir de una información facilitada como ejemplo). Estos algoritmos de aprendizaje automático (que van desde redes bayesanas, redes neuronales artificiales, árboles de decisión, etc.) permiten predecir el comportamiento futuro de los datos a partir de lo que ha ocurrido en el pasado (de ahí su importancia como minería de datos).
+
+    SCIKIT-LEARN: es una de las principales librerías para trabajar con Machine Learning. Se centra en el modelado de datos y  no en su manipulación (para ello estan NUMPY y PANDAS). Tiene impolementados algoritmos de aprendizaje supervisado y no supervisado y por ello se puede utiliza para : clasificaciones, extracción de características, regresiones, agrupaciones, reduccion de dimensiones, selección de modelos o preprocesamiento.
+
+        VENTAJAS:
+            - Se pueden extraer datos de  varios repositorios
+            - Tiene BBDD de muestra que ayudan con la practica en el uso de los algoritmos de aprendizaje automático.
+
+        METODOS IMPLEMENTADOS EN SCIKIT-LEARN.
+        Sus algoritmos se dividen en 6 módulos:
+            * Clasificación (identificar a que categoría pertenece un objeto)
+            * Regresión (analizar el vínculo entre una variable dependiente y una o varias variables independientes, para hallar una relación matemática, así se puede entender de que manera una variable dependiente es afectada por cambios en los demás factores)
+            * Clustering (consiste en agrupar objetos por similitud, en grupos o conjuntos de manera que los miemnreso del mismo grupo tenga características similares, es la tarea principal de la MINERIA DE DATOS EXPLORATORIA)
+            * Reducción de la dimensionalidad (reducir el numero de variables aleatorias a considerar)
+            * Selección automática de modelos (comparar, validar y elegir parametros y modelos)
+            * Preprocesamiento (extraccion de características y normalización)
+
+        Ejemplos:
+            #cargar la base de datos iris 
+            from sklearn.datasets import load_iris
+
+            iris = load_iris()
+
+            X = iris.data
+            y = iris.target
+            feature_names = iris.feature_names
+            target_names = iris.target_names
+            print("Feature names:", feature_names)
+            print("Target names:", target_names)
+            print("\nFirst 10 rows of X:\n",X[:10])
+
+                Feature names: ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
+                Target names: ['setosa' 'versicolor' 'virginica']
+
+                First 10 rows of X:
+                 [[5.1 3.5 1.4 0.2]
+                 [4.9 3.  1.4 0.2]
+                 [4.7 3.2 1.3 0.2]
+                 [4.6 3.1 1.5 0.2]
+                 [5.  3.6 1.4 0.2]
+                 [5.4 3.9 1.7 0.4]
+                 [4.6 3.4 1.4 0.3]
+                 [5.  3.4 1.5 0.2]
+                 [4.4 2.9 1.4 0.2]
+                 [4.9 3.1 1.5 0.1]]
+
+            #dividir el conjunto de datos en un conjunto de entrenamiento para entrenar el modelo
+            #y un conjunto de pruebas (test) para probar el modelo
+            #después se puede evaluar la exactitud del modelo
+            #70% de datos para entrenamiento y 30% de datos para prueba
+
+            from sklearn.model_selection import train_test_split
+
+            X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.3, random_state =1)
+
+            #Mostrar estructura de los datos
+            print(X_train.shape)
+            print(X_test.shape)
+            print(y_train.shape)
+            print(y_test.shape)
+
+                (105, 4)
+                (45, 4)
+                (105,)
+                (45,)
+
+
+            #Entrenar el modelo utilizando el clasificador KNN (K vecinos más cercanos)
+            X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.4, random_state =1)
+
+            from sklearn.neighbors import KNeighborsClassifier
+            from sklearn import metrics
+
+            classifier_knn = KNeighborsClassifier(n_neighbors = 3)
+            classifier_knn.fit(X_train,y_train)
+            y_pred = classifier_knn.predict(X_test)
+
+            #finding accuracy by compairing actual response values(y_test) with predicted response value(y_pred)
+            print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
+
+                Accuracy: 0.9833333333333333
+
+            #providing sample data and the model will make prediction out of that data
+            sample=[[5,5,3,2],[2,4,3,5]]
+            preds=classifier_knn.predict(sample)
+            pred_species=[iris.target_names[p] for p in preds]
+            print("Predicciones:", pred_species)       
+
+                Predicciones: ['versicolor', 'virginica']
+
+    THEANO: es una biblioteca de Python que proporciona un conjunto de funciones para construir REDES PROFUNDAS que entrena  rápidamente en nuestra máquina. Nos permite definir y evaluar expresiones matemáticas con vectores y matrices que son matrices rectangulares de números. Técnicamente hablando, tanto las redes neuronales como los datos de entrada pueden representarse como matrices y todas las operaciones netas estándar pueden redefinirse como operaciones matriciales. Esto es importante ya que las computadores pueden realizar operaciones matriciales muy rápidamente.
+        VENTAJA:
+        Se pueden procesar múltiples valores de matriz en paralelo y si construimos una red neuironal con esta estructura subyacente, podemos usar una sola máquina con una GPU (CPU) para entrenar redes enormes en una ventana de tiempo razonable.
+
+        DESVENTAJA:
+        Sin embargo, si usamos Theano, tenemos que construir la red profunda desde cero. La biblioteca no proporciona una funcionalidad completa para crear un tipo específico de red profunda. Hay que codificar todos los aspectos de la red profunda como el modelo, las capas, la activación, el mñetodo de entrenamiento y cualquier método especial para detener el sobreajuste.
+        Sin embargo, Theano permite construir nuestra implementación sobre una parte superior de las funciones vectorizadas, proporcionándonos una solución altamente optimizada.
+
+        Hay muchas bibliotecas que amplian la funcionalidad de Theano. TensorFLow y Keras se pueden usar con Theano como backend.
+    
+    TENSORFLOW: Google TensorFlow es una biblioteca de Python. Esta biblioteca es una excelente opción para crear aplicaciones de aprendizaje profundo de grado comercial.
+    Surgió de la biblioteca BistBelief V2 que era parte de Google Brain Project. Esta bibliotea tiene como objetivo extender la portabilidad del aprendizaje automático para que los modelos de investigación puedan aplicarse a aplicaciones de grado comercial.
+
+    Al igual que THEANO, TensorFlow se basa en gráficos computacionales en los que un nodo representa datos persistentes u operaciones matemáticas y los bordes representan el flujo de datos entre nodos, que es una matriz o tensor multidimensional (un TENSOR es una matriz multidimensional); de ahí el nombre de TensorFlow.
+    La salida de una operación o un conjunto de operaciones se alimenta como entrada en la siguiente.
+    A pesar de que TensorFlow fue diseñada para redes neuronales, funciona bien para otras redes donde el cálculo se puede modelar como un gráfico de flujo de datos.
+    TensorFlow también utiliza varias características de Theano, como la eliminación común y de subexpresión, la diferenciación automática, las variables compartidas y simbólicas.
+    Se pueden construir diferentes tipos de rees profundas utilizando TensorFlow como redes convolucionales, Autoencoders, RNTN, RNN, RBM, DBM/MLP, etc.
+    Sin embargo, no hay soporte para la conficguración de hiperparámetros en TensorFlow. Para esta funcionalidad podemos usar KERAS.
+
+    Los tensores se usan como estructuras de datos básicas en el lenguaje TensorFlow. Los tensores representan los bordes de conexion en cualquier diagrama de flujo llamado Gráfico de Flujo de Datos. Los tensores se definen como una matriz o lista multidimensional, y se identifican con los siguientes 3 parámetros:
+
+            * RANGO: la unidad de dimensionalidad descrita dentro del tensor se denomina rango. Identifica el número de dimensiones del tensor. El rango de un tensor puede describirse como el orden o n-dimensiones de un tensor definido.
+
+            *FORMA: el número de filas y columnas juntas definen el forma del tensor
+
+            *TIPO: describe el tipo de datos asignado a los elementos del tensor.
+
+        EJEMPLO:
+
+            *Construir una matriz n-dimensional
+                #DIFERENTES FORMAS DE CREAR TENSORES
+                
+                #Método1: usando la función más popular para crear tensores: constant()
+                import tensorflow as tf
+                
+                t1 = tf.constant([1,2,3])
+                t2 = tf.constant([[1.1, 2.2, 3.3],[4,5,6]])
+                t3 = tf.constant([[1,2,3],[4,5,6],[7,8,9]])
+                t4 = tf.constant(['String_one','String_two', 'String-three'])
+                
+                #tensor unidimensional con 3 valores enteros int32
+                print(t1)
+                print(tf.print(t1))
+                print('\n')
+                    tf.Tensor([1 2 3], shape=(3,), dtype=int32)
+                    [1 2 3]
+                    None
+                #tensor bidimensional
+                print(t2)
+                print(tf.print(t2))
+                print('\n')
+                    tf.Tensor([[1.1 2.2 3.3][4.  5.  6. ]], shape=(2, 3), dtype=float32)
+                    [[1.1 2.2 3.3]
+                     [4 5 6]]
+                    None
+                #tensor tridimensional
+                print(t3)
+                print(tf.print(t3))
+                print('\n')
+                    tf.Tensor([[1 2 3][4 5 6][7 8 9]], shape=(3, 3), dtype=int32)
+                    [[1 2 3]
+                     [4 5 6]
+                     [7 8 9]]
+                    None
+                #tensor unidimensional con cadenas de tipo datos
+                print(t4)
+                print(tf.print(t4))
+                print('\n')
+                    tf.Tensor([b'String_one' b'String_two' b'String-three'],shape=(3,), dtype=string)
+                    ["String_one" "String_two" "String-three"]
+                    None
+                
+                #Metodos 2, 3, 4, 5 y 6:  creacion de tensores con funciones zeros(), unos(), fill(), linspace(), range().
+                #tensor tridimensional con zeros()
+                zero_3d=tf.zeros([3,3,3], tf.int8, '3d')
+                print(zero_3d)
+                print(tf.print(zero_3d))
+                    tf.Tensor(
+                    [[[0 0 0]
+                    [0 0 0]
+                    [0 0 0]]
+
+                    [[0 0 0]
+                    [0 0 0]
+                    [0 0 0]]
+
+                    [[0 0 0]
+                    [0 0 0]
+                    [0 0 0]]], shape=(3, 3, 3), dtype=int8)
+                    [[[0 0 0]
+                    [0 0 0]
+                    [0 0 0]]
+
+                    [[0 0 0]
+                    [0 0 0]
+                    [0 0 0]]
+
+                    [[0 0 0]
+                    [0 0 0]
+                    [0 0 0]]]
+                    None
+                #tensor tridimensional con unos()
+                unos_2d=tf.ones([2,2], tf.complex64, 'complex_ones_tensor')
+                print(unos_2d)
+                    tf.Tensor(
+                    [[1.+0.j 1.+0.j]
+                     [1.+0.j 1.+0.j]], shape=(2, 2), dtype=complex64)
+
+            *Convertir la matriz n-dimensional
+    
+
+    KERAS: biblioteca de Python para desarrollar y evaluar modelos de aprendizaje profundo. Tiene un diseño minimalista que nos permite construir una red capa por capa, entrenarlo y ejecutarlo.
+    Envuelve las bibliotecas de Theano y TensorFlow y permite defiinir y entrenar modelos de redes neuronales en unas pocas líneas cortas de código.
+    Es una API de red neuronal de alto nivel. El código Keras es portátil, podemos immplementar una red neuronal en Keras usando Theano o TensorFlow como back-end sin ningun cammbio en el código.
+    Keras está diseñado para comprender las técnicas de aprendizaje profundo, como la pcreación de capas en redes neuronales que mantienen los conceptos de formas y detalles matemáticos. La creación de framework puede ser de los dos tipos:
+            * API secuencial
+            * API funcional
+    Pasos para crear un modelo de aprendizaje profundo en Keras:
+            * Cargar los datos
+            * Preprocesar los datos cargados
+            * Definición de modelo
+            * Compilar el modelo
+            * Se ajusta al modelo especificado
+            * Evaluarlo
+            * Hacer las predicciones requeridas
+            * Guardar el modelo
+
+
+MATPLOTLIB VISUALIZACION Y REPRESENTACION DE DATOS
+Python dispone de una gran numero de módulos para la representacion y visualización de los datos, pero en este curso veremos MATPLOTLIB (permite crear en 2D y 3D) pues tiene implementada la libreria pyplot muy semejante a Matlab.
+Matplotlib se intengra con todos los módulos descritos anteriormente para el análisis de datos.
+Para importar el módulo de matplotlib usamos por convenio plt.
+Los tipos de gáficos mas usuales son:
+    * Gráfico clásico 2D: usamos la funcion pot.
+    * Histogramas: usamos la función hist.
+    * Campos de Vectores: usamos la funcion quiver.
+    * Gráficos circulares o de torta: usamos la funcion pie.
+    * Gráficos de barras: usamos la función bar.
+
+Cuando trabajamos con pyplot podemos usar el modo interactivo: show() o el modo no interactivo: draw(). Para conmutar de un modo a otro se usa ion() e ioff() (que permiten activar y desactivar el modo interactivo). Para comprobar si está el modo interactivo usamos la funcion isinteractive() que devuelve true o false.
+
+P.e.:
+
+        import matplotlib.pyplot as plt
+        import numpy as np
+
+        plt.isinteractive() #el modo interactivo está desactivado por defecto
+            False 
+        plt.plot([1,2,3,4,5]) #como estamos en modo no interactivo no se muestra el gráfico hasta que llamemos a show() o draw()
+
+        plt.show() #ahora se mostrara en una ventana aparte
+
+        plt.ion() #así ponemos el modo interactivo en marcha y la consola nos permite seguir introduciendo código sin necesidad de cerrar la ventana del gráfico.
+
+Una particularidad que viene activada por defecto en pyplot es que nos permite dibujar varias gráficas en el mismo gráfico. Pero podemos cmabiarlo con hold() e ishold(). Si ishold() es False sólo se conservará la última gráfica dibujada, es decir, el último plot que se llamara desde el código.
+
+A la representación gráfica que se abre en una nueva ventana se le llama FIGURA (por fdefcto el nombre será "Figure#" #es un numero ordenado). Con la función figure() podemos hacer cambios según sus argumentos:
+        * num = None (si num=None las figuras se numeran automáticamente)
+        * figsize=(w,h) (w,h) es una tupla en pulgadas que define el tamaño de la figuras
+        * dpi=x (resolucion de la imagen)
+        * facecolor='color' (color de fondo)
+        * edgecolor='color' (color del border alrededor del fondo)
+        * frameon = 'True' or 'False' (permite establecer si dibujar la figura en marcos o no).
+(todos estos argumentos vienen con unos valores por defecto que podemos cambiar en el ARCHIVO DE RECURSOS para no tener que modificarlos constantemente)
+
+Con Pyplot también se puede agregar TEXTO dentro de una figura para dar nombre a los ejes, un título al gráfico, etc gracias a las siguientes funciones entre otras:
+        * title('Nombre del gráfico')
+        * xlabel('Nombre del eje x')
+        * ylabel('Nombre del eje y')
+        Ejemplo:
+                import matplotlib.pyplot as plt
+                list=[11,20,4.5,8,38]
+                plt.plot(list)
+                plt.title('Gráfica de prueba')
+                plt.xlabel('este es el eje X')
+                plt.ylabel('este es el eje Y')
+        
+
+También se puede agregar una LEYENDA con la función:
+        *legend() tiene un argumento loc que nos permite posicionar la leyenda en diferentes puntos del entorno del gráfico (upper, lower, centre, left, right†)
+Para usar esta función, previamente hemos tenido que definir el arguymento 'label' de la función del dibujo (por ejemplo en plot()) para establecer el literal de la leyenda a mostrar. 
+
+        Ejemplo: (dos ventanas independientes en las que mostar gráficas):
+
+
+                import matplotlib.pyplot as plt
+                plt.figure('listas',figsize=(8,6),dpi=80)#creamos la ventana listas
+                plt.figure('meses',dpi=50)#creamos la ventana meses
+                lista1 = [11,2,3,5,6,23,55,12]
+                lista2 = [1,2,8,3,5,25,1]
+                lista3 = [10,5,3,5,23,23,45]
+                plt.figure('listas')#indicamos que active la ventana listas que es la que vamos a usar
+                plt.plot(lista1)
+                plt.plot(lista2)
+                plt.figure('meses')
+                plt.plot(lista1, label='Enero')
+                plt.plot(lista2, label='Febrero')
+                plt.plot(lista3, label='Marzo')
+                plt.legend()#incluimos la leyenda
+                plt.legend(loc='upper left')#incluyendo esta linea, no hace falta la anterior
+
+Subgráficos en una misma figura. Si en ligar de superponer gráficos en una misma figura queremos mostrar los gráficos en una misma ventana pero que sean independientes podemos usar subplot(). Esta función nos permite dividir el área de dibujo por filas y columnas de manera que luego podamos dibujar en cada espacio definido previamente un gráfico individual.
+
+                import numpy as np
+                import matplotlib.pyplot as plt
+                #definimos el periodo de la gráfica
+                periodo = 2
+                #definimos un array y la función senoidal
+                x = np.linspace(0,10,1000)
+                y = np.sin(2*np.pi*x/periodo)
+                plt.figure('Ejemplo de subplot')#creamos la figura
+
+                plt.subplot(2,2,1) #indicamos que divida el espacio en dos filas por dos columnas y se sitúe en e primer hueco
+                plt.plot(x,y,'r')#dibujamos la gráfica de la función senoidal en rojo
+                plt.subplot(2,2,2)
+                plt.plot(x,y,'g')
+                plt.subplot(2,2,3)
+                plt.plot(x,y,'b')
+                plt.subplot(2,2,4)
+                plt.plot(x,y,'k')
+                plt.show()#mostramos en pantalla
+
+Cambiar estilos de líneas de un gráfico:
+        *linestyle: -sólida, --discontínua, :punteada, -.punteada discontínua,None(sin linea)
+        * marker: + cruz, . punto, o circulo, * estrellas, p pentagonos, s cuadrados, x tachados, D diamantes, h hexágonos, ^ triángulo
+        * color: b azul, g verde, r rojo, c cyan, m magenta, y amarillo, k negro, w blanco.
+
+                import matplotlib.pyplot as plt
+                lista1 = [11,2,3,5,6,23,55,12]
+                lista2 = [1,2,8,3,5,25,1]
+                lista3 = [10,5,3,5,23,23,45]
+                plt.plot(lista1, marker='x', linestyle='--', color='r',label='Enero')
+                plt.plot(lista2, marker='o', linestyle='-', color='g', label='Febrero')
+                plt.plot(lista3, marker='^', linestyle=':', color='c', label='Marzo')
+                plt.legend(loc='upper left')#incluyendo esta linea, no hace falta la anterior
+
+Otros métodos de utilidad:
+        * plt.cla(): borra toda la informacion relacionada con los ejes de un gráfico
+        * plt.clf(): borra por completo un gráfico
+        * plt.close(): termina el gráfico cerrando su ventana
+        * savefig('archivo.png'): salva en formato .png
+        * savefig('archivo.pdf'): salva en formato .pdf
+        (también se pueden salvar con la pestaña de la ventana del gráfico)
+
+Varios ejemplos:
+
+                #MOSTRAR UNA GRAFICA CON MATPLOTLIB
+                from matplotlib import pyplot as plt
+                import numpy as np
+                import math #necesario para defincion de pi
+                x=np.arange(0,math.pi*2,0.05)
+                y=np.sin(x)
+                plt.plot(x,y)
+                plt.xlabel('angle')
+                plt.ylabel('seno')
+                plt.title('onda senoidal')
+                plt.show()
+                
+                #GRAFICA CON FORMATO
+                from pylab import *
+                x = linspace(-3,3,30)
+                y = x**2
+                plot(x,y,'r.')
+                show()
+                
+                #GRAFICAS CON VARIOS FORMATOS
+                from pylab import *
+                plot(x,sin(x))
+                plot(x,cos(x),'r-')
+                plot(x,-sin(x),'g--')
+                show()
+                
+                #INLCUIR VARIOS SUBPLOTS
+                import matplotlib.pyplot as plt
+                fig,a=plt.subplots(2,2)
+                import numpy as np
+                x = np.arange(1,55)
+                a[0][0].plot(x,x*x)
+                a[0][0].set_title('cuadrado')
+                a[0][1].plot(x,np.sqrt(x))
+                a[0][1].set_title('raiz cuadrada')
+                a[1][0].plot(x,np.exp(x))
+                a[1][0].set_title('exp')
+                a[1][1].plot(x,np.log10(x))
+                a[1][1].set_title('log')
+                plt.show()
+                
+                #MODIFICAR CUADRICULA
+                import matplotlib.pyplot as plt
+                import numpy as np
+                fig,axes=plt.subplots(1,3,figsize=(12,4))
+                x=np.arange(1,11)
+                axes[0].plot(x,x**3,'g',lw=2)
+                axes[0].grid(True)
+                axes[0].set_title('grid por defecto')
+                axes[1].plot(x,np.exp(x),'r')
+                axes[1].grid(color='b',ls='-.',lw=0.25)
+                axes[1].set_title('grid customizada')
+                axes[2].plot(x,x)
+                axes[2].set_title('sin grid')
+                fig.tight_layout()
+                plt.show()
+                
+                #FORMATEAR EJES
+                import matplotlib.pyplot as plt
+                import numpy as np
+                fig,axes=plt.subplots(1,2,figsize=(10,4))
+                x=np.arange(1,5)
+                axes[0].plot(x,np.exp(x))
+                axes[0].plot(x,x**2)
+                axes[0].set_title('Escala normal')
+                axes[1].plot(x,np.exp(x))
+                axes[1].plot(x,x**2)
+                axes[1].set_yscale('log')
+                axes[1].set_title('Escala logaritmica (y)')
+                axes[0].set_xlabel('x_axis')
+                axes[0].set_ylabel('y_axis')
+                axes[0].xaxis.labelpad = 10
+                axes[1].set_xlabel('x_axis')
+                axes[1].set_ylabel('y_axis')
+                plt.show()
+                
+                #GRAFICO DE BARRAS
+                import matplotlib.pyplot as plt
+                fig = plt.figure()
+                ax = fig.add_axes([0,0,1,1])
+                langs = ['C','C+','Java','Python','PHP']
+                students = [23,17,35,29,12]
+                ax.bar(langs, students)
+                plt.show()
+                
+                #HISTOGRAMA
+                from matplotlib import pyplot as plt
+                import numpy as np
+                fig,ax=plt.subplots(1,1)
+                a = np.array([22,87,5,43,56,73,55,54,11,20,51,5,79,31,27])
+                ax.hist(a,bins = [0,25,50,75,100])
+                ax.set_title('histogram')
+                ax.set_xticks([0,25,50,75,100])
+                ax.set_xlabel('marks')
+                ax.set_ylabel('Nº of students')
+                plt.show()
+                
+                #GRAFICO DE TARTA
+                from matplotlib import pyplot as plt
+                import numpy as np
+                fig = plt.figure()
+                ax = fig.add_axes([0,0,1,1])
+                ax.axis('equal')
+                langs = ['C','C+','Java','Python','PHP']
+                students = [23,17,35,29,12]
+                ax.pie(students, labels=langs, autopct='%1.2f%%')
+                plt.show()
+                
+                #SURFACE PLOT
+                from matplotlib import pyplot as plt
+                import numpy as np
+                from mpl_toolkits import mplot3d
+                x = np.outer(np.linspace(-2,2,30), np.ones(30))
+                y = x.copy().T #transpose
+                z = np.cos(x**2 + y**2)
+                fig = plt.figure()
+                ax = plt.axes(projection='3d')
+                ax.plot_surface(x,y,z,cmap='viridis',edgecolor='none')
+                ax.set_title('Surface plot')
+                plt.show()
