@@ -1,0 +1,59 @@
+El APRENDIZAJE AUTOMÁTICO (MACHINE LEARNING) es una aplicación de la IA inteligencia artificial que proporciona a los sistemas la capacidad de aprender (por si mismos) y mejorar automáticamente a partir de la experiencia sin ser programado explícitamente.
+
+Hay dos disciplinas: 
+    *APRENDIZAJE AUTOMATICO (aprender de los datos y luego aplicar esos conocimientos a nuevos conjuntos de datos)
+    *APRENDIZAJE PROFUNDO (DEEP LEARNING) crea redes neuronales diseñadas para parecerse al cerebro humano. Se usa para procesar datos como sonidos e imágenes.
+
+PROCESO DE APRENDIZAJE comienza con observaciones o datos, como ejemplos, experiencia directa o instrucción, para buscar patrones en los datos y tomar mejores decisiones en el futuro en función de los ejemplos que proporcionamos. El objetivo principale es permitir que las computadoras aprendan automáticamente sin intervención o asistencia humana y ajustar las acciones en consecuencia.
+
+Pasos que definen MACHINE LEARNING:
+        * Identifica conjuntos de datos relevantes y los prepara para su análisis
+        * Elige el tipo de algoritmo a usar
+        * Crea un modelo analítico basado en el algoritmo usando
+        * Entrena el modelo en conjuntos de datos de prueba y lo revisa según sea necesario
+        * Ejecuta el modelo para generar puntuaciones de prueba
+
+Los pasos seguidos por MACHINE LEARNING son similares a los seguidos por DATA MINING y MODELADO PREDICTIVO.
+Ambos necesitan buscar en las datos para buscar patrones y ajustar las acciones del programa en consecuencia. 
+
+Ejemplos de aplicaciones de machine learning son:
+                    * MARKETING PERSONALIZADO: cuando nos envían información sobre productos que nos pueden interesar a raiz de la información que hemos consultado en internet
+                    * DETECCION DE FRAUDE
+                    * FILTRADO DE SPAM
+                    * DETECCION DE AMENAZAS A LA SEGURIDAD EN LA REDES
+                    * MANTENIMIENTO PREDICTIVO
+                    * CREACION DE NOTICIAS
+
+Tipos de algoritmos de aprendizaje automático:
+        * Algoritmos de APRENDIZAJE SUPERVISADO. Pueden aplicar los aprendido en el pasado a datos presentes utilizando datos etiquetados para predecir futuros. Requieren un científico de datos o un analista de datos con habilidades de aprendizaje automático para proporcionar tanto la entrada como la salida deseada, además de proporcionar comentarios sobre la precisión de las predicciones durante el entrenamiento del algoritmo.
+        Los científicos de datos determinan qué variables o características, el modelo debe analizar y usar para desarrollar predicciones. Una vez que se completa la capacitación, el algoritmo aplicará lo aprendido a los nuevos datos.
+        A medida que los datos de entrada se introducen en el modelo, ajusta sus pesos hasta que el modelo se haya ajustado adecuadamente. Esto ocurre como parte del proceso de validación cruzada para garantizar que el modelo evite el sobreajuste (OVERFITTING) o el subajuste (UNDERFITTING).
+        A partir del análisis de un conjunto de datos de entrenamiento conocido, el algoritmo de aprendizaje produce una función inferida para hacer predicciones sobre los valores de salida. El sistema puede proporcionar objetivos para cualquier entradanueva después de una capcitación suficiente. El algoritmo de aprendizaje también puede comparar su salida con la salida correcta e intencionada y encontrar errores para modificar el modelo en consecuencia.
+        Algunos métodos utilizados en el aprendizaje supervisado incluyen:
+                            * REDES NEURONALES 
+                            * BAYES NAIVE
+                            * REGRESION LINEAL 
+                            * REGRESION LOGISTICA
+                            * RANDOM FOREST
+                            * MAQUINA DE VECTORES DE SOPORTE (SVM)
+                            *etc.
+        
+        * Algoritmos de APRENDIZAJE NO SUPERVISADO. Se usan cuando la información usada no está clasificada no etiquetada. El aprendizaje no supervisado estudia como los sistemas pueden inferir una función para describir una estructura oculta a partir de datos no etiquetados. El sistema no encuentra la salida correcta, pero explora los datos y puede extraer inferencias de conjuntos de datos para describit estructuras ocultas a partir de datos no etiquetados. Estos algoritmos no necesitan ser entrandos con los datos de resultados deseados. En cambio, utulizan un enfoque iterativo llamado APRENDIZAJE PROFUNDO (DEEP LEARNING) para revisar los datos y llegar a conclusiones. Los algoritos de aprendizaje no supervisados, también llamados redes neuronales, se usan para tareas de procesamiento más complejas que los sistemas de aprendizaje supervisados, incluidos:
+                            * RECONOCIMIENTO DE IMAGENES
+                            * CONVERSION DE VOZ A TEXTO
+                            * LENGUAJE NATURAL
+        Estas redes neuronales funcionan combinando millones de ejemplos de datos de entrenamoento e identificando automáticamente correlaciones a menudo sutiles entre muchas variables. Una vez entrenado, el algoritmo puede usar su banco de asociaciones para interpretar nuevos datos. Estos algoritmos sólo se han vuelto viables en la era de los grandes datos (BIG DATA), ya que requieren grandes cantidades de datos de entrenamiento.
+        La capacidad de aprendizaje automático no supervisado para descubrir similitudes y diferencias en la información lo convierten en la solución ideal para:
+                            * ANALISIS EXPLORATORIO DE DATOS
+                            * ESTRATEGIAS DE VENTA CRUZADA
+                            * SEGMENTACION DE CLIENTES 
+                            * RECONOCIMIENTO DE IMAGENES Y PATRONES 
+                            * REDUCCION DEL NUMERO DE CARACTERISTICAS EN UN MODELO (a través del proceso de reducción de la dimensionalidad). El análisis de componentes principales (PCA) y la descomposición de valores singulares (SVD) son dos enfoques habituales para lograr esto.
+        Algoritmos usados en el aprendizaje no supervisado incluyen:
+                            * REDES NEURONALES
+                            * K-MEANS CLUSTERING 
+                            * CLUSTERING PROBABILISTICO
+        
+
+        * Algoritmos de APRENDIZAJE AUTOMATICO SEMI SUPERVISADOS. Entre los anteriores, usan datos etiquetados (en pequeña cantidad, generalmente) y no etiquetados (en gran cantidad, generalmente) para el entrenamiento. Los sistemas que usan este método pueden mejorar considerablemente la precisión del aprendizaje. EL aprendizaje semi-supervisado se elige cuando los datos etiquetados adquiridos requieren recursos calificados y relevantes para capacitarlos / aprender de ellos. De lo contrario, la adquisición de datos no etiquetados generalmente no requiere recursos adicionales.
+
