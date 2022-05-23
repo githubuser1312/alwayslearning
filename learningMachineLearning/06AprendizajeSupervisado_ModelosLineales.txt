@@ -38,4 +38,16 @@ Las tareas de reconocimiento de imágenes a menudo se representan como problemas
 
 La regresión logística es una técnica de clasificación fundamental. Pertenece al grupo de los clasificadores lineales y es algo similar a la regresión polinómica y lineal. La regresión logística es rápida y relativamente sencilla, y es necesario interpretar los resultados. Aunque es esencialmente un método para la clasificación binaria, tambiéns e puede aplicar a problemas multiclase.
 
-Para comprender la regresión logística necesitamos comproender la función SIGMOIDE ( https://es.wikipedia.org/wiki/Funci%C3%B3n_sigmoide )y la función LOGARITMO NATURAL ( https://es.wikipedia.org/wiki/Logaritmo_natural )
+Para comprender la regresión logística necesitamos comproender la función SIGMOIDE ( https://es.wikipedia.org/wiki/Funci%C3%B3n_sigmoide )y la función LOGARITMO NATURAL ( https://es.wikipedia.org/wiki/Logaritmo_natural ).
+
+La FUNCION SIGMOIDE tiene valores muy cercanos a 0 o 1 en la mayor parte de su dominio. Este hecho lo hace adecuado para su aplicación en métodos de clasificación.
+
+La funciónlogaritmo natural se represetna como ln, sin embargo en Python: math.log(x) y np.log(x) representan el logaritmo natural de x.
+
+Veamos la regresión logística aplicada a la clasificación binaria. Cuando se implementa la regresión logística de alguna variable dependiente y en el conjunto de variables independientes x = (x1, ....., xr), donde r es el número de predictores (o entradas), se comienza con los valores conocidos de los predictores xi y la correspondiente respuesta real (o salida) yi para cada observación i = 1, .... ,n.
+La meta es encintrar la función de regresión logística p(x) tal que las respuestas predichas p(xi) estén lo más cerca posible de la respuesta real yi para cada observación i = 1, ...... ,n.
+-------------------------------------------------------------------------------------------
+IMPORTANTE: LA RESPUESTA REAL SÓLO PUEDE SER 0 o 1 EN PROBLEMAS DE CLASIFICACION BINARIA. ESTO SIGNIFICA QUE CADA p(xi) DEBE ESTAR CERCA DE 0 o 1. Por eso es conveniente utilizar la función SIGMOIDE.
+-------------------------------------------------------------------------------------------
+
+Una vez que tengamos la función de regresión logística p(x), podeos usarla para predecir las salidas de nuevas entradas, asumiendo que la dependencia matemática subyacente no ha cambiado.
