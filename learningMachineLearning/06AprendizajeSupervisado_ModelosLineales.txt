@@ -37,3 +37,5 @@ Se ouede aplicar la clasificación en muchos campos de la ciencia y la tecnolog�
 Las tareas de reconocimiento de imágenes a menudo se representan como problemas de clasificación. Por ejemplo, se puede preguntar si una imagen representa un rostro humano o no, o si es un ratón o un elefante, o que dígito de cero a nueve representa, y así sucesivamente.
 
 La regresión logística es una técnica de clasificación fundamental. Pertenece al grupo de los clasificadores lineales y es algo similar a la regresión polinómica y lineal. La regresión logística es rápida y relativamente sencilla, y es necesario interpretar los resultados. Aunque es esencialmente un método para la clasificación binaria, tambiéns e puede aplicar a problemas multiclase.
+
+Para comprender la regresión logística necesitamos comproender la función SIGMOIDE ( https://es.wikipedia.org/wiki/Funci%C3%B3n_sigmoide )y la función LOGARITMO NATURAL ( https://es.wikipedia.org/wiki/Logaritmo_natural )
