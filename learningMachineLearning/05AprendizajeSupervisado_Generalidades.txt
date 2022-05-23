@@ -50,19 +50,18 @@ Todos los algoritmos en Aprendizaje Supervisado son algoritmos complejos en MODE
 
 *ALGORITMOS EN APRENDIZAJE AUTOMÁTICO SUPERVISADO:
 
+            ** REGRESION DE MINIMOS CUADRADOS ORDINARIOS.
+
+            ** REGRESION LOGISTICA
+
+                        (las regresiones se suelen usar en: puntuación del crédito, medir las tasas de éxito de las campañas de marketing, predecir los ingresos de un determinado producto,  evaluar si se producirá un terremoto en un día en particular)
+
             ** ARBOLES DE DECISION.  
             Es una herramienta de APOYO a la decisión que utiliza un gráfico o modelo de decisiones en forma de árbol y sus posibles consecuencias, incluidos los resultados de eventos fortuitos, los costes de recursos y la utilidad. Desde el punto de vista de la decisión comercial, un árbol de decisión es el número mínimo de preguntas de si/no que uno tiene que hacer para evaluar la probabilidad de tomar una decisión correcta (en la mayoría de los casos)
 
             ** CLASIFICACION NAIVE (ingenuo) DE BAYES.
             Los clasificadores ingenuos de BAYES son una familia de clasificadores probabilísticos simples basados en la aplicacion del teorema de Bayes con fuertes supuestos de independencia (ingenuos) entre las caracterísiticas. 
             (se usa para marcar un correo como spam, clasificar un artículo de noticias sobre tecnología, política o deportes, verificar si un texto expresa emociones positivas o negativas, en software de reconocimiento facial).
-
-            ** REGRESION DE MINIMOS CUADRADOS ORDINARIOS.
-
-            ** REGRESION LOGISTICA
-
-            (las regresiones se suelen usar en: puntuación del crédito, medir las tasas de éxito de las campañas de marketing, predecir los ingresos de un determinado producto,  evaluar si se producirá un terremoto en un día en particular)
-
 
             ** SVM (SUPPORT VECTOR MACHINE)
             Se usan tanto para clasificacion como regresion.
@@ -71,29 +70,28 @@ Todos los algoritmos en Aprendizaje Supervisado son algoritmos complejos en MODE
 
             ** METODOS DE ENSAMBLAJE
         
-            **Redes neuronales
-            **Random Forest (se usan tanto para metodos de clasificación como de regresión)
+            ** REDES NEURONALES
+            ** RANDOM FOREST (se usan tanto para metodos de clasificación como de regresión)
 
 
 *MEDIDAS DE RENDIMIENTO (es el proceso de medir objetivamente cómo de bien los modelos de aprendizaje, supervisados o no supervisados, realizan las tareas para las que fueron diseñados). La tarea de medir que de bien funciona un modelo de aprendizaje supervisado es más fácil que para el caso de un modelo NO supervisado. Esto se debe a que el entrenamiento de los modelos en el aprendizaje supervisado se hace con datos de entrenamiento etiquetados y las pruebas se hacen con datos de la misma población (y por lo tanto tienen las misma etiquetas).
 
-            **CONJUNTO DE ENTRENAMIENTO Y PRUEBA.
+            ** CONJUNTO DE ENTRENAMIENTO Y PRUEBA.
             Por ejemplo digamos que necesitamos clasificar si una transaccion con tarjetade crédito es fraudulenta y tenemos un conjunto de datos de transacciones con etiquetas de fraude o no fraude. Podemos entrenar nuestro modelo utilizando todos los datos disponibles, pero esto nos impide evaluarlo de manera adecuada porque no queda  datos 'independientes' para las pruebas y el sobreajuste (OVERFITING) se vuelve difícil de detectar. Es problema se evita dividiendo el conjunto de datos en: DATOS DE ENTRANAMIENTO (normalemente un 70% del conjunto de datos) y DATOS DE PRUEBA (30%).
 
                 EL SOBREAJUSTE SOBREVIENE CUANDO UN MODELO HACE GENERALIZACIONES SOBRE ELEMENTOS DE DATOS COINCIDENTES QUE EN REALIDAD NO ESTÁN RELACIONADOS CON EL ANÁLISIS (por ejemplo, en la deteccion de fraude del pagocon tarjeta, un sobreajuste se produce si el entrenamiento del modelo detecta una correlación entre la longitud del nombre de un cliente y la probabilidad de que una transaccion sea fraudulenta).
 
-            **VALIDACION CRUZADA.
+            ** VALIDACION CRUZADA.
             Es otro antídoto contra el sobreajuste. La validación cruzada implica particionar datos en multiples grupos y luego entrenar y probar modelos en diferentes combinaciones de grupos.
             Por ejemplo. En uan VALIDACION CRUZADA DE 5 FOLDS, dividimos el grupo de datos en 5 particiones de igual tamaño. Cogemos 4 de esas particiones para entrenaiento y una para prueba. Luego repetiríamos el proceso pero escogiendo un grupo diferente para que sea el grupo de prueba y entrenando el modelo con los 4 restantes. Repetiríamos 3 veces más ese proceso para un total de 5 rondas de validación cruzada , una para cada fold.
             En este punto tendremos 5 modelos diferentes, cada uno habiendo sido entrenado y probado en un subconjunto diferente de datos y cada uno con sus propios pesos y precision de predicción. Finalmente, combinamos estos modelos promediando sius pesos para estimar un modelo predictivo final.
 
-            **METRICAS DE CLASIFICACION.
+            ** METRICAS DE CLASIFICACION.
             Son las medidas contra las cuales se evalúan los modelos. La métrica más simple y común de este tipo es la 
             -----------------------------PRECISIÓN-----------------------------. 
             La precisión se calcula dividiendo el número de predicciones correctas por el número total de predicciones. P.e: si acertamos en 95 de las predicciones de fraude de un total de 100, entonces la precision es del 95%.
             Pero la precisión no es suficiente porque se producen los falsos aciertos o fallos. Para considerar este caso, se usa la -----------------------------MATRIZ DE CONFUSION---------------------------- que es una tabla de 2x2que clasifica las predicciones en una de cuatro clasificacones: verdadero positivo, verdadero negativo, falso positivo y falso negativo.
             En el ejemplo del fraude: 91 veces se predijo correctamente no fraude, 4 veces se predijo correctamente fraude (95% de precision), 2 falsos fraudes y 3 falso NO fraude. Los resultados anteriores son bastante buenos (precision y tasa de aciertos de NO fraude), salvo en el caso de las predicciones de fraude (tasa de aciertos de fraude) en el que se hizo prediccion correcta en 4 casos y en 3 se fallo (se dijo que era NO fraude, pero en realidad eran fraude) con resultado de 4/(4+3)=57,1% de aciertos.
 
-            **EVALUACION DE LOS MODELOS DE REGRESION
+            ** EVALUACION DE LOS MODELOS DE REGRESION
             Los métodos de evaluacion tambien se aplican a los modelos de regresión. Supongamos que tenemos una modelo de regresión que ha sido entrenado para predecir los precios de la vivienda. Los precioa pronosticados del modelo se puedeb comparar con los precios reales utilizando el ERROR CUADRÁTICO MEDIO, que mide el promedio de los cuadrados de los errores, que son las diferencias entre el precio real y el previsto. Cuando menor sea el error cuadrático medio, mejor será el modelo.
-            

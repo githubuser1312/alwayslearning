@@ -1,0 +1,39 @@
+MODELOS LINEALES--------------
+
+Estos modelos utilizan una fórmula simple para encontrar la línea que mejor se ajuste a traves de puntos de datos y así poder predecir valores futuros.
+
+Los modelos lineales son considerados la "vieja escuela" (a menudo no son tan predictivos como los nuevos algoritmos, pero son más ápidos y sencillos).
+
+----------------------REGRESION LINEAL SIMPLE-----------------------------
+Predice uNa respuesta usando una sóla característica. Se supone que las dos variables (la independiente y la dependiente) tienen una relación lineal.
+x = [x_1,......,x_n] es el vector de características y y = [y_1,......,y_n] es el vector de respuestas para n observaciones. Los datos se pueden representar en un gráfico de dispersión y la tarea es la de encontrar un línea que se ajuste lo mejor posible al diagrama de dispersion para que podamos predecir una respuesta para cualquier valor nuevo. Esa línea se llama LINEA DE REGRESION. 
+La ecuación de la linea de regresión es:
+
+                    y = a + bx
+
+donde y es la respuesta prevista para la x observación, a representa la intersección y b la pendiente de la linea de regresión. Para crear el modelo tenemos que 'aprender' o estimar los valores de a y b. Despúes podremos usar el modelo para predecir valores.
+
+En el ejemplo que aparece en 06Ejemplos, se usa la fórmula anterior pero incluyendo un e (error) que debe ser el más pequeño posible 
+
+                    y = a + bx + e
+
+para ello habrá que encontrar a y b que hagan que ese error sea el menor posible.
+
+Ver ejemplo en en el archivo 06Ejemplos.py
+
+----------------------REGRESION LINEAL MULTIPLE-----------------------------
+Este tipo de regresión intenta modelar la relación entre dos o más características y una respuesta ajustando una ecucación lineal a los daots observados (es una extensión de la regresión lineal).
+En este caso consideramos un conjunto de datos con p características ( o variables independientes) y una respuesta (o variable dependiente). El conjunto de datos contiene n filas/observaciones.
+
+Sea X (matriz de características) = una matriz de tamaño n x p donde x_{ij} denota los valores de la característica j-ésima para la observación i-ésima.
+
+Ver ejemplo en en el archivo 06Ejemplos.py
+
+----------------------REGRESION LOGISTICA-----------------------------
+La clasificación es un área muy importante del aprendizaje automático supervisado. Un gran número de problemas importantes de aprendizaje automático caen dentro de este área. Hay muchos métodos de clasificación, y la regresión logística es uno de ellos.
+
+Se ouede aplicar la clasificación en muchos campos de la ciencia y la tecnología. Por ejemplo, los algoritmos de clasificación de texto se utilizan para separar los emails legítimos y o deseados, así como los comenterios positivos y negativos. Otros ejemplor involucran aplicaciones médicas, clasificación biologica, calificación crediticia, etc.
+
+Las tareas de reconocimiento de imágenes a menudo se representan como problemas de clasificación. Por ejemplo, se puede preguntar si una imagen representa un rostro humano o no, o si es un ratón o un elefante, o que dígito de cero a nueve representa, y así sucesivamente.
+
+La regresión logística es una técnica de clasificación fundamental. Pertenece al grupo de los clasificadores lineales y es algo similar a la regresión polinómica y lineal. La regresión logística es rápida y relativamente sencilla, y es necesario interpretar los resultados. Aunque es esencialmente un método para la clasificación binaria, tambiéns e puede aplicar a problemas multiclase.
