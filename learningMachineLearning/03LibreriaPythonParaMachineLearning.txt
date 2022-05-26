@@ -1,6 +1,4 @@
-NUMPY
-
-Implementa funciones para vectores y matrices y otros de álgebra lineal.
+==========NUMPY===================================================================================================================================
 
 Para comprobar si tenemos instalado Numpy ejecutamos en un terminal Anaconda:
 
@@ -365,17 +363,17 @@ Si no estuviera instalado:
 
 
 
-PANDAS 
+==========PANDAS===================================================================================================================================
 Se utiliza para la analitica de datos (datos heterogéneos, series temporales o grandes volumenes de datos).
 Por convenio el alias de Pandas es pd.
 
 Estructuras de datos flexibles de Pandas:
 
-    *SERIES: son arrays unidimensionales con indexación, similares a los diccionarios, de hecho se pueden generar a partir de diccionarios o listas. (si no se asigna un indice, se hará de forma interna).
+    *SERIES: son arrays unidimensionales con INDEXACIÓN, similares a los DICCIONARIOS, de hecho se pueden generar a partir de diccionarios o listas. (si no se asigna un indice, se hará de forma interna).
     Un objeto definido como Serie tiene dos componentes:
         1. Indice
         2. Vector de datos.
-    Ambos componentes son listas con la misma longitud, de manera que el primer elemento de la lista de índices se corresponde con el primer elemento de la lista de datos y así sucesivamente. La lisa de índices debe tener por lo general valores únicos y ordenados pues se usn para acceder a los valores de los datos del vector.
+    Ambos componentes son listas con la misma longitud, de manera que el primer elemento de la lista de índices se corresponde con el primer elemento de la lista de datos y así sucesivamente. La lisa de índices debe tener por lo general valores únicos y ordenados pues se usan para acceder a los valores de los datos del vector.
 
     >>> s=Series([1,2,3], index=['a','a','c'])
 
@@ -384,7 +382,7 @@ Estructuras de datos flexibles de Pandas:
     c    3
     dtype: int64
 
-    *DATAFRAMES: son estructuras de datos que crean objetos similares a una tabla de bases de DATOS RELACIONAL. Un objeto de la clase DataFrame se construye a partir de un objeto de tipo Series, ya que cada columna de la table tiene un objeto Series que comparte un unico índice (lo que sería la clave principal en una base de datos). Para crear un DataFrames se puede hacer a partir de diccionarios, listas diccionarios de listas o de Series y podemos especificar tanto el nombre de las filas (index) como de las columnas (columns).
+    *DATAFRAMES: son estructuras de datos que crean objetos similares a una tabla de bases de DATOS RELACIONAL. Un objeto de la clase DataFrame se construye a partir de un objeto de tipo Series, ya que cada columna de la table tiene un objeto Series que comparte un unico índice (lo que sería la clave principal en una base de datos). Para crear un DataFrames se puede hacer a partir de diccionarios, listas, diccionarios de listas o de Series y podemos especificar tanto el nombre de las filas (index) como de las columnas (columns).
 
     >>> d=DataFrame({'uno':Series([1,2,3],index=['a','b','c']), 'dos':Series([1,2,3,4],index=['a','b','c','d'])})
        uno  dos
@@ -436,13 +434,24 @@ Estructuras de datos flexibles de Pandas:
     Para VISUALIZAR DATOS con Pandas usamos los siguientes métodos:
 
         describe: imprime una tabla resumen de datos estadísticos sobre los valores, como mínimo, máximo, media, etc., por columna
+        DataFrame.describe(
+            percentiles=None, -----> indica los percentiles a incluir en la salida por defecto: [.25, .5, .75]
+            include=None, ----> tipos de datos a incluir en la salida. Tiene 3 opciones:
+                    all: se incluyen todas las columnas
+                    tipos de datos: sólo los tipos de datos proporcionados
+                    None: todas las columnas numéricas
+            exclude=None, -------> tipo de datos a excluir y son dos opciones:
+                    tipos de datos: excluye por tipos de datos proporcionados
+                    None: el resultado no excluira nada
+            datatime_is_numeric=False ------> es una parámetro booleano que indica si se deben tratar los tipos de datos datatime como numéricos.
+        )
 
-        >>> s.describe
+        >>> s.describe()
         <bound method NDFrame.describe of a    1
         a    2
         c    3
         dtype: int64>
-        >>> d.describe
+        >>> d.describe()
         <bound method NDFrame.describe of    uno  dos
         a  1.0    1
         b  2.0    2
@@ -451,12 +460,12 @@ Estructuras de datos flexibles de Pandas:
 
 
         head y tail: muestran las primeras y últimas 'x' filas respectivamente de una tabla, en función del valor que le pasemos como argumento
-        >>> s.head
+        >>> s.head()
         <bound method NDFrame.head of a    1
         a    2
         c    3
         dtype: int64>
-        >>> s.tail
+        >>> s.tail()
         <bound method NDFrame.tail of a    1
         a    2
         c    3
@@ -484,7 +493,7 @@ Estructuras de datos flexibles de Pandas:
     Datos NAN (no hallados). Pandas hace uso de numpy.nan para representar los datos faltantes (nulos o que no se han definido), Algunas operaciones aritméticas consideran NAN como 0 y otras como COUNT no la consideran.
     Funciones para tratar los datos NAN:
         *dropna: omite las filas que tienen NAN
-        *isnull: devulve una tabla con valores True o False en fucnión de si el valor es nana o no para un determinado campo
+        *isnull: devulve una tabla con valores True o False en función de si el valor es NaN o no para un determinado campo
         *fillna(val): cambia los valores de NAN por el contenido de val
     
     LECTURA Y ESCRITURA con Pandas de archivos se hace a través de read y to, respectivamente.
@@ -548,9 +557,9 @@ Estructuras de datos flexibles de Pandas:
     1     Bob   12
     2  Clarke   13
 
-    In [30]: #crear un DataFrame indexado a paertir de un array
+    In [30]: #crear un DataFrame indexado a partir de un array
     In [31]: data={'Name':['Tom','Jack','Steve','Ricky'],'Age':[28,34,29,42]}
-    In [32]: df=pd.DataFrame(data, index=['rank1','rank2','rank3','rank4'])
+    In [32]: df=pd.DataFrame(data, index=['rank1','rank2','rank3','rank4'])s
     In [33]: print(df)
             Name  Age
     rank1    Tom   28
@@ -620,7 +629,7 @@ Estructuras de datos flexibles de Pandas:
     0  5  6
     1  7  8
 
-    In [66]: #eliminar filas
+    In [66]: #eliminar filas o columnas (si no se indica nada, se eliminan filas por defecto)
     In [67]: df=df.drop(0)
     In [68]: print(df)
        a  b
@@ -629,7 +638,7 @@ Estructuras de datos flexibles de Pandas:
 
 
 
-ALGORITMOS DE APRENDIZAJE AUTOMATICO
+==========ALGORITMOS DE APRENDIZAJE AUTOMATICO========================================================================================================================
 
 El aprendizaje automático (machine Learning) es una rama de la IA que desarolla técnicas mediante la implementación de una serie de algoritmos, que permiten aprender a los ordenadores (mediante algoritmos matemáticos se generalizan comportamientos con el fin de encontrar y reconocer patrones a partir de una información facilitada como ejemplo). Estos algoritmos de aprendizaje automático (que van desde redes bayesanas, redes neuronales artificiales, árboles de decisión, etc.) permiten predecir el comportamiento futuro de los datos a partir de lo que ha ocurrido en el pasado (de ahí su importancia como minería de datos).
 
@@ -850,7 +859,7 @@ El aprendizaje automático (machine Learning) es una rama de la IA que desarolla
             * Guardar el modelo
 
 
-MATPLOTLIB VISUALIZACION Y REPRESENTACION DE DATOS
+==========MATPLOTLIB VISUALIZACION Y REPRESENTACION DE DATOS==============================================================================================================
 Python dispone de una gran numero de módulos para la representacion y visualización de los datos, pero en este curso veremos MATPLOTLIB (permite crear en 2D y 3D) pues tiene implementada la libreria pyplot muy semejante a Matlab.
 Matplotlib se intengra con todos los módulos descritos anteriormente para el análisis de datos.
 Para importar el módulo de matplotlib usamos por convenio plt.

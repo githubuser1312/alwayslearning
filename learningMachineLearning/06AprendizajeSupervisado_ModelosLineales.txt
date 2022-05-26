@@ -51,3 +51,50 @@ IMPORTANTE: LA RESPUESTA REAL SÓLO PUEDE SER 0 o 1 EN PROBLEMAS DE CLASIFICACIO
 -------------------------------------------------------------------------------------------
 
 Una vez que tengamos la función de regresión logística p(x), podeos usarla para predecir las salidas de nuevas entradas, asumiendo que la dependencia matemática subyacente no ha cambiado.
+
+La regresión logística es un CLASIFICADOR LINEAL por lo que se usa una función lineal:
+
+        f(x) = b0 + b1x1 + ........ + brxr 
+
+también llamada LOGIT. 
+
+Las variables b0, b1, ...... br son los estimadores de los coeficientes de regresión, que también se denominan PESOS PREDICHOS o simplemente coeficientes.
+
+La función de regresión logística p(x) es la función sigmoide de f(x):
+
+                p(x) = 1 / (1 + exp(-f(x)))
+
+Como tal, normalmente está cerca de 0 o de 1. La función p(x) a menudo se interpreta como la probabilidad predicha de que la salida para una x dada sea igual a 1. por lo tanto, 1-p(x) es la probabilidad de que la salida sea 0.
+
+La regresión logística determina los mejores PESOS PREDICHOS b0, ..... br tal que la función p(x) es lo más cercana posible a todas las respuestas reales yi, i = 1,....,n donde n es el número de observaciones. El proceso de calcular los mejores PESOS utilizando las observaciones disponibles se denomina ENTRENAMIENTO o AJUSTE DEL MODELO.
+
+Para obtener los mejores PESOS, generalmente se maximiza la función de probabilidad logarítmica (LLF - Log-likelihood Function) para todas las observaciones i = 1,..., n. Este método se denomina estimación de máxima verosimilitud y está representado por la ecuación:
+
+                LLF = ∑i(yi log(p(xi))+ (1 -yi) log(1 - p(xi)))
+
+Cuando yi = 0, el LLF para la observacion correspondiente es igual a log(1-p(xi)). Si p(xi) está cerca de yi = 0, entonces log(1-p(xi)) está cerca de 0. Ese es el resultado que queremos.
+
+Si p(xi) está lejos de 0, entonces log(1-p(xi)) cae significativamente. No queremos ese resultado porque el objetivo es obtener el máximo LLF.
+
+Del mismo modo cuando yi = 1, el LLF para esa observación es yilog(p(xi)). Si p(xi) está cerca de yi = 1, entonces log(p(xi)) está cerca de 0. Si p(xi) está lejos de 1, entonces log(p(xi)) es un número negativo grande.
+
+Hay varios enfoques matemáticos que calcularán los mejores pesos que corresponden al LLF máximo, pero las bibliotecas Python de regresión logística los calcularán por nosotros.
+
+Una vez determinados los mejores pesos que definen la función p(x), podemos obtener las salidas predichas p(xi) para cualquier entrada dada xi. Para cada observación i = 1,..., n, la salida predicha es 1 si p(xi) > 0,5 y 0 en caso contrario. El umbral no tiene que ser 0,5, pero generalmente lo es. Es posible definir un valor más bajo o más alto si se considera necesario.
+
+Hay una relación más importante entre p(x) y f(x), que es que log(p(x)/(1-p(x))) = f(x). esta igualdad explica por que f(x) es el LOGIT. Implica que p(x) = 0.5 cuando f(x)= 0 y que la salida predicha es 1 si f(x) >0 y 0 en caso contrario.
+
+Para medir el rendimiento de la clasificación binaria, tenemos 4 tipos posibles de resultados:
+
+        * Verdaderos negativos (ceros predichos correctamente)
+        * Verdaderos positivos (unos predichos correctamente)
+        * Falsos negativos (ceros predichos incorrectamente)
+        * Falsos positivos (unos predichos incorrectamente)
+
+Indicadores de clasificadores bnarios pueden ser los siguientes:
+
+                    * PRECISION  (explicado en cap. anerior)
+                    * VALOR PREDICTIVO POSITIVO (verdaderos positivos / (verdaderos positivos+falsos positivos)).
+                    * VALOR PREDICTIVO NEGATIVO (verdaderos negativos / (verdaderos negativosfalsos negativos)).
+                    * SENSIBILIDAD / RECUERDO / TASA POSITIVA VERDADERA (es la relación entre el número de verdaderos positivos y el número de positivos reales).
+                    * ESPECIFIDAD / TASA NEGATIVA VERDADERA (es la relación entre el número de negativos verdaderos y el número de negativos reales).
