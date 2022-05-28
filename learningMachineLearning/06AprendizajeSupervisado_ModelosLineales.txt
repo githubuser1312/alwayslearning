@@ -91,7 +91,7 @@ Para medir el rendimiento de la clasificación binaria, tenemos 4 tipos posibles
         * Falsos negativos (ceros predichos incorrectamente)
         * Falsos positivos (unos predichos incorrectamente)
 
-Indicadores de clasificadores bnarios pueden ser los siguientes:
+Indicadores de clasificadores binarios pueden ser los siguientes:
 
                     * PRECISION  (explicado en cap. anerior)
                     * VALOR PREDICTIVO POSITIVO (verdaderos positivos / (verdaderos positivos+falsos positivos)).
