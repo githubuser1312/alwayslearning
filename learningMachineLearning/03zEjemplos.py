@@ -276,3 +276,64 @@ def resumen_cotizaciones(fichero):
     return pd.DataFrame([df.min(), df.max(), df.mean()], index=['Minimo', 'Maximo', 'Media'])
 
 resumen_cotizaciones('learningMachineLearning/03zzCotizacion.csv')
+
+
+
+
+'''El fichero 03zzTitanic.csv contiene información sobre los pasajeros del Titanic. Escribir un programa con los siguientes requisitos:
+
+    Generar un DataFrame con los datos del fichero.
+    Mostrar por pantalla las dimensiones del DataFrame, el número de datos que contiene, los nombres de sus columnas y filas, los tipos de datos de las columnas, las 10 primeras filas y las 10 últimas filas
+    Mostrar por pantalla los datos del pasajero con identificador 148.
+    Mostrar por pantalla las filas pares del DataFrame.
+    Mostrar por pantalla los nombres de las personas que iban en primera clase ordenadas alfabéticamente.
+    Mostrar por pantalla el porcentaje de personas que sobrevivieron y murieron.
+    Mostrar por pantalla el porcentaje de personas que sobrevivieron en cada clase.
+    Eliminar del DataFrame los pasajeros con edad desconocida.
+    Mostrar por pantalla la edad media de las mujeres que viajaban en cada clase.
+    Añadir una nueva columna booleana para ver si el pasajero era menor de edad o no.
+    Mostrar por pantalla el porcentaje de menores y mayores de edad que sobrevivieron en cada clase.
+'''
+
+import pandas as pd 
+
+fichero = 'learningMachineLearning/03zzTitanic.csv'
+titan = pd.read_csv(fichero, sep=';', decimal=',', thousands='.', index_col=0)
+print('Dimension: ', titan.shape)
+print('Tamaño: ', titan.size)
+print('Nombres de columnas :',titan.columns)
+print('Nombres de filas :',titan.index)
+print('Tipos de datos :',titan.dtypes)
+print('Primeras 10 filas :',titan.head(10))
+print('Ultimas 10 filas :',titan.tail(10))
+print('Datos pasajero Id.148: ', titan.loc[148])
+print('Datos filas pares ', titan.iloc[range(1,titan.shape[0],2)])
+print('Personas en primera clase ', titan[titan['Pclass']==1].sort_values(by='Name'))
+print('Porcentaje de sobrevivientes: ', titan[titan['Survived']==1].count()/titan['Survived'].count())
+print('Porcentaje de muertos: ', titan[titan['Survived']==0].count()/titan['Survived'].count())
+print('Porcentaje de sobrevivientes y muertos: ', titan['Survived'].value_counts()/titan['Survived'].count() * 100)
+print('Porcentaje de sobrevivientes y muertos: ', titan['Survived'].value_counts(normalize=True) * 100)
+print('Porcentaje de sobrevivientes por clase: ', titan.groupby('Pclass')['Survived'].value_counts(normalize=True) * 100)
+titan.dropna(subset=['Age'])
+print('Edad media de las mujeres por clase: ', titan.groupby(['Pclass','Sex'])['Age'].mean().unstack()['female'])
+titan['Menor']=titan['Age']<18
+print('Porcentaje de mayores y menores de edad que sobrevivieron y murieron por clase: ', titan.groupby(['Pclass','Menor'])['Survived'].value_counts(normalize=True) * 100)
+
+
+
+'''Los ficheros 03zzEmisiones-2016.csv, 03zzEmisiones-2017.csv, 03zzEmisiones-2018.csv y 03zzEmisiones-2019.csv, contienen datos sobre las emisiones contaminates en la ciudad de Madrid en los años 2016, 2017, 2018 y 2019 respectivamente. Escribir un programa con los siguientes requisitos:
+
+    Generar un DataFrame con los datos de los cuatro ficheros.
+    Filtrar las columnas del DataFrame para quedarse con las columnas ESTACION, MAGNITUD, AÑO, MES y las correspondientes a los días D01, D02, etc.
+    Reestructurar el DataFrame para que los valores de los contaminantes de las columnas de los días aparezcan en una única columna.
+    Añadir una columna con la fecha a partir de la concatenación del año, el mes y el día (usar el módulo datetime).
+    Eliminar las filas con fechas no válidas (utilizar la función isnat del módulo numpy) y ordenar el DataFrame por estaciones contaminantes y fecha.
+    Mostrar por pantalla las estaciones y los contaminantes disponibles en el DataFrame.
+    Crear una función que reciba una estación, un contaminante y un rango de fechas y devuelva una serie con las emisiones del contaminante dado en la estación y rango de fechas dado.
+    Mostrar un resumen descriptivo (mínimo, máximo, media, etc.) para cada contaminante.
+    Mostrar un resumen descriptivo para cada contaminante por distritos.
+    Crear una función que reciba una estación y un contaminante y devuelva un resumen descriptivo de las emisiones del contaminante indicado en la estación indicada.
+    Crear una función que devuelva las emisiones medias mensuales de un contaminante y un año dados para todos las estaciones.
+    Crear un función que reciba una estación de medición y devuelva un DataFrame con las medias mensuales de los distintos tipos de contaminantes.
+'''
+

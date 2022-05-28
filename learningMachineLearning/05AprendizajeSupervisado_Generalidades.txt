@@ -11,7 +11,7 @@ Los algoritmos de APRENDIZAJE SUPERVISADO definen modelos que capturan las RELAC
 En el ejemplo anterior, podríamos considerar que el nivel de educación , la edad y el tiempo en la posición actual son mutuamente independientes, meintras que el salario y las probabilidades de ascenso podrían ser las salidaes que dependen de las entradas.
 
 ------------------------------------------------------------------------
-LOS ALGORITMOS DE APRENDIZAJE AUTOMÁTICO SUPERVISADO ANALIZAN UNA SERIE DE OBSERVACIONES Y TRATAN DE ESXPRESAR MATEMÁTICAMENTE LA DEPENDENCIA ENTRA LAS ENTRADAS Y LAS SALIDAS. ESTAS REPRESENTACIONES MATEMÁTICAS DE DEPENDENCIAS SON LOS   --------- MODELOS --------------
+LOS ALGORITMOS DE APRENDIZAJE AUTOMÁTICO SUPERVISADO ANALIZAN UNA SERIE DE OBSERVACIONES Y TRATAN DE EXPRESAR MATEMÁTICAMENTE LA DEPENDENCIA ENTRA LAS ENTRADAS Y LAS SALIDAS. ESTAS REPRESENTACIONES MATEMÁTICAS DE DEPENDENCIAS SON LOS   --------- MODELOS --------------
 ------------------------------------------------------------------------
 
 Las Variables dependientes son la que hacen que hacen dierenciarse a los problemas de CLASIFICACION de los problemas de REGRESION. Si las salidas o variables dependientes son discretas, finitas (llamadas CLASES o CATEGORÍAS), por ejemplo predecir si un empleado será ascendido o no, hablamos de problemas de CLASIFICACIÓN. Si las salidas son reultados continuos y generalmente no acotados, por ejemplo el salario en función de la experiencia, hablamos de problemas de REGRESIÓN.
@@ -41,7 +41,7 @@ Todos los algoritmos en Aprendizaje Supervisado son algoritmos complejos en MODE
     *MODELOS DE REGRESIÓN:
     Se usan para los problemas en las que la variable de salida es un valor real (un número, dinero, salario, peso o presión). Se suelen usar para predecir valores numéricos basados en observaciones de datos anteriores . (algunos de los algoritmos populares son: regresion lineal, multiple, polinomica, de vector de soporte, arbol de decision y random forest). Ejemplos:
 
-                - PREDICCION PRECIOS DE VIVIENDAS EN FUNCIO  DEL PRECIO DE MERCADO ACTUAL
+                - PREDICCION PRECIOS DE VIVIENDAS EN FUNCION DEL PRECIO DE MERCADO ACTUAL
                 - PREDICCION DEL TIEMPO (¿?)
                 - PREDICCIONES ECONOMICAS
                 - PREDICCION DE PRECIO DE LAS ACCIONES 

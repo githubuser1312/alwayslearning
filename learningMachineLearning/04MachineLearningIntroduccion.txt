@@ -14,7 +14,7 @@ Pasos que definen MACHINE LEARNING:
         * Ejecuta el modelo para generar puntuaciones de prueba
 
 Los pasos seguidos por MACHINE LEARNING son similares a los seguidos por DATA MINING y MODELADO PREDICTIVO.
-Ambos necesitan buscar en las datos para buscar patrones y ajustar las acciones del programa en consecuencia. 
+Ambos necesitan buscar en los datos para buscar patrones y ajustar las acciones del programa en consecuencia. 
 
 Ejemplos de aplicaciones de machine learning son:
                     * MARKETING PERSONALIZADO: cuando nos envían información sobre productos que nos pueden interesar a raiz de la información que hemos consultado en internet
@@ -38,11 +38,11 @@ Tipos de algoritmos de aprendizaje automático:
                             * MAQUINA DE VECTORES DE SOPORTE (SVM)
                             *etc.
         
-        * Algoritmos de APRENDIZAJE NO SUPERVISADO. Se usan cuando la información usada no está clasificada no etiquetada. El aprendizaje no supervisado estudia como los sistemas pueden inferir una función para describir una estructura oculta a partir de datos no etiquetados. El sistema no encuentra la salida correcta, pero explora los datos y puede extraer inferencias de conjuntos de datos para describit estructuras ocultas a partir de datos no etiquetados. Estos algoritmos no necesitan ser entrandos con los datos de resultados deseados. En cambio, utilizan un enfoque iterativo llamado APRENDIZAJE PROFUNDO (DEEP LEARNING) para revisar los datos y llegar a conclusiones. Los algoritos de aprendizaje no supervisados, también llamados REDES NEURONALES, se usan para tareas de procesamiento más complejas que los sistemas de aprendizaje supervisados, incluidos:
+        * Algoritmos de APRENDIZAJE NO SUPERVISADO. Se usan cuando la información usada no está clasificada no etiquetada. El aprendizaje no supervisado estudia como los sistemas pueden inferir una función para describir una estructura oculta a partir de datos no etiquetados. El sistema no encuentra la salida correcta, pero explora los datos y puede extraer inferencias de conjuntos de datos para describir estructuras ocultas a partir de datos no etiquetados. Estos algoritmos no necesitan ser entrandos con los datos de resultados deseados. En cambio, utilizan un enfoque iterativo llamado APRENDIZAJE PROFUNDO (DEEP LEARNING) para revisar los datos y llegar a conclusiones. Los algoritos de aprendizaje no supervisados, también llamados REDES NEURONALES, se usan para tareas de procesamiento más complejas que los sistemas de aprendizaje supervisados, incluidos:
                             * RECONOCIMIENTO DE IMAGENES
                             * CONVERSION DE VOZ A TEXTO
                             * LENGUAJE NATURAL
-        Estas redes neuronales funcionan combinando millones de ejemplos de datos de entrenamoento e identificando automáticamente correlaciones a menudo sutiles entre muchas variables. Una vez entrenado, el algoritmo puede usar su banco de asociaciones para interpretar nuevos datos. Estos algoritmos sólo se han vuelto viables en la era de los grandes datos (BIG DATA), ya que requieren grandes cantidades de datos de entrenamiento.
+        Estas redes neuronales funcionan combinando millones de ejemplos de datos de entrenamiento e identificando automáticamente correlaciones a menudo sutiles entre muchas variables. Una vez entrenado, el algoritmo puede usar su banco de asociaciones para interpretar nuevos datos. Estos algoritmos sólo se han vuelto viables en la era de los grandes datos (BIG DATA), ya que requieren grandes cantidades de datos de entrenamiento.
         La capacidad de aprendizaje automático no supervisado para descubrir similitudes y diferencias en la información lo convierten en la solución ideal para:
                             * ANALISIS EXPLORATORIO DE DATOS
                             * ESTRATEGIAS DE VENTA CRUZADA
@@ -56,7 +56,7 @@ Tipos de algoritmos de aprendizaje automático:
         
 
         MAS ADELANTE EN EL TEXTO DICE:
-        El algoritmo de aprendizaje de una RED NEURONAL puede ser SUPERVISADO o NO SUPERVISADO (parece que está en contradiccion con lo anterior??????). Se dice que la red neuronal aprende de forma supervisada si ya se conoce la salida deseada. Durante el aprendizaje, uno de los patrones de entrada se da a la capa de entrada de la red. Las redes neuronales que aprenden sin supervisión no tiene tales resultados objetivo. El aprendizaje NO supervisado es el Santo Grial del Deep Learning. EL objetivo del aprendizaje supervisado es crear sisteas generales que puedan ser entranados con pocos datos. Hoy en días, los modelos de aprendizaje profundo se entrenan a partir de grandes conjuntos de datos supervisados. Esto implica que para cada dato hay una etiqueta correspondiente.
+        El algoritmo de aprendizaje de una RED NEURONAL puede ser SUPERVISADO o NO SUPERVISADO (parece que está en contradiccion con lo anterior??????). Se dice que la red neuronal aprende de forma supervisada si ya se conoce la salida deseada. Durante el aprendizaje, uno de los patrones de entrada se da a la capa de entrada de la red. Las redes neuronales que aprenden sin supervisión no tiene tales resultados objetivo. El aprendizaje NO supervisado es el Santo Grial del Deep Learning. EL objetivo del aprendizaje supervisado es crear sistemas generales que puedan ser entrenados con pocos datos. Hoy en días, los modelos de aprendizaje profundo se entrenan a partir de grandes conjuntos de datos supervisados. Esto implica que para cada dato hay una etiqueta correspondiente.
 
         * Algoritmos de APRENDIZAJE AUTOMATICO SEMI SUPERVISADOS. Entre los anteriores, usan datos etiquetados (en pequeña cantidad, generalmente) y no etiquetados (en gran cantidad, generalmente) para el entrenamiento. Los sistemas que usan este método pueden mejorar considerablemente la precisión del aprendizaje. EL aprendizaje semi-supervisado se elige cuando los datos etiquetados adquiridos requieren recursos calificados y relevantes para capacitarlos / aprender de ellos. De lo contrario, la adquisición de datos no etiquetados generalmente no requiere recursos adicionales.
 
