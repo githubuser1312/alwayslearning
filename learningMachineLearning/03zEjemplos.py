@@ -94,11 +94,12 @@ d = pd.DataFrame({'Marca': ['Audi', 'Seat', 'VW', 'Fiat', 'Dacia', 'Reanult', 'M
 
 print(s.describe())#imprime unna tabla resumen
 print(d.describe())#imprime unna tabla resumen
-print(s.head())
+print(s.head())#imprime las primeras 5 filas
+print(s.tail())#imprime las útlimas 5 filas
 print(s.tail())
 print(d.head())
 print(d.tail())
-print(d.columns)
+print(d.columns) #imprime nombre columnas
 
 ####### Datos NaN (no hallados)
 
@@ -109,9 +110,9 @@ s2= pd.Series([20000,18000,32000,25000,14000],index=['P01','P02','P03','P04','P0
 s3= pd.Series(["auxiliar","conductor","supervisora","oficial","peon"],index=['P01','P02','P03','P05','P06'])
 d = pd.DataFrame({'Nombre':s1, 'Puesto':s3, 'Salario':s2})
 print(d)
-print(d.isnull())
-print(d.fillna(0))
-print(d.dropna())
+print(d.isnull()) #comprueba si hay valores NaN e imprime el DF (dificil de ver porque suele salir cortado)
+print(d.fillna(0))#reemplaza los NaN por el valor que aparezca entre parentesis
+print(d.dropna()) #elimina filas o columnas donde encuentre NaN
 
 ####### Borrar columnas de DataFrame
 
@@ -399,3 +400,104 @@ def evolucion_mensual(contaminante, año):
 
 # Evolución del dióxido de nitrógeno en 2019
 evolucion_mensual(8, 2019)
+
+
+
+
+'''Datos IBEX35 desde Mayo2021 a Mayo2022, tratarlos con pandas y escribir líneas de código con las que se procese la informacion del archivo.'''
+#importar bibliotecas
+import pandas as pd 
+import numpy as np 
+#archivos csv 
+enagas='learningMachineLearning/03zzENG35052021_0522.csv'
+endesa='learningMachineLearning/03zzELE35052021_0522.csv'
+repsol='learningMachineLearning/03zzREP35052021_0522.csv'
+#crear dataframes desde los csv
+df_enagas = pd.read_csv(enagas, sep=",", decimal='.')
+df_endesa = pd.read_csv(endesa, sep=",", decimal='.')
+df_repsol = pd.read_csv(repsol, sep=",", decimal='.')
+#visualizar el dataframe de una de las empresas
+print(df_enagas)
+#por si acaso, comprobar si los tres dataframes tienen las mismas columnas con los mismos nombres en el mismo orden, para que luego podamos concatenarlas con seguridad
+if np.array_equal(df_enagas.columns, df_endesa.columns) and np.array_equal(df_endesa.columns, df_repsol.columns):
+    print('Todos los DF tienen las mismas columnas con los mismos nombres en el mismo orden')
+else:
+    print('Hay alguna diferencia entre las columnas de unas y otras')
+#añadir una nueva columna al final con el nombre de la empresa
+df_enagas['Name'] = 'Enagas'
+df_endesa['Name'] = 'Endesa'
+df_repsol['Name'] = 'Repsol'
+#concatenar los 3 dataFrames y visualizar el nuevo dataFrame
+df_energeticas = pd.concat([df_enagas, df_endesa, df_repsol])
+print(df_energeticas)
+print(df_energeticas.head(10))
+print(df_energeticas.tail(10))
+#tipos de datos del dataframe
+print(df_energeticas.dtypes)
+#cantidad de datos
+print('Cantidad de datos del dataframe: ', df_energeticas.size)
+#convertir la columna de Date a formato fecha (datetime)
+df_energeticas['Date']=pd.to_datetime(df_energeticas['Date'], format='%Y-%m-%d')
+print(df_energeticas.dtypes)
+#comprobar si tenemos NaN en el nuevo Data Frame, devuelve False si no encuentra ningun valor
+print(df_energeticas.isnull().value.any())
+#no se ecuentra ningun NaN
+#al concatenar los indices de la primera columna no nos vale porque se repiten en las 3 listados que hemos concatenados (por ejemplo la fila con el numero 3 está en enagas, repsol y endesa). Cambiamos la columna de esos indices por una nueva con indices desde la primera fila hasta la ultima correlativos.
+#el numero de filas totales es de:
+filas=df_energeticas.shape[0]
+#creamos una lista con los que seran los nuevos índices:
+a=[]
+for i in range(0,filas):
+    a.append(i)
+#incluir una columnas con los que seran los nuevos indices
+df_energeticas.insert(0,'column1',a)
+print(df_energeticas)
+#designar la nueva columna como la columna de los indices
+df_energeticas=df_energeticas.set_index('column1')
+print(df_energeticas)
+#cambiamos el orden de algunas columnas
+df_energeticas = df_energeticas[['Date', 'Open', 'Close', 'High', 'Low', 'Adj Close', 'Volume','Name']]
+#Añadimos 2 columnas: 'Close-Open', 'High-Low'
+df_energeticas.insert(3,'Close-Open',df_energeticas.Close - df_energeticas.Open)
+df_energeticas.insert(6,'High-Low',df_energeticas.High - df_energeticas.Low)
+#visualizar los datos generales del df
+print(df_energeticas.describe())
+#no necesitaremos la columna de precio ajustado al cierre de la bolsa, eliminamos la columna Adj Close
+print(df_energeticas.columns)
+#ahora borramos la columna
+del df_energeticas['Adj Close']
+#comprobamos que se ha borrado
+print(df_energeticas.columns)
+#que valores tenia enagas el 14 de Junio del 2021
+df1 = df_energeticas[df_energeticas['Date'] == '2021-06-14']
+df2 = df1[df1['Name'] == 'Enagas']
+print(df2)
+#todos los valores destacables por compañia
+print(df_energeticas.groupby('Name').describe())
+#valores máximos de volumen de acciones ejecutadas en un día de cada compañia
+print(df_energeticas.groupby('Name')['Volume'].max())
+#total de acciones vendidas durante ese periodo por compañía
+print(df_energeticas.groupby('Name')['Volume'].sum())
+#porcentaje del total de acciones vendidas que pertenecen a Repsol
+print(df_energeticas[df_energeticas['Name'] == 'Repsol']['Volume'].sum() / df_energeticas['Volume'].sum() * 100)
+#Por empresa cual fue la mayor perdida en valor por accion
+print(df_energeticas.groupby('Name')['Close-Open'].min())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

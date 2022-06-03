@@ -32,7 +32,7 @@ Ver ejemplo en en el archivo 06Ejemplos.py
 ----------------------REGRESION LOGISTICA-----------------------------
 La clasificación es un área muy importante del aprendizaje automático supervisado. Un gran número de problemas importantes de aprendizaje automático caen dentro de este área. Hay muchos métodos de clasificación, y la regresión logística es uno de ellos.
 
-Se ouede aplicar la clasificación en muchos campos de la ciencia y la tecnología. Por ejemplo, los algoritmos de clasificación de texto se utilizan para separar los emails legítimos y o deseados, así como los comenterios positivos y negativos. Otros ejemplor involucran aplicaciones médicas, clasificación biologica, calificación crediticia, etc.
+Se puede aplicar la clasificación en muchos campos de la ciencia y la tecnología. Por ejemplo, los algoritmos de clasificación de texto se utilizan para separar los emails legítimos y o deseados, así como los comenterios positivos y negativos. Otros ejemplor involucran aplicaciones médicas, clasificación biologica, calificación crediticia, etc.
 
 Las tareas de reconocimiento de imágenes a menudo se representan como problemas de clasificación. Por ejemplo, se puede preguntar si una imagen representa un rostro humano o no, o si es un ratón o un elefante, o que dígito de cero a nueve representa, y así sucesivamente.
 
@@ -98,3 +98,14 @@ Indicadores de clasificadores binarios pueden ser los siguientes:
                     * VALOR PREDICTIVO NEGATIVO (verdaderos negativos / (verdaderos negativosfalsos negativos)).
                     * SENSIBILIDAD / RECUERDO / TASA POSITIVA VERDADERA (es la relación entre el número de verdaderos positivos y el número de positivos reales).
                     * ESPECIFIDAD / TASA NEGATIVA VERDADERA (es la relación entre el número de negativos verdaderos y el número de negativos reales).
+
+
+
+----------------------SUPOSICIONES SOBRE EL CONJUNTO DE DATOS-----------------------------
+A continuación revisamos los supuestos básicos que un modelo de regresión lineal hace con respecto a un conjunto de datos en el que se aplica:
+
+        * Relación Lineal: La relación entre las variables de respuesta y de característica debe ser lineal. La suposicion de linealidad se puede probar utilizando diagramas de dispersión. 
+
+        * Poca o ninguna Multicolinealidad: se supone que hay poca o ninguna multicolinealidad en los datos. La multicolinealidad ocurre cuando las características (o variables independientes) no son independientes entre sí.
+
+        * Homocedasticidad: describe una situación en la que el tñermino error (ruido o perturbación aleatoria en la relacion entre las variables independientes y la variable dependiente) es el mismo en todos los valores de las variables independientes. 

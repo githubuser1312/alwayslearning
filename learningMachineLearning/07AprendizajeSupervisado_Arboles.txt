@@ -1,0 +1,29 @@
+---------------- ARBOLES DE DECISION -----------------------------------
+Un arbol de decisión en Machine Learning es una estructura de árbol similar a un diagrama de flujo donde un nodo interno representa una característica (o atributo), la rama representa una regla de decisión y cada nodo hoja representa el resultado.
+
+Desde un punto de vista comercial, un árbol de decisión es el numero mínimo de preguntas de si / no que uno tiene  que hacer para evaluar la probabilidad de tomar una decisión correcta ( en la mayoria de los casos).Como método, nos permite abordar un problema de una manera estructurada y sistemática para llegar a ua conclusión lógica.
+
+El árbol de decisión divide la muestra en dos o más conjuntos homogéneos(hojas) en funciòn d elos diferenciadores más significativos en sus variables de entrada. Para elegir un diferenciador (predictor), el algoritmo considera todas las características y realiza una división binaria en ellas (para datos categóricos, divididos por categoría; para contínuo, se elige un umbral de corte). Luego elegirá el que tenga el menor coste (es decir, la mayor precisión) y se repite recursivamente, hasta que divida con éxito los datos en todas las hojas ( o alcance la profundidad máxima).
+
+Ventaja del árbol de decisión es que es fácil de entender y visualizar, requiere poca preparación de datos y puede manejar datos numéricos y categóricos.
+
+Como desventaja, el árbol de decisión puede crear árboles complejos que no se generalizan bien, y los ñarboles de decisión pueden ser inestables porque pequeñas variaciones en los datos pueden generar un árbol completamente diferente.
+
+--- Implementación de un árbol de decisión ----------------------------------
+
+Usamos la biblioteca SCIKIT-LEARN para construir el modelo y usar el conjunto de datos de iris que está incluido en esa biblioteca.
+
+El conjunto de datos contiene 3 tipos de plantas:
+            ** Iris setosa
+            ** Iris Versicolour
+            ** Iris Virginica
+
+Y sus atributos son:
+            Longitud del sépalo
+            Ancho del sépalo
+            Longitud del pétalos
+            Ancho del pétalos
+    
+Tenemos que predecir la clase de planta de iris en funciòn de sus atributos. Ver el desarrollo del ejemplo en el archivo 07zEjemplos.py
+
+(para aclaraciones, ver: https://pythondiario.com/2018/01/introduccion-al-machine-learning-4.html)

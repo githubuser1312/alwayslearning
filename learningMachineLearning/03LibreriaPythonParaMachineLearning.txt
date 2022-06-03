@@ -639,20 +639,24 @@ Estructuras de datos flexibles de Pandas:
 
 
 ==========ALGORITMOS DE APRENDIZAJE AUTOMATICO========================================================================================================================
+https://es.acervolima.com/seaborn-graficos-de-regresion/
+https://sitiobigdata.com/2019/02/01/open-source-machine-learning/
+https://manualestutor.com/ciencia-de-datos/que-es-svm/
+
 
 El aprendizaje automático (machine Learning) es una rama de la IA que desarolla técnicas mediante la implementación de una serie de algoritmos, que permiten aprender a los ordenadores (mediante algoritmos matemáticos se generalizan comportamientos con el fin de encontrar y reconocer patrones a partir de una información facilitada como ejemplo). Estos algoritmos de aprendizaje automático (que van desde redes bayesanas, redes neuronales artificiales, árboles de decisión, etc.) permiten predecir el comportamiento futuro de los datos a partir de lo que ha ocurrido en el pasado (de ahí su importancia como minería de datos).
 
-    SCIKIT-LEARN: es una de las principales librerías para trabajar con Machine Learning. Se centra en el modelado de datos y  no en su manipulación (para ello estan NUMPY y PANDAS). Tiene impolementados algoritmos de aprendizaje supervisado y no supervisado y por ello se puede utiliza para : clasificaciones, extracción de características, regresiones, agrupaciones, reduccion de dimensiones, selección de modelos o preprocesamiento.
+    SCIKIT-LEARN: es una de las principales librerías para trabajar con Machine Learning. Se centra en el modelado de datos y  no en su manipulación (para ello estan NUMPY y PANDAS). Tiene impolementados algoritmos de aprendizaje supervisado y no supervisado y por ello se puede utiliz para : clasificaciones, extracción de características, regresiones, agrupaciones, reduccion de dimensiones, selección de modelos o preprocesamiento.
 
         VENTAJAS:
-            - Se pueden extraer datos de  varios repositorios
+            - Se pueden extraer datos de varios repositorios
             - Tiene BBDD de muestra que ayudan con la practica en el uso de los algoritmos de aprendizaje automático.
 
         METODOS IMPLEMENTADOS EN SCIKIT-LEARN.
         Sus algoritmos se dividen en 6 módulos:
             * Clasificación (identificar a que categoría pertenece un objeto)
             * Regresión (analizar el vínculo entre una variable dependiente y una o varias variables independientes, para hallar una relación matemática, así se puede entender de que manera una variable dependiente es afectada por cambios en los demás factores)
-            * Clustering (consiste en agrupar objetos por similitud, en grupos o conjuntos de manera que los miemnreso del mismo grupo tenga características similares, es la tarea principal de la MINERIA DE DATOS EXPLORATORIA)
+            * Clustering (consiste en agrupar objetos por similitud, en grupos o conjuntos de manera que los miembros del mismo grupo tenga características similares, es la tarea principal de la MINERIA DE DATOS EXPLORATORIA)
             * Reducción de la dimensionalidad (reducir el numero de variables aleatorias a considerar)
             * Selección automática de modelos (comparar, validar y elegir parametros y modelos)
             * Preprocesamiento (extraccion de características y normalización)
@@ -747,8 +751,8 @@ El aprendizaje automático (machine Learning) es una rama de la IA que desarolla
     La salida de una operación o un conjunto de operaciones se alimenta como entrada en la siguiente.
     A pesar de que TensorFlow fue diseñada para redes neuronales, funciona bien para otras redes donde el cálculo se puede modelar como un gráfico de flujo de datos.
     TensorFlow también utiliza varias características de Theano, como la eliminación común y de subexpresión, la diferenciación automática, las variables compartidas y simbólicas.
-    Se pueden construir diferentes tipos de rees profundas utilizando TensorFlow como redes convolucionales, Autoencoders, RNTN, RNN, RBM, DBM/MLP, etc.
-    Sin embargo, no hay soporte para la conficguración de hiperparámetros en TensorFlow. Para esta funcionalidad podemos usar KERAS.
+    Se pueden construir diferentes tipos de redes profundas utilizando TensorFlow como redes convolucionales, Autoencoders, RNTN, RNN, RBM, DBM/MLP, etc.
+    Sin embargo, no hay soporte para la configuración de hiperparámetros en TensorFlow. Para esta funcionalidad podemos usar KERAS.
 
     Los tensores se usan como estructuras de datos básicas en el lenguaje TensorFlow. Los tensores representan los bordes de conexion en cualquier diagrama de flujo llamado Gráfico de Flujo de Datos. Los tensores se definen como una matriz o lista multidimensional, y se identifican con los siguientes 3 parámetros:
 
@@ -843,7 +847,7 @@ El aprendizaje automático (machine Learning) es una rama de la IA que desarolla
     
 
     KERAS: biblioteca de Python para desarrollar y evaluar modelos de aprendizaje profundo. Tiene un diseño minimalista que nos permite construir una red capa por capa, entrenarlo y ejecutarlo.
-    Envuelve las bibliotecas de Theano y TensorFlow y permite defiinir y entrenar modelos de redes neuronales en unas pocas líneas cortas de código.
+    Envuelve las bibliotecas de Theano y TensorFlow y permite definir y entrenar modelos de redes neuronales en unas pocas líneas cortas de código.
     Es una API de red neuronal de alto nivel. El código Keras es portátil, podemos immplementar una red neuronal en Keras usando Theano o TensorFlow como back-end sin ningun cammbio en el código.
     Keras está diseñado para comprender las técnicas de aprendizaje profundo, como la pcreación de capas en redes neuronales que mantienen los conceptos de formas y detalles matemáticos. La creación de framework puede ser de los dos tipos:
             * API secuencial

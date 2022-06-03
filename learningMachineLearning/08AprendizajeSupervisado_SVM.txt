@@ -1,0 +1,30 @@
+--------------- SVM o MAQUINAS VECTORIALES DE SOPORTE ----------------------------------------
+
+Son algoritmos de aprendizaje flexibles que se utlizan para CLASIFICACION y REGRESION. Por lo general, se usan en CALSIFICACION.
+
+Son muy populares porque pueden trabajar con variables contínuas y categóricas.
+
+La máquina de vectores de soporte es una representación de los datos de entrenamiento como puntos en el espacio separadps en categorías por una brecha clara que es lo mas amplia posible. Luego s asignan nuevos ejemplos en ese mismo espacio y se predice que pertenecen a una categoríua en función de que lado de la brecha caen.
+
+Desventaja es que no proporciona directamente estimaciones de probabilidad (se puede hacer pero con un costos cálculo).
+
+Un SVM es una representación de diferentes clases en un HIPERPLANO en el espacio multidimensional. El hiperplano será generado de manera iterativa por SVM para que el error pueda ser minimizado. El objetivo de SVM es dividir el conjunto de datos en clases para encontrar un HIPERPLANO MARGINAL MÁXIMO (MMH) que es el plano que está más alejado de las observaciones de entrenamiento. 
+
+Ver: https://manualestutor.com/ciencia-de-datos/que-es-svm/
+
+Parámetros de SVM: 
+        ** VECTORES DE SOPORTE: los puntos de datos que están más cerca del hiperplano se denominan vectores de soporte. La línea de separación se definirá con la ayuda de estos puntos de datos.
+
+        ** HIPERPLANO: es un plano de decisión o espacio que se divide entre un conjunto de objetos que tienen diferentes clases.
+
+        ** MARGEN: se puede definir como la brecha entre dos líneas en los puntos de datos mas cercanos de clases diferentes. Se puede calcular como la distancia perpendicualr desde la linea hasta los vectore de soporte. El margen grande se considera como un margen bueno y el margen pequeño se considera como margen malo.
+
+
+Pasos para conseguir un MMH ( el objetivo principal del SVM es dividir los conjuntos de datos en clases para encontrar un hiperplano marginal máximo):
+        ** SVM generará hiperplanos iterativamente que segregan las clases de la mejor manera.
+
+        ** SVM elegirá el hiperplano que separa las clases correctamente.
+
+Para implementar SVM ver ejemplo en el archivo 08zEjemplos.py)
+
+

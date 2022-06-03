@@ -29,7 +29,7 @@ notas=[]
 for i in subjects:
     n=input(f"¿Qué nota has sacado en {i} ?")
     notas.append(n)
-    #print(notas)
+    print(notas)
 for j in range(len(subjects)):
     print(f"En {subjects[j]} has sacado {notas[j]}")
 #solucion de la web
