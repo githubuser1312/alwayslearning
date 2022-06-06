@@ -862,6 +862,23 @@ El aprendizaje automático (machine Learning) es una rama de la IA que desarolla
             * Hacer las predicciones requeridas
             * Guardar el modelo
 
+PRUEBA DEL CURSO: Explica una caracteristica diferenciadora de las 4 librerias: Scikit-learn, Theano, TensorFlow, Keras
+MI RESPUESTA:
+A mi entender una característica diferenciadora es el nivel al que pertenece cada biblioteca: 
+•	Alto Nivel, la biblioteca que tiene más dependencia de otras bibliotecas pero que en contrapartida es más fácil de usar y más fácil de conseguir con menos líneas de código el resultado buscado.
+•	Bajo Nivel, la que no tiene o tiene menos dependencias de otras bibliotecas. Necesitan más preparación (conocimientos) para ser usadas y normalmente soportan a otras de nivel superior. Se pueden adaptar a más funcionalidades que las de alto nivel.
+Incluyo alguna pequeña característica más, como lenguaje de programación en el que están hechas o tipo de procesador en el que pueden correr, así como par que se suelen usar.
+
+Scikit-learn: es una librería de ALTO NIVEL. Está construida sobre NumPy, SciPy y Matplotlib. Se centra en el modelado (preparación) de datos y no en su manipulación. Tiene implementados algoritmos para aprendizaje Supervisado y No Supervisado. Se usa para: clasificaciones, extracción de características, regresiones, agrupaciones, reducción de dimensiones, selección de modelos o preprocesamiento. Además de tener sus propias BBDD de muestra, puede extraer datos de repositorios. Corre en CPU pero no corre en GPU. Esta programado en Python, C, C++ y Cython
+
+Keras: es otra librería de ALTO NIVEL. Se ejecuta sobre Tensor Flow y Theano. Se ejecuta tanto en CPU como GPU. Se usa para Redes Neuronales. Está programado en Python.
+
+Tensor Flow: es una librería de BAJO NIVEL. Usa Numpy para manipular tensores. Se usa para cálculo numérico complejo (tensores = arrays multidimensionales), en el campo de la investigación y Deep learning. Puede entrenar y ejecutar redes neuronales profundas. Se puede ejecutar en CPU y GPU. Escrito con Python, algo de C++ y CUDA.
+
+Theano: es una librería de BAJO NIVEL. Se usa para definir, evaluar y optimizar expresiones matemátics que usan arrays multidimensionales. Tensor Flow y Keras amplían la funcionalidad de Theano en aplicaciones de redes profundas. Se puede ejecutar en CPU y GPU. Está programado en Python.
+
+
+
 
 ==========MATPLOTLIB VISUALIZACION Y REPRESENTACION DE DATOS==============================================================================================================
 Python dispone de una gran numero de módulos para la representacion y visualización de los datos, pero en este curso veremos MATPLOTLIB (permite crear en 2D y 3D) pues tiene implementada la libreria pyplot muy semejante a Matlab.
@@ -889,14 +906,14 @@ P.e.:
 
         plt.ion() #así ponemos el modo interactivo en marcha y la consola nos permite seguir introduciendo código sin necesidad de cerrar la ventana del gráfico.
 
-Una particularidad que viene activada por defecto en pyplot es que nos permite dibujar varias gráficas en el mismo gráfico. Pero podemos cmabiarlo con hold() e ishold(). Si ishold() es False sólo se conservará la última gráfica dibujada, es decir, el último plot que se llamara desde el código.
+Una particularidad que viene activada por defecto en pyplot es que nos permite dibujar varias gráficas en el mismo gráfico. Pero podemos cambiarlo con hold() e ishold(). Si ishold() es False sólo se conservará la última gráfica dibujada, es decir, el último plot que se llamara desde el código.
 
-A la representación gráfica que se abre en una nueva ventana se le llama FIGURA (por fdefcto el nombre será "Figure#" #es un numero ordenado). Con la función figure() podemos hacer cambios según sus argumentos:
+A la representación gráfica que se abre en una nueva ventana se le llama FIGURA (por defecto el nombre será "Figure#" donde # es un numero ordenado). Con la función figure() podemos hacer cambios según sus argumentos:
         * num = None (si num=None las figuras se numeran automáticamente)
         * figsize=(w,h) (w,h) es una tupla en pulgadas que define el tamaño de la figuras
         * dpi=x (resolucion de la imagen)
         * facecolor='color' (color de fondo)
-        * edgecolor='color' (color del border alrededor del fondo)
+        * edgecolor='color' (color del borde alrededor del fondo)
         * frameon = 'True' or 'False' (permite establecer si dibujar la figura en marcos o no).
 (todos estos argumentos vienen con unos valores por defecto que podemos cambiar en el ARCHIVO DE RECURSOS para no tener que modificarlos constantemente)
 
@@ -915,7 +932,7 @@ Con Pyplot también se puede agregar TEXTO dentro de una figura para dar nombre 
 
 También se puede agregar una LEYENDA con la función:
         *legend() tiene un argumento loc que nos permite posicionar la leyenda en diferentes puntos del entorno del gráfico (upper, lower, centre, left, right†)
-Para usar esta función, previamente hemos tenido que definir el arguymento 'label' de la función del dibujo (por ejemplo en plot()) para establecer el literal de la leyenda a mostrar. 
+Para usar esta función, previamente hemos tenido que definir el argumento 'label' de la función del dibujo (por ejemplo en plot()) para establecer el literal de la leyenda a mostrar. 
 
         Ejemplo: (dos ventanas independientes en las que mostar gráficas):
 
@@ -936,7 +953,7 @@ Para usar esta función, previamente hemos tenido que definir el arguymento 'lab
                 plt.legend()#incluimos la leyenda
                 plt.legend(loc='upper left')#incluyendo esta linea, no hace falta la anterior
 
-Subgráficos en una misma figura. Si en ligar de superponer gráficos en una misma figura queremos mostrar los gráficos en una misma ventana pero que sean independientes podemos usar subplot(). Esta función nos permite dividir el área de dibujo por filas y columnas de manera que luego podamos dibujar en cada espacio definido previamente un gráfico individual.
+Subgráficos en una misma figura. Si en lugar de superponer gráficos en una misma figura queremos mostrar los gráficos en una misma ventana pero que sean independientes podemos usar subplot(). Esta función nos permite dividir el área de dibujo por filas y columnas de manera que luego podamos dibujar en cada espacio definido previamente un gráfico individual.
 
                 import numpy as np
                 import matplotlib.pyplot as plt

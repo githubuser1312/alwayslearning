@@ -488,16 +488,245 @@ print(df_energeticas.groupby('Name')['Close-Open'].min())
 
 
 
+#=================== MATPLOTLIB ============================================================================================================================================================================================================================
+
+
+'''Mostrar una grafica '''
+
+import pandas as pd 
+import matplotlib.pyplot as plt 
+
+plt.isinteractive()
+plt.plot([[1,2,3,24,20],[1,20,3,24,5],[1,2,3,24,35]])
+#como estamos en modo no interactivo no se muestra el gráfico hasta que llamemos a show() o draw() CADA VECTOR ES EL INDICE X (EN EL EJEMPLO X TIENE TRES VALORES: 0.0,1.0,2.0) Y LOS VALORES DENTRO DE CADA VECTOR SON LOS VALORES QUE ADQUIERE Y (ES DECIR EN NUESTRO EJEMPLO OBTENEMOS 5 GRAFICAS CON 3 VALORES DE Y CADA UNA). EN LA PRIMERA GRAFICA Y TIENE VALORES 1,1,1. EN LA GRAFICA 5 Y = 20, 5, 50
+#plt.plot([1,2,3,4,5]) en este caso x = 0,1,2,3,4 e y = 1,2,3,4,5   
+plt.show()
+plt.ion() #pasa a modo interactivo
+plt.title('Grafico de Pruebaaaaa')
+plt.xlabel('este es el eje X')
+plt.ylabel('este es el eje Y')
+
+
+'''Mostrar una grafica 2'''
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.arange(0, np.pi*2, 0.05)
+y = np.sin(x)
+plt.plot(x,y)
+plt.xlabel('ángulo')
+plt.ylabel('seno')
+plt.title('onda senoidal')
+plt.show()
 
 
 
+'''Abrir dos ventanas independientes con gráficas'''
+
+import matplotlib.pyplot as plt
+
+#creamos ventana 'listas' y ventana 'meses'
+plt.figure('listas', figsize=(8,6), dpi=80)
+plt.figure('meses',dpi=50)
+#listas
+lista1 = [11,2,3,5,6,23,55,12]
+lista2 = [1,2,8,3,5,25,1]
+lista3 = [10,5,3,5,23,23,45]
+#indicamos que active la venta 'listas' que vamos a usar
+plt.figure('listas')
+plt.plot(lista1)
+plt.plot(lista2)
+plt.figure('meses')
+plt.plot(lista1, label='Enero')
+plt.plot(lista2, label='Febrero')
+plt.plot(lista3, label='Marzo')
+plt.legend(loc='upper left')
+plt.show()
+
+
+'''Subgráficos 1 usando subplot'''
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+
+#definir periodo de la grafica
+periodo = 2
+#definir un array y la funcion senoidal
+x = np.linspace(1,10,1000)
+y = np.sin(2*np.pi*x/periodo)
+
+#creamos la figura
+plt.figure('Ejemplo de subplot')
+
+#indicar que divida el espacio en dos filas por dos columnas y se situe en el primer espacio
+plt.subplot(2,2,1)
+#dibujar la grafica en ese espacio en color rojo
+plt.plot(x,y,'r')
+#situarse en los otros 3 espacios y dibujar graficas en otros colores
+plt.subplot(2,2,2)
+plt.plot(x,y,'g')
+plt.subplot(2,2,3)
+plt.plot(x,y,'b')
+plt.subplot(2,2,4)
+plt.plot(x,y,'k')
+#mostrar en pantalla
+plt.show()
+
+
+'''Subgráficos 2 usando subplots (menos lineas de codigo que ele anterior)'''
+import matplotlib.pyplot as plt
+import numpy as np
+#variables
+x= np.arange(1,55)
+y = x*x
+z = np.sqrt(x)
+v = np.exp(x)
+w = np.log10(x)
+#definimos figura con subplots (en ejemplo anterior son dos lineas para definir esto)
+fig,a = plt.subplots(2,2) #un array de dos filas x 2 columnas
+
+#definimos la grafica que ira en cada subplot asi como su título
+a[0][0].plot(x, y)
+a[0][0].set_title('Cuadrado')
+a[0][1].plot(x,z)
+a[0][1].set_title('Raiz Cuadrada')
+a[1][0].plot(x,v)
+a[1][0].set_title('Exponencial')
+a[1][1].plot(x,w)
+a[1][1].set_title('Logaritmo')
+plt.show()
 
 
 
+'''Estilos de lineas en un grafico'''
+import matplotlib.pyplot as plt
+lista1 = [11,2,3,5,6,23,55,12]
+lista2 = [1,2,8,3,5,25,1]
+lista3 = [10,5,3,5,23,23,45]
+plt.plot(lista1, marker='x', linestyle='--', color='r',label='Enero')
+plt.plot(lista2, marker='o', linestyle='-', color='g', label='Febrero')
+plt.plot(lista3, marker='^', linestyle=':', color='c', label='Marzo')
+plt.legend(loc='upper left')
+plt.show()
+
+
+'''Estilos de lineas en un grafico 2'''
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(-3,3,30)
+y = x**2
+plt.plot(x,y,'r.')
+plt.show()
+
+#PODEMOS SIMPLIFICAR IMPORTANDO LA LIBRERIA PYLAB
+from pylab import *
+x = linspace(-3,3,30)
+y = x**2
+plot(x,y,'r.')
+show()
+
+'''Estilos de lineas en un grafico 3'''
+from pylab import * 
+plot(x, sin(x))
+plot(x,cos(x),'r-')
+plot(x,-sin(x), 'g--')
+show()
 
 
 
+'''Modificar cuadricula'''
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.arange(1,11)
+
+fig,axes = plt.subplots(1,3,figsize=(12,4))
+
+axes[0].plot(x, x**3, 'g', lw=2)
+axes[0].grid(True)
+axes[0].set_title('grid por defecto')
+
+axes[1].plot(x, np.exp(x), 'r')
+axes[1].grid(color='b', ls='-.', lw=0.25)
+axes[1].set_title('grid customizada')
+
+axes[2].plot(x,x)
+axes[2].set_title('sin grid')
+
+fig.tight_layout #ajusta los subplots para que se vean bien en la figure
+
+plt.show()
 
 
+'''Formatear ejes'''
+import matplotlib.pyplot as plt
+import numpy as np
 
+x = np.arange(1,5)
 
+fig,axes=plt.subplots(1,2,figsize=(10,4))
+
+axes[0].plot(x,np.exp(x))
+axes[0].plot(x,x**2)
+axes[0].set_title('Escala normal')
+axes[0].set_xlabel('x_axis')
+axes[0].set_ylabel('y_label')
+axes[0].xaxis.labelpad = 10
+
+axes[1].plt(x,np.exp(x))
+axes[1].plot(x,x**2)
+axes[1].set_yscale('log')
+axes[1].set_title('Escala logaritmica (y)')
+axes[1].set_xlabel('x_axis')
+axes[1].set_ylabel('y_label')
+
+plt.show()
+
+'''Grafico de barras'''
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+
+ax = fig.add_axes([0,0,1,1])
+
+langs = ['C', 'C+', 'Java', 'Pyhton', 'PHP']
+students = [23, 17, 35, 29, 12]
+
+ax.bar(langs, students)
+plt.show()
+
+'''Histograma'''
+from matplotlib import pyplot as plt
+import numpy as np
+fig,ax=plt.subplots(1,1)
+a = np.array([22,87,5,43,56,73,55,54,11,20,51,5,79,31,27])
+ax.hist(a,bins = [0,25,50,75,100])
+ax.set_title('histogram')
+ax.set_xticks([0,25,50,75,100])
+ax.set_xlabel('marks')
+ax.set_ylabel('Nº of students')
+plt.show()
+
+'''GRAFICO DE TARTA'''
+from matplotlib import pyplot as plt
+import numpy as np
+fig = plt.figure()
+ax = fig.add_axes([0,0,1,1])
+ax.axis('equal')
+langs = ['C','C+','Java','Python','PHP']
+students = [23,17,35,29,12]
+ax.pie(students, labels=langs, autopct='%1.2f%%')
+plt.show()
+
+'''SURFACE PLOT'''
+from matplotlib import pyplot as plt
+import numpy as np
+from mpl_toolkits import mplot3d
+x = np.outer(np.linspace(-2,2,30), np.ones(30))
+y = x.copy().T #transpose
+z = np.cos(x**2 + y**2)
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+ax.plot_surface(x,y,z,cmap='viridis',edgecolor='none')
+ax.set_title('Surface plot')
+plt.show()
