@@ -4,9 +4,9 @@ Son algoritmos de aprendizaje flexibles que se utlizan para CLASIFICACION y REGR
 
 Son muy populares porque pueden trabajar con variables contínuas y categóricas.
 
-La máquina de vectores de soporte es una representación de los datos de entrenamiento como puntos en el espacio separadps en categorías por una brecha clara que es lo mas amplia posible. Luego s asignan nuevos ejemplos en ese mismo espacio y se predice que pertenecen a una categoríua en función de que lado de la brecha caen.
+La máquina de vectores de soporte es una representación de los datos de entrenamiento como puntos en el espacio separadps en categorías por una brecha clara que es lo mas amplia posible. Luego se asignan nuevos ejemplos en ese mismo espacio y se predice que pertenecen a una categoríua en función de que lado de la brecha caen.
 
-Desventaja es que no proporciona directamente estimaciones de probabilidad (se puede hacer pero con un costos cálculo).
+Desventaja es que no proporciona directamente estimaciones de probabilidad (se puede hacer pero con un costoso cálculo).
 
 Un SVM es una representación de diferentes clases en un HIPERPLANO en el espacio multidimensional. El hiperplano será generado de manera iterativa por SVM para que el error pueda ser minimizado. El objetivo de SVM es dividir el conjunto de datos en clases para encontrar un HIPERPLANO MARGINAL MÁXIMO (MMH) que es el plano que está más alejado de las observaciones de entrenamiento. 
 

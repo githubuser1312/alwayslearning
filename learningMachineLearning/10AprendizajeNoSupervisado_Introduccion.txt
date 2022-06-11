@@ -1,0 +1,75 @@
+------- APRENDIZAJE NO SUPERVISADO ----------------------------------
+
+En el Aprendizaje No Supervisado queremos conocer la estructura de nuestros datos sin usar etiquetas proporcionadas explicimente. La idea es exponer las máquinas a grandes volumenses de datos variables y permitirles aprender de esos daos para proporcionar informacion que antes era desconocida e identificar patrones ocultos. La maquina necesita ser programada para aprender por si misma.
+
+Las tareas más comunes dentro del aprendizaje No supervisado son:
+
+                ** AGRUPACION
+                ** APRENDIZAJE DE REPRESENTACIONES
+                ** ESTIMACION DE DENSIDAD
+
+
+MAPA CONCEPTUAL EN APRENDIZAJE NO SUPERVISADO:
+
+                Medidas de rendimiento:
+                        INTRA-CLUSTER
+                        INTER-CLUSTER
+            
+                Algoritmos:
+                        CLUSTERING
+                        BICLUSTERING
+                        MANIFOLDS
+                        ANALISIS DE LA CESTA 
+
+
+Las categorías de aprendizaje NO supervisado son:
+
+                * Clustering (es de los más comunes). Implica organizar los datos no etiquetados en grupos similares llamados clusteres. Por lo tanto cluster es una agrupacion de elementos similares.
+
+                * Detección de Anomalías. Es el método para identificar elementos raros, eventos u observaciones que difieren significativamente de la mayoría de los datos. La detección de anomalias se usa frecuentemente en el fraude bancario y la deteccion de errores médicos.
+
+                *REDES NEURONALES
+
+Algunas aplicaciones de los algoritmos de aprendizaje NO supervisado:
+
+                * Detección de fraudes
+                * Detección de malware
+                * Identificacion de errores humanos durante la entrada de datos
+                * Realización de análissi precisos de la cesta, etc
+
+Algoritmos de aprendizaje NO supervisado (sólo algunos):
+
+                * Algoritmos de clustering:
+
+                        ** Algoritmos basados en centroides
+                        ** Algoritmos basados en conectividad
+                        ** Algoritmos basados en densidad 
+                        ** Probabilistico
+                        ** Reduccion de dimensionalidad
+                        ** Redes Neuronales / Aprendizaje Profundo
+                
+                * Análisis de componentes principales (PCA): es un procedimiento estadístico que utiliza una transformación ortogonal para convertir un conjunto de observaciones de variables posiblemente correlacionadas en un conjunto de valores de variables no correlacionadas linealmente llamadas componentes principales. Algunas de las aplicaciones de PCA incluyen compresion y simplificacion de datos para facilitar el aprendizaje y la visualizacion. Hay que tener en cuenta que el conocimiento del dominio es muy importante al elegir si nos interesa aplicar PCA o no. No es adecuado en casos donde los datos son ruidosos, porque todos los componentes de PCA tienen una variacion bastante alta.
+
+                * Descomposición de valor singular (SVD). En álgebra lineal SVD es una factorización de una matriz compleja real. Para una matriz m * n M dada, existe una descomposición tal que M = UepsilonV  donde U y V son matrices unitarias y epsilon es una matriz diagonal.
+                PCA es en realidad una aplicacion simple de SVD. En la visión por computadora, los algoritmos de reconocimiento de la primera cara utilizaban PCA y SVD para representar caras como una combinación lineal de 'caras propias'. Después se llevaba a cabo una reducción de dimensiones y se hacían coincidir ñlas caras con las identidades mediante métodos simples. Aunque los métodos modernos son más sofisticados, muchos aún dependen de técnicas similares.
+
+                *Análisis de componentes independientes (ICA)
+                Es una técnica estadística para revelar factores ocultos que subyacen en conjuntos de variables aleatorias, medidas o señales. ICA define un modelo generativo para los datos multivariable observados, que generalmente se proporciona como una gran base de datos de muestras. En el modelo, se supone que las vaiables de datos son mezclas lineales de algunas variables latentes desonocidas, el sistema de mezcla también es desconocido. se supone que las variables latentes no son gaussianas y son mutuamente independientes, y se denominan componentes independientes de los datos observados. ICA está relacionado con PCA, pero es una técnica mucho más poderosa que es capaz de encontrar los factores subyacentes de las fuentes cuando los métodos clásicos fallan. Sus aplicaciones incluyen imágenes digitales, bases de datos de documentos, indicadores económicos y mediciones psicométricas.
+
+MEDIDAS DE RENDIMIENTO ----------------------------------------------
+
+Cada técnica de Aprendizaje No supervisado (clustering, deteccion de anomalías y redes neuronales), necesita su propio método para evaluar el rendimiento.
+
+En el caso del clustering una forma sería:
+                1º Determinar como de cerca está cada cliente dentro de cada cluster de cada otro cliente en su mismo clúster (distancia INTRA-CLUSTER)
+                2º Determinar como de cerca está cada grupo de clinetes de otros clústeres (distance INTER-CLUSTER)
+                3º Comparar ambas distancias. Los modelos que producen distancias intra-cluster relativamente pequeñas y distancias inter-cluster relativamente grandes se evalúan favorablemente porque parecen estar haciendo un buen trabajo de agrupacion de clientes con características discretas.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,129 @@
+------------------- CLUSTERING -------------------------------------------
+
+El uso de un algoritmo de agrupacion en clústeres significa que le dará al algoritmo una gran cantidad de datos de entrada sin etiquetas y le permitirá encontrar cualquier agrupación que pueda en los datos.
+
+
+PROCES DE ALGORITMO DE CLUSTERING:
+
+DATOS <---> SELECCION DE CARACTERÍSTICAS /EXTRACCIÓN <---> ALGORITMO DE CLUSTERING / AJUSTE DE SELECCION <---> VALIDACION DEL CLUSTER <---> INTERPRETACION DE RESULTADOS <---> CONOCIMIENTO
+
+
+La agrupación en clusters se usa para cosas como la ingeniería de características o el descubirmiento de patrones.
+
+Cuando se comienza con datos de los que nos sabemos nada, la agrupacion en clústeres puede ser un buen lugar para obtener información.
+
+TIPOS DE ALGORITMOS DE CLUSTERING -------------------------------------------------
+
+* BASADO EN DENSIDAD
+Los datos se agrupan en áreas de altas concentraciones de puntos de datos rodeadas por áreas de bajas concentraciones de puntos de datos. Básicamente, el algoritmo encuentra los lugares que son densos con puntos de datos y llama a esos clústeres.
+Los algoritmos de agrupación en clústeres de ese tipo no intentan asignar valores atípicos a los clústeres, por lo que se ignoran.
+
+* BASADO EN DISTRIBUCION
+Todos los puntos de datos se consideran partes de un clúster en función de la probabilidad de que pertenezcan a un grupo determinado.
+Hay un punto central y a medida que aumenta la distancia entre un punto de datos y el centro, la probabilidad de que forme parte de ese grupo disminuye.
+Si no estamos seguros de como podría ser la distribución de sus datos, deberíamos considerar un tipo diferente de algoritmo.
+
+* BASADO EN CENTROIDES
+Es la más popular. Es un poco sensible a los parámetros iniciales, pero es rápido y eficiente.
+Estos tipos de algoritmos separan los puntos de datos en función de múltiples centroides en los datos. Cada punto de datos se asigna a un grupo en función de su distancia al cuadrado del centroide. 
+
+* DE BASE JERÁRQUICA
+Se usa normalmente en datos jerárquicos, como se obtendría de una base de datos de empresa o taxonomía. Construye un árbol de grupos para que todo esté organizado de arriba hacia abajo.
+Esto es más restricitivo que los otros tipos de clústeres, pero es perfecto para tipos específicos de conjuntos de datos.
+
+CUANDO USAR LA AGRUPACION EN CLUSTERES -------------------------------------------------------
+
+Dependerá de como se vean nuestros datos.
+
+Es posible que queramos utilizar la agrupación en clusteres cuando intentemos realizar una detección de anomalías para intentar encontrar valores atípicos en los datos (valores fuera de los límites de los clusteres)
+
+Si no estamos seguros de qué funciones usar para un modelo de aprendizaje automático, la agrupación en clústeres descubre patrones que podemos usar para descubrir qué se destaca en los datos.
+
+Es especialmente útil para explorar datos de los que no se sabe nada. Puede llevar algún tiempo averiguar qué tipo de algoritmo de agrupación en clústeres funciona mejor, pero cuando lo hagamos, obtendremos información muy valiosa sobre los datos. Es posible que encontremos conexiones en las que nunca hubiéramos pensado.
+
+En el mundo real se usan para:
+    - Detección de fraudes de seguros, 
+    - Categorización de libros en bibliotecas
+    - Segmentación de clientes en marketing
+    - Análisis de Terremotos
+    - Planificación urbana.
+
+
+ALGORITMO DE AGRUPACION EN CLUSTERS DE K-MEANS -------------------------------------------------------
+
+Es el algorimto de agrupación mas usado.
+
+Es un algorimto basado en centroide y el algoritmo de aprendizaje no supervisado más simple.
+
+Este algoritmo intenta minimizar la varianza de los puntos de datos dentro de un grupo. También es la forma en que la mayoría de las personas conocen el aprendizaje automático sin supervisión.
+
+K-means funciona mejor en conjuntos de datos más pequeños porque itera sobre todos los puntos de datos.Eso significa que tardará más tiempo en clasificar los puntos de datos.
+
+Debido a la forma en que K-means agrupa los puntos de datos, no se escala bien.
+
+Ver ejemplo en 11zEjemplos.py
+
+
+ALGORITMO DE AGRUPACION EN CLUSTERES DBSCAN -----------------------------------------------------------
+
+DBSCAN significa agrupación espacial basada en densidad de aplicaciones con ruido.  Es un algoritmo de agrupamiento basado en densidad, a diferencia de k-means.
+
+Es un buen algoritmo para encontrar esquemas en un conjunto de datos. Encuentra grupos de forma arbitraria en función de la densidad de puntos de datos en diferentes regiones. Separa las regiones por áreas de baja densidad para que pueda detectar valores atípicos entre los grupos de alta densidad.
+
+Este algoritmo es mejor que K-means cuando se trata de trabajar con datos de formas extrañas.
+
+DBSCAN utiliza dos parámetros para determinar cómo se definen los grupos:
+
+        * miniPts (el número mínimo de puntos de datos que deben agruparse para que un área se considere de alta densidad)
+        * eps (la distancia utilizada para determinar si un punto de datos está en el mismo área que otros puntos de datos).
+
+La elección  de los parámetros iniciales correctos es fundamental para que este algoritmo funcione.
+
+
+Ver ejemplo en 11zEjemplos.py
+
+En el segundo ejemplo se menciona como a veces se usa DBSCAN para eliminar el ruido, por ejemplo, antes de aplicar la clasificación basada en SVM, para encontrar mejores límites de decisión.
+
+
+ALGORITMO DEL MODELO DE MEZCLA GAUSSIANA -----------------------------------------------------------
+
+Uno de los problemas con K-means es que los datos deben seguir un formato circular. La forma en que K-means calcula la distancia entre puntos de datos tiene que ver con una ruta circular, por lo que los datos no circulares no se agrupan correctamente.
+
+Este problema lo solucionan los modelos de mezcla gaussianos. No necesitan datos de forma circular para que funcione bien.
+
+Este modelo usa multiples distribuciones gaussianas para ajustar datos de forma arbitraria.
+
+Hay varios modelos gaussianos únicos que actúan como capas ocultas en este modelo híbrido. El modelo calcula la probabilidad de que un punto de datos pertenezca a una distribución gaussiana específica y ese es el grupo en el que se ubicará.
+
+Ver ejemplo en 11zEjemplos.py
+
+
+
+ALGORITMO BIRCH                     -----------------------------------------------------------
+
+El algoritmo BALANCE ITERATIVE REDUCING AND CLUSTERING USING HIERARCHIES funciona mejor en conjuntos de datos grandes como K-means.
+
+Divide los datos en pequeños resúmenes que se agrupan en lugar de los puntos de datos originales. Los resúmenes contienen tanta información de distribución sobre los puntos de datos como sea posible.
+
+Este algoritmo se usa habitualmente con otros algortimos de agrupamiento porque las otras técnicas de agrupamiento se pueden usar en los resúmenes generados por BIRCH.
+
+La principal desventaja de BIRCH es que sólo funciona con valores de datos numéricos. No se puede usar esto para valores categóricos a menos que realice algunas transformaciones de datos.
+
+Al entrenar el modelo utilizando BIRCH se crea una estructura de árbol con suficientes datos para asignar rápidamente cada punto de datos a un cluster. Al almacenar todos los puntos de datos en el árbol, este algortmo permite el uso de memoria limitada mientras se trabaja en un conjunto de datos muy grande.
+
+El algoritmo BIRCH comienza con un valor de umbral, luego aprende de los datos y luego inserta puntos de datos en el árbol. En el proceso, si se sale de la memoria mientras aprende de los datos, aumenta el valor umbral y repite el proceso.
+
+Ver ejemplo en 11zEjemplos.py
+
+
+ALGORITMO AFFINITY PROPAGATION                     -----------------------------------------------------------
+
+Este algoritmo de agrupación en clusteres es completamente diferente de los demás en la forma en que agrupa los datos.
+Cada punto de datos se comunica con todos lso demás puntos de datos para que los demás sepan cómo de similares son y eso comienza a revelar los grupos en los datos. No hay que decirle a este algoritmo cuántos clústeres esperar en los parámetros de inicialización.
+
+A medida que se envían mensajes entre puntos de datos, se encuentran conjuntos de datos llamados ejemplos y representan los grupos.
+Un ejemplar se encuentra después de que los puntos de datos se hayan transmitido mensajes entre sí y formen un consenso sobre qué punto de datos representa mejor a un grupo.
+
+Cuando no estemos seguros de cuántos clústeres esperar, como ocurre en un problema de visión por computadora, este es un gran algoritmo para comenzar.
+
+Ver ejemplo en 11zEjemplos.py

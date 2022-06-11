@@ -2,10 +2,10 @@ MODELOS LINEALES--------------
 
 Estos modelos utilizan una fórmula simple para encontrar la línea que mejor se ajuste a traves de puntos de datos y así poder predecir valores futuros.
 
-Los modelos lineales son considerados la "vieja escuela" (a menudo no son tan predictivos como los nuevos algoritmos, pero son más ápidos y sencillos).
+Los modelos lineales son considerados la "vieja escuela" (a menudo no son tan predictivos como los nuevos algoritmos, pero son más rápidos y sencillos).
 
 ----------------------REGRESION LINEAL SIMPLE-----------------------------
-Predice uNa respuesta usando una sóla característica. Se supone que las dos variables (la independiente y la dependiente) tienen una relación lineal.
+Predice una respuesta usando una sóla característica. Se supone que las dos variables (la independiente y la dependiente) tienen una relación lineal.
 x = [x_1,......,x_n] es el vector de características y y = [y_1,......,y_n] es el vector de respuestas para n observaciones. Los datos se pueden representar en un gráfico de dispersión y la tarea es la de encontrar un línea que se ajuste lo mejor posible al diagrama de dispersion para que podamos predecir una respuesta para cualquier valor nuevo. Esa línea se llama LINEA DE REGRESION. 
 La ecuación de la linea de regresión es:
 
@@ -22,7 +22,7 @@ para ello habrá que encontrar a y b que hagan que ese error sea el menor posibl
 Ver ejemplo en en el archivo 06Ejemplos.py
 
 ----------------------REGRESION LINEAL MULTIPLE-----------------------------
-Este tipo de regresión intenta modelar la relación entre dos o más características y una respuesta ajustando una ecucación lineal a los daots observados (es una extensión de la regresión lineal).
+Este tipo de regresión intenta modelar la relación entre dos o más características y una respuesta ajustando una ecucación lineal a los datos observados (es una extensión de la regresión lineal).
 En este caso consideramos un conjunto de datos con p características ( o variables independientes) y una respuesta (o variable dependiente). El conjunto de datos contiene n filas/observaciones.
 
 Sea X (matriz de características) = una matriz de tamaño n x p donde x_{ij} denota los valores de la característica j-ésima para la observación i-ésima.
@@ -32,25 +32,25 @@ Ver ejemplo en en el archivo 06Ejemplos.py
 ----------------------REGRESION LOGISTICA-----------------------------
 La clasificación es un área muy importante del aprendizaje automático supervisado. Un gran número de problemas importantes de aprendizaje automático caen dentro de este área. Hay muchos métodos de clasificación, y la regresión logística es uno de ellos.
 
-Se puede aplicar la clasificación en muchos campos de la ciencia y la tecnología. Por ejemplo, los algoritmos de clasificación de texto se utilizan para separar los emails legítimos y o deseados, así como los comenterios positivos y negativos. Otros ejemplor involucran aplicaciones médicas, clasificación biologica, calificación crediticia, etc.
+Se puede aplicar la clasificación en muchos campos de la ciencia y la tecnología. Por ejemplo, los algoritmos de clasificación de texto se utilizan para separar los emails legítimos y no deseados, así como los comenterios positivos y negativos. Otros ejemplos involucran aplicaciones médicas, clasificación biologica, calificación crediticia, etc.
 
 Las tareas de reconocimiento de imágenes a menudo se representan como problemas de clasificación. Por ejemplo, se puede preguntar si una imagen representa un rostro humano o no, o si es un ratón o un elefante, o que dígito de cero a nueve representa, y así sucesivamente.
 
-La regresión logística es una técnica de clasificación fundamental. Pertenece al grupo de los clasificadores lineales y es algo similar a la regresión polinómica y lineal. La regresión logística es rápida y relativamente sencilla, y es necesario interpretar los resultados. Aunque es esencialmente un método para la clasificación binaria, tambiéns e puede aplicar a problemas multiclase.
+La regresión logística es una técnica de clasificación fundamental. Pertenece al grupo de los clasificadores lineales y es algo similar a la regresión polinómica y lineal. La regresión logística es rápida y relativamente sencilla, y es necesario interpretar los resultados. Aunque es esencialmente un método para la clasificación binaria, también se puede aplicar a problemas multiclase.
 
-Para comprender la regresión logística necesitamos comproender la función SIGMOIDE ( https://es.wikipedia.org/wiki/Funci%C3%B3n_sigmoide )y la función LOGARITMO NATURAL ( https://es.wikipedia.org/wiki/Logaritmo_natural ).
+Para comprender la regresión logística necesitamos comprender la función SIGMOIDE ( https://es.wikipedia.org/wiki/Funci%C3%B3n_sigmoide )y la función LOGARITMO NATURAL ( https://es.wikipedia.org/wiki/Logaritmo_natural ).
 
 La FUNCION SIGMOIDE tiene valores muy cercanos a 0 o 1 en la mayor parte de su dominio. Este hecho lo hace adecuado para su aplicación en métodos de clasificación.
 
-La funciónlogaritmo natural se represetna como ln, sin embargo en Python: math.log(x) y np.log(x) representan el logaritmo natural de x.
+La función logaritmo natural se representa como ln, sin embargo en Python: math.log(x) y np.log(x) representan el logaritmo natural de x.
 
 Veamos la regresión logística aplicada a la clasificación binaria. Cuando se implementa la regresión logística de alguna variable dependiente y en el conjunto de variables independientes x = (x1, ....., xr), donde r es el número de predictores (o entradas), se comienza con los valores conocidos de los predictores xi y la correspondiente respuesta real (o salida) yi para cada observación i = 1, .... ,n.
-La meta es encintrar la función de regresión logística p(x) tal que las respuestas predichas p(xi) estén lo más cerca posible de la respuesta real yi para cada observación i = 1, ...... ,n.
+La meta es encontrar la función de regresión logística p(x) tal que las respuestas predichas p(xi) estén lo más cerca posible de la respuesta real yi para cada observación i = 1, ...... ,n.
 -------------------------------------------------------------------------------------------
 IMPORTANTE: LA RESPUESTA REAL SÓLO PUEDE SER 0 o 1 EN PROBLEMAS DE CLASIFICACION BINARIA. ESTO SIGNIFICA QUE CADA p(xi) DEBE ESTAR CERCA DE 0 o 1. Por eso es conveniente utilizar la función SIGMOIDE.
 -------------------------------------------------------------------------------------------
 
-Una vez que tengamos la función de regresión logística p(x), podeos usarla para predecir las salidas de nuevas entradas, asumiendo que la dependencia matemática subyacente no ha cambiado.
+Una vez que tengamos la función de regresión logística p(x), podemos usarla para predecir las salidas de nuevas entradas, asumiendo que la dependencia matemática subyacente no ha cambiado.
 
 La regresión logística es un CLASIFICADOR LINEAL por lo que se usa una función lineal:
 
@@ -108,4 +108,4 @@ A continuación revisamos los supuestos básicos que un modelo de regresión lin
 
         * Poca o ninguna Multicolinealidad: se supone que hay poca o ninguna multicolinealidad en los datos. La multicolinealidad ocurre cuando las características (o variables independientes) no son independientes entre sí.
 
-        * Homocedasticidad: describe una situación en la que el tñermino error (ruido o perturbación aleatoria en la relacion entre las variables independientes y la variable dependiente) es el mismo en todos los valores de las variables independientes. 
+        * Homocedasticidad: describe una situación en la que el termino error (ruido o perturbación aleatoria en la relacion entre las variables independientes y la variable dependiente) es el mismo en todos los valores de las variables independientes. 

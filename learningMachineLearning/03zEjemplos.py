@@ -520,7 +520,6 @@ plt.title('onda senoidal')
 plt.show()
 
 
-
 '''Abrir dos ventanas independientes con gráficas'''
 
 import matplotlib.pyplot as plt
@@ -684,14 +683,10 @@ plt.show()
 
 '''Grafico de barras'''
 import matplotlib.pyplot as plt
-
 fig = plt.figure()
-
 ax = fig.add_axes([0,0,1,1])
-
 langs = ['C', 'C+', 'Java', 'Pyhton', 'PHP']
 students = [23, 17, 35, 29, 12]
-
 ax.bar(langs, students)
 plt.show()
 
@@ -730,3 +725,159 @@ ax = plt.axes(projection='3d')
 ax.plot_surface(x,y,z,cmap='viridis',edgecolor='none')
 ax.set_title('Surface plot')
 plt.show()
+
+
+
+'''De la masterclass'''
+import matplotlib.pyplot as plt
+a=[3,4,5,6]
+b=[5,6,3,4]
+plt.plot(a,b)
+plt.show()
+
+#cammbiar el color de la grafica
+import matplotlib.pyplot as plt
+a=[3,4,5,6]
+b=[5,6,3,4]
+plt.plot(a,b, color='green')
+plt.show()
+
+import matplotlib.pyplot as plt
+a=[3,4,5,6]
+b=[5,6,3,4]
+plt.plot(a,b, color='purple')
+plt.show()
+
+#agregamos ancho de linea
+import matplotlib.pyplot as plt
+a=[3,4,5,6]
+b=[5,6,3,4]
+plt.plot(a,b, color='purple', linewidth=0.5)
+plt.show()
+
+#agregar etiqueta
+import matplotlib.pyplot as plt
+a=[3,4,5,6]
+b=[5,6,3,4]
+plt.plot(a,b, color='purple', linewidth=0.5, label='Valores Random')
+plt.legend()
+plt.show()
+
+#definir ejes, titulos, malla
+import matplotlib.pyplot as plt
+x1 = [3,4,5,6]
+y1 = [5,6,7,2]
+x2 = [2,5,9]
+y2 = [3,4,9]
+plt.plot(x1,y1, label='Valores1', linewidth=3, color ='orange')
+plt.plot(x2,y2, label='Valores2', linewidth=4, color='green')
+plt.legend()
+plt.title('Grafico con dos lìneas')
+plt.xlabel('Eje X')
+plt.ylabel('Eje Y')
+plt.grid()
+plt.show()
+
+#diagramas de barras
+import matplotlib.pyplot as plt
+x1 = [3,4,5,6]
+y1 = [5,6,7,2]
+plt.bar(x1,y1, label='Valores1', linewidth=3, color ='orange')
+plt.legend()
+plt.title('Grafico con Barras')
+plt.xlabel('Eje X')
+plt.ylabel('Eje Y')
+plt.grid()
+plt.show()
+
+#diagramas de histograma
+import matplotlib.pyplot as plt
+x1 = [3,4,5,6]
+y1 = [5,6,7,2]
+plt.hist(x1,y1, label='Valores1', color ='orange')
+plt.legend()
+plt.title('Histograma')
+plt.xlabel('Eje X')
+plt.ylabel('Eje Y')
+plt.grid()
+plt.show()
+
+#dispersion
+import matplotlib.pyplot as plt
+x1 = [3,4,5,6]
+y1 = [5,6,7,2]
+x2 = [2,5,9]
+y2 = [3,4,9]
+plt.scatter(x1,y1, label='Valores1', linewidth=3, color ='red')
+plt.scatter(x2,y2, label='Valores2', linewidth=4, color='purple')
+plt.legend()
+plt.title('Puntos de dispersion')
+plt.xlabel('Eje X')
+plt.ylabel('Eje Y')
+plt.grid()
+plt.show()
+
+#diagrama circular
+import matplotlib.pyplot as plt
+import pandas as pd
+
+fbk=['facebook',2449,True,2006]
+twt=['Twitter',339,False,2006]
+ig=['Instagram',1000,True,2006]
+yt=['Youtube',2000,False,2005]
+lkn=['Linkedin',663,False,2003]
+wsp=['Whatsapp',1600,True,2009]
+
+lista_rrss = [fbk,twt,ig,yt,lkn,wsp]
+
+df_rrss= pd.DataFrame(lista_rrss, columns=['Nombre','Cantidad', 'Es_Meta','Año'])
+print(df_rrss)
+
+plt.plot(df_rrss['Nombre'],df_rrss['Cantidad'])
+plt.title('Estudio Redes Sociales (2022)')
+plt.xlabel('Millones de usuarios')
+plt.ylabel('Redes Sociales')
+plt.show()
+
+plt.scatter(df_rrss['Nombre'],df_rrss['Cantidad'])
+plt.title('Estudio Redes Sociales (2022)')
+plt.xlabel('Millones de usuarios')
+plt.ylabel('Redes Sociales')
+plt.show()
+
+plt.bar(df_rrss['Nombre'],df_rrss['Cantidad'])
+plt.title('Estudio Redes Sociales (2022)')
+plt.xlabel('Millones de usuarios')
+plt.ylabel('Redes Sociales')
+plt.show()
+
+
+df_rrss_ordeando = df_rrss.sort_values('Cantidad', ascending=False)
+plt.bar(df_rrss_ordeando['Nombre'],df_rrss_ordeando['Cantidad'])
+plt.title('Estudio Redes Sociales (2022)')
+plt.xlabel('Millones de usuarios')
+plt.ylabel('Redes Sociales')
+plt.show()
+
+df_rrss_ordenado = df_rrss.sort_values('Cantidad', ascending=False)
+plt.bar(df_rrss_ordenado['Nombre'],df_rrss_ordeando['Cantidad'], color=['b', 'r', 'g', 'm', 'k', 'c'])
+plt.title('Estudio Redes Sociales (2022)')
+plt.xlabel('Millones de usuarios')
+plt.ylabel('Redes Sociales')
+plt.show()
+
+
+plt.pie(df_rrss['Cantidad'], labels=df_rrss['Nombre'])
+plt.title('Estudio Redes Sociales (2022)')
+plt.show()
+
+plt.pie(df_rrss['Cantidad'], labels=df_rrss['Nombre'], colors=['b', 'r', 'g', 'm', 'k', 'c'])
+plt.title('Estudio Redes Sociales (2022)')
+plt.show()
+
+df_rrss_ordenado = df_rrss.sort_values('Cantidad', ascending=False)
+plt.pie(df_rrss_ordenado['Cantidad'], labels=df_rrss_ordenado['Nombre'], colors=['b', 'r', 'g', 'm', 'k', 'c'], startangle=90, explode=(0,1,0,0,0,0), autopct='%1.2f%%', shadow=True)
+plt.title('Estudio Redes Sociales (2022)')
+plt.show()
+
+#ver la web https://matplotlib.org/stable/gallery/index.html

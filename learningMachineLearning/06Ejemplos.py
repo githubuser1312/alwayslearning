@@ -37,13 +37,18 @@ main()
 import numpy as np 
 import matplotlib.pyplot as plt
 from sklearn import datasets, linear_model, metrics
+
 boston = datasets.load_boston(return_X_y=False) #carga del dataset de Boston
 X = boston.data #definición de la matriz de características
 y = boston.target #definición de la matriz de respuesta
+
 from sklearn.model_selection import train_test_split #separación de X e y en conjuntos de entrenamiento y pruebas
+
 X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.4,random_state=1)
+
 reg = linear_model.LinearRegression() #crear objeto de regresion lineal
 reg.fit(X_train, y_train) #entrenar el modelo utilizando el conjunto de entrenamiento
+
 print('Coeficientes:',reg.coef_)#coeficientes de regresion
 print('Medicion de la varianza: {}'.format(reg.score(X_test,y_test))) #medicion de la varianza: 1 significa prediccion perfecta
 plt.style.use('fivethirtyeight') #dibujar error residual , plot style
