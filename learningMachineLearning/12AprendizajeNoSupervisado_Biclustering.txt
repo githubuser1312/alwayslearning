@@ -1,0 +1,8 @@
+------------------ BICLSUTERING ------------------------------------
+
+Biclustering es un método de agrupamiento que opera simultáneamente en dos niveles que están correlacionados por la presencia de un medio (por ejemplo, clientes y productos por calificación). Biclustering tiene como objetivo encontrar regiones donde el medio es cohesivo (por ejemplo, la calificacion es alta o baja) reordenando la estructura de ambos niveles.
+
+Biclustering opera en una matriz A pertenece a Rnxm. A indica una califiación(o cero) para el producto dado por el cliente CI. A tiene una estructura de tablero de ajedrez subyecente, donde las regiones compactas (biclusteres) representan submatrices.
+
+Biclustering espectral es un algoritmo desarrollado por Kluger et al (2003) para clasificar genes y condiciones. EL Biclustering espectral se basa en la descomposicion de valores songulares (SVD) y se aplicó inicialmente a tareas de bioinformática, pero también ha encontrado aplicaciones en otros campos.
+

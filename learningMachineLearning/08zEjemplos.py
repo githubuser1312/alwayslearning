@@ -45,20 +45,20 @@ def decision_function(model, ax=None, plot_support=True):
     xlim = ax.get_xlim()
     ylim = ax.get_ylim()
 '''para evaluar el modelo tenemos que crear una cuadrícula de la siguiente forma'''
-    x = np.linspace(xlim[0],ylim[1],30)
-    y = np.linspace(ylim[0],ylim[1],30)
-    Y,X = np.meshgrid(y,x)
-    xy=np.vstack([X.ravel(), Y.ravel()]).T
-    P=model.decision_function(xy).reshape(X.shape)
-    '''a continuación debemos trazar los límites y márgenes de decisión de la siguiente manera'''
-    ax.contour(X,Y,P,colors='k', levels=[-1,0,1], alpha=0.5, linestyles=['--','-','--'])
-    '''ahora , de manera similar, trazamos los vectores de soporte:'''
-    if plot_support:
-        ax.scatter(model.support_vectors_[:,0], model.support_vectors_[:,1], s=300, linewidth=1, facecolors='none')
-        ax.set_xlim(xlim)
-        ax.set_ylim(ylim)
-    '''ahora usamos la función para adaptarse a nuestro modelo:'''
-    plt.scatter(X[:,0],X[:,1],c=y,s=50,cmap='summer')
+x = np.linspace(xlim[0],ylim[1],30)
+y = np.linspace(ylim[0],ylim[1],30)
+Y,X = np.meshgrid(y,x)
+xy=np.vstack([X.ravel(), Y.ravel()]).T
+P=model.decision_function(xy).reshape(X.shape)
+'''a continuación debemos trazar los límites y márgenes de decisión de la siguiente manera'''
+ax.contour(X,Y,P,colors='k', levels=[-1,0,1], alpha=0.5, linestyles=['--','-','--'])
+'''ahora , de manera similar, trazamos los vectores de soporte:'''
+if plot_support:
+    ax.scatter(model.support_vectors_[:,0], model.support_vectors_[:,1], s=300, linewidth=1, facecolors='none')
+    ax.set_xlim(xlim)
+    ax.set_ylim(ylim)
+'''ahora usamos la función para adaptarse a nuestro modelo:'''
+plt.scatter(X[:,0],X[:,1],c=y,s=50,cmap='summer')
 
 decision_function(model)
 

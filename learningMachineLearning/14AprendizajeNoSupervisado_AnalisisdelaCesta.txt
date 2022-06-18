@@ -1,0 +1,39 @@
+---------------  ANALISIS DE LA CESTA -----------------
+
+
+Hay muchas herramientas de análisis de datos disponibles para el analista de Python y puede ser difícil saber cuáles usar en una situación particular. UNa técnica útil (pero algo pasada por alto) se llama ANÁLSIS DE ASOCIACIÓN que intenta encontrar patrones comunes de elementos en grandes conjuntos de datos.
+
+Una aplicación específica a menudo se llama ANÁLISIS DE CESTA de mercado. El ejemplo más conocido de análisis de cesta de mercado es el llamado caso de "cerveza y pañales". La historia básica es que un gran minorista pudo extraer sus datos de transacciones y encontrar un patrón de compra inesperado de personas que compraban cerveza y pañales para bebés al mismo tiempo.
+
+Probablemente esta historia sea una leyenda urbana de datos. Sin embargo, es un ejemplo ilustrativo del tipo de información que se puede obtener al extraer datos transaccionales.
+
+Si bien este tipo de asociaciones se utilizan normalmente para examinar las transacciones de venta, el análisis bñasico se puede aplicar a otras situaciones como el seguimiento del flujo de clics, el pedido de piezas de repuesto y los motores de recomendación en línea, sólo por nombrar algunos.
+
+Como hemos visto en tantos casos , lo primero sería mirar scikit-learn para un algoritmo ya hecho. Sin embargo, scikit-learn no es compatible con este algoritmo. afortunadamente, la biblioteca MLxtend de Sebastian Raschka tiene una implementación del algoritmo llamada apriori para extraer conjuntos de elementos frecuentes para su posterior análisis.
+
+---- ANALISIS DE ASOCIACION ------------
+
+En el mundo actual, existen muchas formas complejas de analizar datos (clustering, regresion, RedesNeuronales, Bosques Aleatorios, SVM, etc). El desafío con muchos de estos enfoques es que pueden ser difíciles de ajustar, difíciles de interpretar y requieren bastante preparación de datos e ingeniería de características para obtener resultados. En otras palabras, pueden ser muy poderosos, pero requieren mucho conocimiento para implementarlos correctamente.
+
+El análisis de asociación es relativamente ligero en los conceptos matemáticos y fácil de explicar a las personas no técnicas. Además, es una herramienta de aprendizaje no supervisada que busca patrones ocultos, pro loq eu existe una necesidad limitada de preparación de datos e ingeniería de características. Es un buen comienzo para ciertos casos de exploración de datos y puede señalar el camino para una inmersión más profunnda en los datos utilizando enfoques.
+
+Como una ventaja adicional, la implementación de Python en MLxtend debería ser muy familiar para cualquiera que tenga experiencia con scikit-learn y pandas. Por todas estas razones, es una herramienta útil para estar familiarizado y puede ayudarnos con los problemas de análisis de datos.
+
+Las REGLAS DE ASOCIACION normalmente se ecriben así:
+
+{Pañales} -> {Cerveza}
+
+Lo que significa que existe una fuerte relación entre los clientes que compraron pañales y también compraron cerveza en la misma transacción.
+
+En el ejemplo anterior, el {Pañal} es el antecedente y el {Cerveza} es el consecuente. Tanto los antecedentes como los consecuentes pueden tener múltiples items. En otras palabras, {Pañal, Chicle} -> {Cerveza, Patatas fritas} es una regla válida.
+
+Los componentes del análisis de asociación son los siguientes:
+
+* El SOPORTE es la frecuencia relativa con la que aparecen las reglas. En muchos casos, es posible que deseemos buscar un alto apoyo para asegurarse de que sea una relación útil. Sin embargo, puede haber casos en los que un soporte bajo sea útil si estamos tratando de encontrar relaciones "ocultas".
+
+* La CONFIANZA es una medida de la fiabilidad de la regla. Una confianza de .5 en el ejemplo anterior significaría que en el 50% de los casos en que se compraron pañales y chicles, la compra también incluyó cerveza y patatas fritas. Para la recomendación del producto, una confianza del 50% puede ser prefectamente aceptable, pero en una situación médica, este nivel puede no ser lo suficientemente alto.
+
+* LIFT (elevación) es la relación entre el apoyo observado y el esperado si las dos reglas fueran independientes. La regla básica es que un valor de elevación cercano a 1 significa que las reglas eran completamente independientes. Los valores de elevación >1 son generalmente más "interesantes" y podrían ser indicativos de un patrón de regla útil.
+
+
+Ver ejemplos en 14zEjemplos.py

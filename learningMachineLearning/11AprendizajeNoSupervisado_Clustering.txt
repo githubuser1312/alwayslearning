@@ -127,3 +127,49 @@ Un ejemplar se encuentra después de que los puntos de datos se hayan transmitid
 Cuando no estemos seguros de cuántos clústeres esperar, como ocurre en un problema de visión por computadora, este es un gran algoritmo para comenzar.
 
 Ver ejemplo en 11zEjemplos.py
+
+
+ALGORITMO MEAN-SHIFT CLUSTERING (agrupacion en clusteres de cambio medio)                     -----------------------------------------------------------
+
+Este es otro algoritmo que es particularmente útil para manejar imágenes y procesamiento de visión por computadora.
+
+El desplazamiento medio es similar al algoritmo BIRCH porque también encuentra clústeres sin que se establezca un número inicial de clústeres.
+
+Este es un algoritmo de agrupamiento jerárquico, pero la desventaje es que no escala bien cuando se trabaja con grandes conjuntos de datos.
+
+Funciona iterando sobre todos los puntos de datos y los desplaza hacia el modo. El modo en este contexto es el área de alta densidad de puntos de datos en una región.
+
+Es por eso que también se hace referencia a este algoritmo como el algoritmo de búsqueda moda. Pasará por este proceso iterativo con cada punto de datos y los moverá más cerca de donde están otros puntos de datos hasta que todos los puntos de datos hayan sido asignados a un clúster.
+
+Ver ejemplo en 11zEjemplos.py
+
+
+
+
+
+ALGORITMO OPTICS               -----------------------------------------------------------
+
+OPTICS significa ordernar puntos para identificar la estructura de agrupamiento. Es un algoritmo basado en densidad similar a DBSCAN, pero es mejor porque puede encontrar agrupaciones significativas en datos que varían en densidad. Lo hace ordenando los puntos de datos de modo que los puntos más cercanos sean vecinos en el ordenamiento.
+Esto facilita la detección de diferentes grupos de densidad. El algoritmo OPTICS solo procesa cada punto de datos una vez, similar a DBSCAN (aunque se ejecuta más lento que DBSCAN). También hay  una distancia especial almacenada para cada punto de datos que indica que un punto pertenece a un grupo específico.
+
+Ver ejemplo en 11zEjemplos.py
+
+
+
+
+
+
+
+ALGORITMO AGGLOMERATIVE HIERARCHY CLUSTERING (agrupamiento de jerarquía aglomerativa)              -----------------------------------------------------------
+
+Este es el tipo más común de algoritmo de agrupamiento jerárquico. Se utiliza para agrupar objetos en grupos en función de su similitud entre sí.
+
+Esta es una forma de agrupamiento de abajo hacia arriba, donde cada punto de datos se asigna a su propio grupo. Luego, esos grupos se unen.
+
+
+En cada iteracipn, los clusteres similares se fusionan hasta que todos los puntos de datos son parte de una gran clúster raiz.
+
+La agurpación aglomerativa e mejor para encontrar agrupaciones pequeñas. El resultado final parece un DENDOGRAMA para que pueda visualizar fácilmente los grupos cuando finaliza el algoritmo.
+
+Un dendograma (o diagrama de árbol) es una estructura de red. Está constituido por un nodo raíz que da luz a varios nodos conectados por bordes o ramas. Los últimos nodos de la jerarquía se llaman hojas.
+

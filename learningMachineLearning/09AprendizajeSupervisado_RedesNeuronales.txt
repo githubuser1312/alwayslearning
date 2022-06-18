@@ -1,0 +1,603 @@
+---------------- REDES NEURONALES -----------------------------
+
+La red neuronal artificial no es una idea nueva, existe desde hace mas de 80 años.
+
+No fue hasta 2011 cuando DEEP NEURAL NETWORKS se hizo popular gracias al desarrollo de nuevas tñecnicas, gran disponibilidad de conjuntos de datos y computadoras potentes.
+
+Como ya hemos visto una red neuronal imita a una neurona, que tiene dendritas, un núcleo, un axón y un axón terminal. Para una red , necesitamos dos neuronas. Estas neuronas trnasfieren información a través de la sinapsis entre las dendritas de uno y el axón terminal del otro.
+
+Una red neuronal tendrá el aspecto siguiente:
+
+
+                |x1 --------->  w1|
+                |x2 --------->  w2|          UNION             FUNCION DE 
+                |x3 --------->  w3|------>  SUMADORA   -----> ACTIVACION   ------> y
+                |x4 --------->  w4|                 
+                |x5 --------->  w5|                                             SALIDA
+
+            SEÑALES DE         PESOS 
+            ENTRADA          SINAPTICOS
+
+
+
+w1, w3, etc están dentro de circulos que no puedo representar aquí. Los círculos son neuronas o nodos, con sus funciones en los datos. Las líneas que los conectan son los pesos o la información que se transmiten.
+
+Cada columna es una capa. La primera capa de los datos es la capa de entrada. Todas las capas entre la capa de entrada y la capa de salida son capas ocultas.
+
+Si tenemos una o algunas capas ocultas, entonces tenemos una red neuronal poco profunda. Si tenemos muchas cpas ocultas, entonces estamos ante una red neuronal profunda.
+
+En este modelo, se parte de unos datos de entrada, los pesa y los pasa a través de la función en la neurona que se llama FUNCION DE UMBRAL o FUNCION DE ACTIVACIÓN. Básicamente, es la suma de todos los valores después de compararlo con un cierto valor. Si dispara una señal, entonces se retorna (0). Luego se pondera y pasa a la siguiente neurona, y se ejecuta el mismo tipo de función.
+Podemos tener una función Sigmoidea (forma de s) como la función de activación.
+
+En cuanto a los pesos, son aleatorios para comenzar, y son unicos por entrada en el nodo/neurona.
+
+El acto de enviar datos directamente a través de una red neuronal se denomina RED NEURONAL DE AVANCE (FEED FORWARD).
+
+En una 'FEED FORWARD' típico, el tipo más básico de red neuronal, la información pasa directamente a través de la red creada, y se compara la salida con lo que se esperaba que la salida fuera utilizando los datos de muestra.
+
+A partir de aquí, deberemos ajustar los pesos para conseguir que la salida coincida con la salida deseada.
+
+Nuestros datos van desde la entrada, a las capas, en orden , luego a la salida.
+
+Cuando retrocedemos y comenzamos a ajustar los pesos para minimizar la pérdida/coste esto se denomina propagación hacia atrás (back propagation).
+
+Estamos ante un problema de optimización. En la práctica real, es habitual tener que lidiar con cientos de miles de variables, o millones, o incluso más.
+
+La primera solución fue utilizar el DESCENSO DE GRADIENTE ESTOCÁSTICO como método de optimización. ahora, hay opciones como AdaGrad, AdamOptimizer, etc. De cualquier manera, esta es una operación computacional masiva. Esta es la raón por la que las redes neuronales no avanzaron en más de medio siglo. Sólo en tiempos recientes se ha dispuesto de máquinas suficientemente potentes para trabajar con estos datos.
+
+Para tareas de clasificación simples, la red neuronal tiene un rendimiento relativamente cercano a otros algoritmos simples como el vecino mas cercano (K Nearest Neighbors). La utilidad real de las redes neuronales se manifiiesta cuando tenemos datos mucho más grandes y preguntas mucho más complejas, que superan a otros modelos de aprendizaje automático.
+
+
+---------------- REDES NEURONALES PROFUNDAS -----------------------------
+Una red neuronal profunda (DNN) es una red neuronal artificial (ANN) con múltiples capas ocultas entre las capas de entrada y salida. Al igual que los ANN poco profundos, los DNN pueden modelar relaciones complejas no lineales.
+
+El objetivo principal de una red neuronal es recibir un conjunto de entradas, realizar cálculos progresivamente complejos en ellas y dar salida para resolver problemas del mundo real como la clasificación.
+
+Nosotros nos limitaremos a alimentar las redes neuronales. En una red profunda, tenemos una entrada, una salida y un flujo de datos secuenciales.
+
+Las redes neuronales se usan ampliamente en el aprendizaje supervisado y los problemas de aprendizaje de refuerzo. Estas redes se basan en un conjunto de capas conectadas entre sí.
+
+En el aprendizaje profundo, el número de capas ocultas, en su mayoría no lineales, puede ser grande, podemos hablar de unas 1000 capas.
+
+Los modelos DL (DEEP LEARNING) producen resultados mucho mejores que las redes ML (Machine Learning) normales.
+
+Utilizamos principalmente el METODO DE DESCENSO de gradiente par optimizar la red y minimizar pérdida de la función.
+
+Podemos usar IMAGENET, un repositorio de millones de imágenes digitales para clasificar un conjunto de datos en categorías como gatos y perros. Las redes DL se utilizan cada vez más sobre imágenes dinámicas aparte de las estáticas y para series de tiempo y análisis de texto.
+
+El entrenamiento de los conjuntos de datos forma una parte importante de los modelos de Deep Learning. La retropropagación es el algoritmo prinpipal en el entrenamiento de modelos DL.
+
+DL se ocupa de entrenar granes redes neuronales con transformaciones complejas de entrada y salida.
+
+Un ejemplo de DL es el mapeo de una foto con el nombre de la(s) persona(s) en la foto como lo hacen en las redes sociales y describir una imagen con una frase es otra aplicacion reciente de DL.
+
+El cálculo de los valores de cada nodo se calcularía de la siguiente forma:
+
+    y1 = σ[(w)]1 ,1x1 + w1,2x2 + w1,3w3)
+
+(REVISAR LA FORMULA)
+
+Las redes neuronales son funciones que tiene entradas como x1, x2, x3,. .... xn, que se transforman en salidas como z1, z2, z3, ... zn y así sucesivamente en dos (redes superficiales) o en varias operaciones interemedias también llamadas capas (redes profundas).
+
+Los pesos y sesgos cambian de capa a capa. 'w' y 'v' son los pesos o sinapsis de las capas de las redes neuronales.
+
+El mejor caso de uso del aprendizaje profundo es el problema del aprendizaje supervisado. Aquí tenemos un gran conjunto de entradas de datos con un conjunto deseado de salidas.
+
+z1 = σ[(v)]1 ,1y1 + v1,3x3 + w1,3y3 + w1,4y4)
+
+Aquí aplicamos el algoritmo de propagación hacia atrás para obtener una predicción de salida correcta.
+
+EL conjunto de datos más bñasico del aprendizaje profundo es el MNIST, un conjunto de datos de dígitos escritos a mano. Es posible entrenar en profucnidad una red neuronal convolucional con Keras para clasificar imágenes de dígitos escritos a mano de este conjunto de datos.
+
+EL disparo o la activación de un clasificador de redes neuronales produce una puntuación. Por ejemplo, para clasificar a los pacientes como enfermos y sanos, consideramos parámetros como la altura, el peso y la temperatura corporal, la presión arterial, etc. Un puntaje alto significa que el paciente está enfermo y un puntaje bajo significa que está sano.
+
+Cada nodo en la salida y las capas ocultas tiene sus propios clasificadores. La capa de entrada toma entradas y pasa sus puntajes a la siguiente capa oculta para una mayor activación y esto continúa hasta que se alcanza la salida.
+
+Este progreso de entrada a salida de izquierda a derecha en la direccion hacia adelante se llama propagación hacia a delante (FORWARD PROPAGATION).
+
+La ruta de asignación de crédito (CREDIT ASSIGNMENT PATH - CAP) en una red neuronal es la serie de transformaciones que comienzan desde la entrada hasta la salida. Los CAP elaboran conexiones causales probables entre la entrada y la salida.
+
+La profundidad CAP para una red neuronal de propagación hacia adelante dada o la profundidad CAP es el número de capas ocultas más una (porque tambien se incluye la capa de salida). Para redes neuronales recurrentes, donde una señal puede propagarse a través de una capa varias veces, la profundidad CAP puede ser potencialmente ilimitada.
+
+----- REDES PROFUNDAS Y REDES POCO PRUFUNDAS
+
+
+No hay un umbral claro de profundidad que divida el aprendizaje superfiocial del aprendizaje profundo. pero se considera que para el aprendizaje profundo que tiene m,últiples capaas no lineales, el CAP (Credit Assignment Path) debe ser mayor que dos.
+
+El nodo básico en una red neuronal es un perceptrón que imita una neurona en una red neuronal biológica. Luego tenemos Percepción Multicapa o MLP. Cada conjunto de entradas es modificado por un conjunto de pesos y sesgos. Cada borde tiene un peso único y cada nodo tiene un sesgo unico.
+
+La precisión de predicción de una red neuronal depende de sus pesos y sesgos.
+
+
+El proceso de mejorar la precisión de la red neuronal se llama ENTRENAMIENTO. La salida de una red de propagación hacia adelante se compara con el valor que se sabe que es correcto.
+
+La FUNCION DE COSTE o la FUNCION DE PERDIDA es la diferencia entre el producto generado y el real.
+
+El objetivo del entrenamiento es hacer que el coste del entrenamiento sea lo más pequeño posible en millones de ejemplos de entrenamiento. Para hacer esto, la red ajusta los pesos y los sesgos hasta que la predicción coincida con la salida correcta.
+
+Una vez que se entrena bien, una red neuronal tiene el potencial de hacer una predicción precisa cada vez.
+
+Cuando el patrón se vuelve complejo y necesitamos que el ordenador los reconozca, debemos buscar redes neuronales. En estos escenarios de patrones complejos, la red neuronal supera a todos los demás algoritmos competidores.
+
+Ahora hay GPU que pueden entrenarlas más rápido que nunca. Las redes neuronales profundas ya están evolucionando el campo de la IA.
+
+Las computadoras han demostrado ser buenas para realizar cálculos repetitivos y seguir instruccions detalladas, pero hasta ahora no han sido tan buenas para reconocer patrones complejos.
+
+Para tratar el problema del RECONOCIMIENTO DE PATRONES SIMPLES, podemos utilizar una máquina de vectores de soporte (SVM) o un clasificador de regresión logística, pero a medida que la complejidad del patrón aumenta, no hay más remedio que buscar redes neuronales profundas.
+
+Por lo tanto, para patrones complejos como un rostro humano, las redes neuronales superficiales fallan y no tienen otra alternativa que buscar redes neuronales profundas con más capas. Las redes profundas pueden hacer este trabajo al descomponer los patrones complejos en otros más simples. Por ejemplo, rostro humano; una red profunda usaría bordes par detectar partes como labios, nariz, ojos, oidos, etc., y luego volvería a combinarlos para formar un rostro humano.
+
+La precisión de la predicción correcta se ha vuelto tan precisa que recientemente, en un GOOGLE PATTERN RECOGNITION CHALLENGE, una red profunda venció a un humano.
+
+Esta idea de una red de perceptrones en capas ha existido desde hace tiempo. En este área, las redes profuncdas imitan el cerebro humano. Pero una desventaja de esto es que tardan mucho tiempo en entrenarse, una restricción impuesta por el hardware.
+
+Sin embargo, las GPU recientes de alto rendimiento han podido entrenar redes tan profundas en menos de una semana. Mientras que las CPUs más rápidas podrían haber tardado semanas o quizás meses para hacer lo mismo.
+
+
+-------------- REDES DE UNA SOLA CAPA ---------------------------------------
+
+Como ya sabemos, las redes neuronales artificiales (ANN)  son el sistema de procesamiento de información cuyo mecanismo está inspirado en la funcionalidad de los circuitos neuronales biológicos. Una red neuronal artificial se compone de muchas unidades de procesamiento conectadas entre sí.
+
+El diagrama anterior muestra que las capas ocultas se comunican con la capa externa. Mientras que las unidades de entrada y sallida se comunicansólo a travésde la capa oculta de la red.
+
+El patrón de conexión con los nodos, el número total de capas y el nivel de nodos entre las entradas y las salidas con el número de neuronas por cada capa definen la arquitectura de una red neuronal.
+
+Hay dos tipos de arquitectura. Estos tipos se centran en la funcionalidad de las redes neuronales artificiales de la siguiente manera:
+
+* Perceptrón de una capa
+* Perceptrón Multicapa
+
+El perceptrón de capa única es el primer modelo neural propuesto creado. El contenido de la memoria local de la neurona consiste en un vector de pesos. El cálculo de un perceptrón de capa única se realiza sobre el cálculo de la suma del vector de entrada, cada uno con el valor multiplicado por el elemento correspondiente del vector de los pesos. El valor que se muestra en la salida será la entrada de una función activación.
+
+El algoritmo perceptrón fue diseñado para clasificar entradas visuales, categorizar sujetos en uo de dos tipos y separar grupos con una línea. La clasificación es uan parte importante del aprendizaje automático y el procesamiento de imágenes. Los algoritmos de aprendizaje automático y el procesamiento de imágenes. Los algoritmos de aprendizaje automático encuentran y clasifican patrones por muchos medios diferentes. El algoritmo perceptrón clasifica patrones y grupos al encontrar la separación lineal entre diferentes objetos y patrones que se perciben a través de entradas numéricas o visuales.
+
+Por otro lado, el PERCEPTRON MULTICAPA es una red neuronal artificial formada por múltiples capas de perceptrones, esto le permite resolver problemas que no son linealmente separables, lo cual es la principal limitación del perceptrón. El perceptrón multicapa es un subconjunto de las redes neuronales profundas (DNN). Si bien DNN puede tener bucles y el perceptrón multicapa siempre es FEED FORWARD (pase hacia adelante).
+
+La distribución de cpas es la siguiente:
+
+* Capa de entrada: Las capas de entrada proporcionan información del mundo exterior (entorno) a la red.
+
+* Capas ocultas: Las capas ocultas realizan cálculos y transfieren información desde la capa de entrada a alas capas de salida. Las capas ocultas no tiene conexión directa con el mundo exterior.
+
+* Capa de salida: Es la responsable de los cálculos y la transferencia de información de la red a la función externa (entorno).
+
+
+Las redes perceptrón multicapa (MLP) generalmente se usan para el formato de aprendizaje supervisado. Un algoritmo de entrenamiento típico para redes MLP es el algoritmo de retropropagación.
+
+Sin embargo, el mejor ejemplo para ilustrar el perceptron de capa única es a través de la representación de "Regresión logística".
+
+Los pasos básicos para entrenar la regresión logísitica serán los siguientes:
+
+* Los pesos se inicializan con valores aleatorios al comienzo del entrenamiento.
+* Para cada elemento del conjunto de entrenamiento, el error se calcula con la diferencia entre la salida deseada y la salida real. El error calculado se utiliza para ajustar los pesos.
+* El proceso se repite hasta que el error cometido en todo el conjunto de entrenamiento no sea inferior al umbral especificado, o hasta que se alcance el número máximo de iteraciones.
+
+La regresión logística considera como un análisis predictivo, se usa para describir datos y explicar la relación entre una variable binaria dependiente y una o más variables nominales o independientes.
+
+Ver ejemplo en 09zEjemplos.py
+
+
+
+
+------- REDES MULTICAPA -----------------------------
+
+
+Tenemo que decidir si estamos contruyendo un clasificador o si estamos tratando de encontrar patrones en los datos y si vamos a utilizar el aprendizaje no supervisado. Por ejemplo, para extraer patrones de un conjunto de datos no etiquetados, utilizamos una máquina de Boltzman restringida o un codificador automático.
+
+Consideremos los siguientes puntos al elegir una red profunda:
+
+* Para el procesamiento de texto, anñalisis de sentimientos, análisis y reconocimiento de entidades de nombre, utilizamos una red de tensor neural recurrente neta recursiva o RNTN.
+
+* Para cualquier modelo de lenguaje que opera a nivel de caracteres, usamos la red recurrente.
+
+* Para el reconocimiento de imágenes, utilizamos la red de creencias profundas DBN (deep belief network) o una red convolucional.
+
+* Para el reconocimiento de objetos, utilizamos un RNTN o una red convolucional.
+
+* Para el reconocimiento de voz, utilizamos la red recurrente.
+
+En general, las redes de creencias profundas y los perceptrones multicapa con unidades lineales rectificadas (Rectified Linear Units -RELU) son buenas opciones para la clasificación. Para el analisis de series de tiempo, siempre se recomienda utilizar la red recurrente.
+
+
+----- TIPOS DE REDES NEURONALES ----------------
+
+Las redes neuronales han existido por más de 50 años, pero solo ahora es cuando se están usando con profusión. La razón es que son dificiles de entrenar. Cuando tratamos de entrenarlas con un método llamadao retro propagación, nos encontramos con un problema llamado gradientes que desaparecen o explotan. Cuando eso sucede, el entrenamiento lleva más tiempo y la precisión queda en segundo plano.
+
+Al entrenar un conjunto de datos, estamos constantemente calculando la función coste, que es la diferencia entre la producción predicha y la produccion real de un conjunto de datos de entrenamiento etiquetados. La función de coste se minimiza ajustando los valores de pesos y sesgos hasta que el valor más bajo es obtenido. EL procceso de entrenamiento utiliza un gradiente, que es la velocidad a la que cambiará el coste con respecto al cambio en los valores de peso o sesgo.
+
+----Redes de Boltzman restringidas o codificadores automáticos RBN
+
+En 2006, se logró un gran avance al abordar el problema de la desaparación de gradientes. Geoff Hinton ideó una estrategia novedosa que condujo al desarrollo de la máquina restringida de Boltzman: RBM, una red poco profunda de dos capas.
+La primera capa es la capa visible y la segunda capa es la capa oculta. Cada nodo en la capa visible está conectado a cada nodo en la capa oculta. La red se conoce como restringida ya que no se permite que dos capas dentro de la misma capa compartan una conexión.
+LOs AUTOENCODERS son redes que codifican datos de entrada como vectores. Crean una representación oculta o comprimida de los datos sin procesar. Los vectores on útiles en la reducción de dimensionalidad. El vector comprime los datos sin procesar en un número menor de dimensiones esenciales. Los codificadores automáticos se combinan con decodificadores, lo que permite la reconstrucción de datos de entrada en función de su representación oculta.
+RBM es el equivalente matemático de un traductor bidireccional. Un paso hacia adelante toma entradas y la traduce en un conjunto de números que codifica las entradas. Mientras tanto, un paso hacia atràs toma este conjunto de números y los traduce nuevamente en entradas reconstruidas. Una red bien entrenada reaiza back propagation con un alto grado de precisión.
+En cualquiera de los pasos, los pesos y los sesgos tienen un papel crítico, ayudan al RBM a decodificar las interrelaciones entre las entradas y a decidir que entradas son esenciales para detectar patrones. A través de pasos hacia adelante y hacia atrás, el RBM está entrenado para reconstruir la entrada con diferentes pesos y sesgos hasta que la entrada y la construcción estén lo más cerca posible.
+
+Un aspecto interesante de RBM es que los datos no necesitan ser etiquetados. Esto resulta muy importante para los conjuntos de datos del mundo real como fotos, videos, voces y datos de sensores, todos los cuales tienden a estar sin etiquetar.
+En lugar de etiquetar manualmente los datos por humanos, RBM clasifica automáticamente los datos, ajustando adecuadamente los pesos y los sesgos, un RBM puede extraer características importantes y reconstruir la entrada. RBM es parte de la familia de redes neuronales de extracción de características, que están diseñados para reconocer patrones inherentes en los datos.
+También se denominan codificadores automáticos porque tienen que codificar su propia estructura.
+
+
+
+---- Redes de creencias profundas-DBN  --------------------------- 
+Se forman combinando RBM e introduciendo un método de entrenamiento inteligente. Tenemos un nuevo modelo que finalmente resuelve el problema de la desaparición del gradiente. Geoff Hinton inventó los RBM y también las Redes de Creencias Profundas coo alternativa a la propagación inversa.
+UN DBN es similar en estructura a un MLP (perceptrón multicapa), pero muy diferente cuando se trata de entrenamiento. Es la capacitación que permite a los DBN superar a sus homólogos poco profundos.
+Un DBN se puede visualizar como una pila de RBM donde la capa oculta de un RBM es la capa visible del RBM por encima de él. El primer RBM está entrenado para reconstruir su entrada con la mayor precisión posible.
+
+La capa oculta del primer RBM se toma como la capa visible del segundo RBM y el segundo RBM se entrena utilizando las salidas del primer RBM. Este proceso se repite hasta que se entrena cada capa de la red.
+
+EN un DBN, cada RBM aprende la entrada completa. UN DBN funciona globalmente ajustando la entrada completa en sucesión a medida que el modelo mejora lentamente como una lente de cámara enfocando lentamenente una imagen. En cuanto al rendimiento, una pila de RBM supera a un solo RBM como un perceptrón multicapa MLP sipera a un solo perceptrón.
+EN esta etapa, los RBM han detectado patrones inherentes en los datos, pero sin ningún nombre o etiqueta. Para finalizar el entrenamiento de la DBN, tenemos que introducir etiquetas en los patrones y ajustar la red con aprendizaje supervisado.
+
+Necesitamos un conjunto muy pequeño de muestras etiquetadas para que las características y los patrones puedan asociarse con un nombre.Este conjunto de datos con etiqueta pequeña se utiliza para el entrenamiento. Este conjunto de datos etiquetados puede ser muy pequeño en comparación con el conjunto de datos original.
+
+Los pesos y sesgos se alteran ligeramente, lo que resulta en un pequeño cambio en la percepción de la red de los patrones y a menudo un pequeño aumento en la precisión total.
+
+El entrenamiento también se peude completar en un periodo de tiempo razonable mediante el uso de GPU que brindan resultados muy precisos en comparación con las redes poco profundas y también con estas redes tenemos una solución par el problema del gradiente de fuga.
+
+
+-- REDES ADVERSARIAS GENERATIVAS - GANs ----------------------------------------
+
+Son redes neuronales profundas que comprenden dos redes enfrentadas una contra la otra, de ahí el nombre de 'adversarias'.
+Las GAN se introdujeron en un artículo publicado por investigadores de la UNiversidad de Montreal en 2014. El experto en IA de Facebook, Yann LeCun, refiriéndose a las GAN, claificó el entrenamiento de conforntación como 'la idea más interesante en los últimos 10 años de ML'.
+EL potencial de GAN es enorme, ya que el escaneo de red aprende a imitar cualquier distribución de datos. Se puede enseñar a las GAN a crear munods paralelos sorprendentemente similares al nuestro en cualquier dominio: imagenes, múscia, discurso, prosa. EN cierto modo, son artistas robots y su producción es bastante impresionante.
+En un GAN, una red neuronal, conocida como el GENERADOR, genera nuevas instancias de datos, mientras que la otra, el DISCRIMINADOR, las evalúa para verificar su autenticidad.
+Digamos que estamos tratando de generar números escritos a mano como los que se encuentran en el conjunto de datos MNIST, que se toma del mundo real. EL trabajo del discriminador, cuando se muestra una instancia del verdadero conjunto de datos MNIST, es reconocerlos como auténticos.
+Consideremos los siguientes pasos de la GAN:
+- La red del generador toma la entrada en forma de números aleatorios y devuelve una imagen.
+- Esta imagen generada se proporciona como una entrada a la red discriminadora junto con un flujo de imágenes tomadas del conjunto de datos real.
+- El discrminador toma imágenes reales y falsas y devuelve probabilidades , un nñumero entre 0 y a, donde 1 represetna una predicción de autenticidad y 0 representa falso.
+- Entonces estamos en un circuito de retroalimentación doble:
+        - El discriminador está en un circuito de retroalimentación co la verdad básica de las imágenes, que conocemos.
+        - El generador está en un circuito de retroalimentación con el discriminador.
+
+-- REDES NEURONALES RECURRENTES - RNN ---------------------------------------
+
+Son redes neuronales en las que los datos pueden fluir en cualquier dirección. Estas redes se utilizan para aplicaciones como el modelado de idiomas o el procesamiento del lenguaje natural (PNL).
+El concepto básico subyacente a los RNN es utilizar información secuencial. En una red neuronal normal se supone que todas las entradas y salidas son independientes entre sí. Si queremos predecir las siguiente paralabra en una oración, tenemos que saber qué palabras vinieron antes.
+Los RNN se denominan recurrentes ya que repiten la misma tarea para cada elemento de una secuencia, y la salida se basa en los cálculos anteriores. Por lo tanto, se puede decir que los RNN tienen una memoria que captura información sobre lo que se ha calculado previamente. EN teoría, los RNN pueden usar la información en secuencias muy largas, pero en realidad, sólo pueden mirar hacia atrás unos pocos pasos.
+Las redes de memoria a largo plpazo (LSTM) son las RNN más utilizadas.
+
+Junto con las redes neuronales convolucionales, los RNN se ha utilizado como parte de un modelo para generar descripciones de imágenes no etiquetadas, con un gran rendimiento.
+
+
+-- REDES NEURONALES PROFUNDAS CONVOLUCIONALES - CNN ----------------------------------------------------
+
+Si aumentamos el número de capas en una red neuronal para profundizarla, aumenta la complejidad de la red y nos permite modelar funciones que son más complicadas. Sin embargo, el número de pesos y sesgos aumentará exponencialmente. De hecho, aprender problemas tan difíciles puede volverse imposible para las redes neuronales normales. Esto lleva a una solución, las redes neuronales convolucionales.
+
+Las CNN se usan ampliamente en VISION ARTIFICIAL; se han aplicado también en modelado acústico para reconocimiento automático de voz.
+La idea detrás de las redes neuronales convolucionales es la idea de un filtro en movimiento que pasa a través de la imagén. Este filtro móvil, o convolución, se aplica a una determinada vecindad de nodos que , por ejemplo, pueden ser píxeles, donde el filtro aplicado es 0.5 x el valor del nodo.
+
+EL destacado investigador Yann LeCun fue pionero en las redes neuronales convolucionales. Facebookl, como software de reconocimiento facial, utiliza estas redes. CNN ha sido la solución para proyectos de visión artificial. Hay muchas capas en una red convolucional. EN el desafía de Imagenet, una máquina pudo vencer a un humano en el reconocimiento de objetos en 2015.
+
+En pocas palabras, las redes neuronales convolucionales (CNN) son redes neuronales de múltiples capas. Las capas son a veces hasta 17 o más y asumen que los datos de entrada son imágenes.
+
+Las CNN reducen drásticamente la cantidad de parámetros que deben ajustarse. Por lo que manejan eficientemente la alta dimensionalidad de las imágenes en bruto.
+
+
+
+
+
+-- TRABAJAR CON TENSOR FLOW Y PYTHON ------------------------------------------------
+
+TensorFlow es una biblioteca o marco de software que combina el álgebra computacional de las técnicas de optimizacion para facilitar el cálculo de muchas expresiones matemáticas.
+
+Es popular porque está bien documentado e incluye muchas bibliotecas de aprendizaje automático y ofrece algunnas funcionalidades y metodos importantes para él.
+
+Incluye una variedad de algoritmos de aprendizaje automático y aprendizaje profundo. Puede entrenar y ejecutar redes neuronales profundas para la clasificación de dígitos escritos a mano, reconocimiento de imágenes, incrustración de palabras y creación de varios modelos de secuencia.
+
+
+Con Conda, podemos crear, exportar, enumerar, eliminar y actualizar entornos que tengan diferentes versiones de Python y/o paquetes instalados en ellos. Cambiar o moverse entre entornos se llama activar el entorno.
+
+EN MI CASO en VSCODE tengo que elegir el interprete que HE CONFIGURADO PARA TENSORFLOW :
+
+           Python 3.7.13 ('forTensorFlow')
+
+(en el simbolo del sistema con conda activado)
+
+
+(en caso de no tener preparado el sistema para tensorflow:
+    1- inicializar la instalación de TensorFlow con:
+            $ conda create --name test python=3.6.5 (o la version que tenga)
+    2- activate tensorflow
+    3- pip install tensorflow
+    4- pip install tensorflow-gpu (con este comando se instalan todos los requerimientos gráficos)
+)
+
+
+
+Las entradas y salidas al sistema se proporcionan como un sistema de vectores o tensores. Por ejemplo, una red neuronal puede tener las entradas donde los valores individuales de píxeles RGB en una imagen se presentan como vectores.
+Las capas de neuronas que se encuentran entre la capa de entrada y la capa de salida se denominan capas ocultas. Aquí es donde ocurre la mayor parte del trabajo.
+Se forman diferentes arquitecturas de redes neuronales eligiendo qué neuronas se conectan a las otras neuronas en la siguiente capa.
+A continuación se muestra el pseudocódigo para calcular la salida de la red neuronal de propagación hacia adelante:
+
+# node[]: = array de nodos ordenados topológicamente
+# Un borde (edge) de ab significa que a está a la izquierda de b
+# if la red neuronal tiene entradas R y salidas S,
+# then los primeros nodos R son nodos de entrada y los últimos nodos S son de salida
+# incoming[x]: = nodos conectados al nodo x
+# weight[x]:= pesos de los bordes entrantes a x
+Para cada neurona x, de izquierda a derecha:
+if x <= R: no hacer nada # es un nodo de entrada
+inputs[x] = [output[i] para i en incoming[x]]
+weighted_sum = dot_product(weights[x], inputs[x])
+output[x] = Activation_function(suma ponderada)
+
+
+
+
+-- ENTRENAR UNA RED NEURONAL ---------------------------------------------
+
+Para entrenar una red neuronal tenemos que encontrar los valores óptimos de los pesos de una red neuronal para obtener la salida deseada. Para ello utilizamos el métdo itereativo de descenso de gradiente.
+
+Comenzamos con la inicialización aleatoria de los pesos. Después de la inicialización aleatoria, hacemos predicciones sobre algún subconjunto de datos con el proceso de propagación hacia adelante (feedforward), calculamos la FUNCION DE COSTE correspondiente C y actualizamos cada peso w en una cantidad proporcional como dC/dw, es decir la derivada de las funciones de costo w,r,t (el peso). La constante de proporcionalidad se conoce como TASA DE APRENDIZAJE.
+
+Los gradientes se puede calcular de manera eficiente utilizando el ALGORITMO DE RETROPROPAGACION. La observación clave es que, debido a la regla de diferenciacion de la cadena, el gradiente en cada neurona en la red neuronal se puede calcular usando el gradiente en las neuronas, tien bordes salientes. Por lo tanto, calculamos los gradientes hacia atrás, es decir, primero calculamos los gradientes de la capa de salida, luego la capa superior oculta, seguida de la capa oculta anterior y asi sucesivamente, terminando en la capa de entrada.
+
+El algoritmo de retropropagación se implementa principalmente utilizando la idea de un gráfico computacional, donde cada neurona se expande a muchos nodos en el gráfico computacional y realiza una operación matemática simple como la suma o la multiplicación. El gráfico computacional no tiene ningún peso en los bordes.
+
+Todos los pesos se asignan a los nodos, por lo que los pesos se convierten en sus propios nodos. El algoritmo de propagación hacia atrás se ejecuta en el gráfico computacional. Una vez que se completa el cálculo, solo se requieren los gradientes de los nodos de peso para la actualización. EL resto de los gradientes se pueden descartar.
+
+
+-- TECNICA DE OPTIMIZACION DE DESCENSO DE GRADIENTE ---------------------------------------
+La función de optimización de uso común que ajusta los pesos de acuerdo con el error que causaron se denomina 'descenso de gradiente'.
+Gradiente es otro nombre para pendiente, y la pendiente, en un grafico xy, representa como se relacionan dos variables entre sí: el aumento sobre el recorrido, el cambio de distancia sobre el cambio de tiempo, etc. En este caso, la pendiente es la relación entre el error de la red y un solo peso; es decir, como cambia el error a medida que varía el peso.
+Para decirlo con más precisión, queremos encontrar que peso produce el menor error. Queremos encontrar el peso que representa correctamente las señales conenidas en los datos de entrada y las traduce a una clasificación correcta.
+
+A medida que una red neuronal aprende, ajusta lentamente muchos pesos para que puedan asignar la señal al significado correctamente. La relación entre el error de red y cada uno de esos pesos es una derivada dE/dw, que calcula el grado en que un  ligero cambio en un peso causa un ligero cambio en el error.
+
+Cada peso es solo un factor en una red pofunda que involucra muchas transformaciones; la señal del peso pasa a través de activaciones y sumas en varias capas, por lo que utilizamos la regla de cálculo de la cadena para volver a las activaciones y salidas de la red. Esto nos lleva al peso en cuestión y su relación con el error en general.
+
+Dadas dos variables, error y peso, están mediadas por una tercera variable, la activación, a través de la cual se pasa el peso. Podemos calcular cómo un cambio en el peso afecta un cambio en el error calculando primero como un cambio en la activacion afecta un cambio en el Error, y como un cambio en el peso afecta un cambio en la activación.
+
+La idea básica en el aprendizaje profundo no es más que eso: AJUSTAR LOS PESOS DE UN MODELO EN RESPUESTA AL ERROR QUE PRODUCE, HASTA QUE YA NO PUEDA REDUCIR EL ERROR.
+
+La red profunda se entrena lentamente si el valor del gradiente es pequeño y rápido si el valor es alto. Cualquier imprecisión en el entrenamiento conduce a resultados imprecisos. El proceso de entrenar las redes desde la salida hasta la entrada se llama PROPAGACIÓN HACIA ATRAS o APOYO HACIA ATRAS. Sabemos que la propagación hacia adelante comienza en la entrada y avanza. La retropropagación hace el inverso u opuesto calculando el gradiente de derecha a izquierda.
+Cada vez que calculamos un gradiente, utilizamos todos los gradientes anteriores hasta ese punto.
+
+Comencemos en un nodo en la capa de salida. El borde usa el gradiente en ese nodo. A medida que volvemos a las capas ocultas, se vuelve más complejo. El producto de dos números entre 0 y 1 le da un numero menor. El valor del gradiente sigue disminuyendo y, como resultado, la retropropagaciíon tarda mucho tiempo en entrenar y la precisión sufre.
+
+
+
+-- DESAFIOS DE LOS ALGORITMOS DE APRENDIZAJE PROFUNDO -------------------------------------------
+Hay ciertos desafíos comunes tanto para las redes neuronales poco profundas como para las redes euronales profundas, como el sobreajuste y el tiempo de cálculo. Los DNN se ven afectados por el sobreajuste debido al uso de capas adicionales de abstracción que les permiten modelar dependencias raras en los datos de entrenamiento.
+
+Los métodos de regularización, como la deserción (dropout), la detención temprna, el aumento de datos, o el aprendizaje de transferencia se aplican durante el entrenamiento para combatir el sobreajuste.
+
+La REGULARIZACION DE ABANDONO (DROPOUT) omite aleatoriamente unidades de las capas ocultas durante el entrenamiento, lo que ayuda a evitar dependencias raras. Los DNN tienen en cuenta varios parámetros de entrenamiento, como el tamaño, es decir, el número de capas y el número de unidades por capa, la tasa de aprendizaje y los pesos iniciales.
+
+Encontrar parámetros óptimos no siempre es práctico debido al alto coste de tiempo y recursos computacionales. Varios trucos, como el procesamiento por lotes, pueden acelerar el cálculo. El gran poder de procesamiento de las GPU ha ayudado significativamente al proceso de entrenamiento, ya que la matriz y los cálculos vectoriales requeridos están bien ejecutados en las GPU.
+
+
+
+-- DROPOUT ---------------------------------------------------------------------------------
+
+La deserción es una técnica de regularización popular para redes neuronales. Las redes neuronales profundas son particularmente propensas al sobreajuste.
+
+En palabras de Geoffrey Hinton, uno de los pioneros de Deep Learning, 'si tienes un red neuronal profunda y no está sobreajustada, probablemente deberías estar usando una más grande y dropout'.
+
+La deserción es una técnica en la que, durante cada iteración de descenso de gradiente, dejemos caer un conjunto de nodos seleccionados al azar. Esto significa que ignoramos algunos nodos al azar como si no existieran.
+
+Cada neurona que mantiene con una probabilidad de q y se cae al azar con probabilidad 1-q. El valor q puede ser diferente para cada capa en la red neuronal. Un valor de 0.5 para las capas ocultas y 0 para la capa de entrada funciona bien en una amplia gama de tareas.
+
+Durante la evaluación y predicción, no se utiliza abandona. La salida de cada neurona se multiplica por q para que la entrada a la siguiente capa tenga el mismo valor esperado.
+
+La idea detrás del dropout es la siguiente: en una red neuronal sin regularización del abandono, las neuronas desarrollan una codependencia entre ellas que conduce al sobreajuste.
+
+El dropout se implementa con bibliotecas como TENSORFLOW y PYTORCH manteniendo la salida de las neuronas seleccionadas al azar como 0. Es decir, aunque la neurona existe, su salida se sobreescribe como 0.
+
+
+
+
+-- PARAR TEMPRANO (EARLY STOPPING) ---------------------------------------------------------
+
+Entrenamos redes neuronales usando un algoritmo iterativo llamado descenso de gradiente.
+La idea detrñas de la detención temprana es intuitiva. Dejamos de entrenar cuando el error empieza a aumentar. Aquí, por error, nos referimos al error medido en los datos de validación, que es a parte de los datos de entrenamiento utilizados para ajustar los hiperparámetros. En este caso, el hiperparámetro es el criterio de detección.
+
+
+
+-- AUMENTO DE DATOS (DATA AUGMENTATION) ---------------------------------------------------------
+
+Es un proceso en el que aumentamos la cantidad de datos que tenemos o los aumentamos utilizando los datos existentes y aplicando algunas transformaciones. Las transformaciones exactas utilizadas dependen de la tarea que pretendemos lograr. Además, las transformaciones que ayudan a la red neuronal dependen de su arquitectura.
+
+Por ejemplo, en muchas tareas de visión por computadora, como la clasificación de objetos, una técnica efectiva de aumento de datos agrega nuevos puntos de datos que son versiones recortadas o traducidas de datos originales.
+
+Cuando ua computadora acepta una imagen como entrada, toma una matriz de valores de pixeles. Digamos que toda la imagen se desplaza 15 píxeles hacia la izquierda. Aplicamos muchos cambios diferentes en diferentes direcciones, lo que resulta en un conjunto de datos aumentado muchas veces el tamaño del conjunto de datos original.
+
+
+
+-- TRANSFERIR APRENDIZAJE --------------------------------------------------------------------------
+
+El proceso de tomar un modelo pre-entrenado y 'ajustar' el modelo con nuestro propio conjunto de datos se llama aprendizaje de transferencia. Hay varias formas de hacer esto:
+
+        * Entrenamos el modelo preentrenado en un gran conjunto de datos. Luego, eliminamos la última capa de la red y la reemplazamos con una nueva capa con pesos aleatorios.
+
+        * Luego congelamos los pesos de todas las otras capas y entrenamos la red normalmente. Aquí congelar las cpas no esta cambiando los pesos durante el descenso o la optimización del gradiente.
+
+EL concepto detrás de esto es que el modelo pre-entrenado actuará como u extractor de características, y sólo la última capa será entrenada en la tarea actual.
+
+
+
+-- MAX POOLING -------------------------------------------------------------------------
+
+La agrupación máxima es un proceso de discretización basado en muestras. El objetivo es reducir la muestra de una representación de entrada, lo que reduce la dimensionalidad con los supuestos requeridos.
+
+
+
+
+
+
+-- MEMORIA A CORTO Y LARGO PLAZO (LSTM) -----------------------------------------------------
+
+LSTM controla la decisión sobre que entradas deben tomarse dentro de la neurona especificada. Incluye el control para decidir que se debe calcular y que salida se debe generar.
+
+
+
+
+ver ejemplo de Deep Learning en 09zEjemplos.py
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

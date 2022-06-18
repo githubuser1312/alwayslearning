@@ -18,6 +18,7 @@
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import pandas as pd
+from sympy import N
 
 X = pd.DataFrame({'X-values':[1.005079, 1.128478, 2.117881, 0.955626, -1.35402, -1.07295, -2.0375, 2.354083, 2.14404, 1.166288],
                  'Y-values': [4.594642, 4.328122, 0.726845, 4.385907, 2.769449, 2.627009, 3.048606, 0.856632, 0.964399, 4.273516]})
@@ -262,8 +263,8 @@ num_classes = len(cluster_centers)
 X, targets = make_blobs(n_samples = num_samples_total, centers = cluster_centers, n_features = num_classes, center_box=(0,1), cluster_std = 1)
 
 
-np.save('learningMachineLearning/11zClustersAffinityPropagation.npy', X)
-X = np.load('learningMachineLearning/11zClustersAffinityPropagation.npy')
+#np.save('learningMachineLearning/11zClustersAffinityPropagation.npy', X)
+#X = np.load('learningMachineLearning/11zClustersAffinityPropagation.npy')
 
 
 #ajustamos los datos al algoritmo de propagacion de afinidad, después de cargarlo, que solo necesita dos líneas de código. En otras lineas, derivamos características como los ejemplares y en consecuencia el número de clusters.
@@ -289,3 +290,174 @@ plt.ylabel('Temperatura hoy')
 plt.show()
 
 
+
+
+
+###################        METODO MEAN-SHIFT CLUSTERING
+
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.datasets import make_blobs
+from sklearn.cluster import MeanShift, estimate_bandwidth
+
+#usaremos matplotlib para generar visualizaciones, numpy para algun procesamiento de números y la funcionalidad Scikit-learn para generar el conjunto de datos (es decir, los blobs de datos no agrupados) y la operacion de agrupacion en clústeres real.
+#Una vez definidas las importaciones, podemos establecer las opciones de configuración:
+
+#configuración
+
+num_samples_total = 10000
+cluster_centers = [(5,5), (3,3), (1,1)]
+num_classes = len(cluster_centers)
+
+#general datos
+X,targets = make_blobs(n_samples = num_samples_total, centers = cluster_centers, n_features = num_classes, center_box = (0,1), cluster_std = 0.30)
+
+#podemos hacer que Scikit-learn genere los blobs que queramos, establecemos la configuración que acabamos de definir y establecemos una desviación estándar del clúster de 0,30. Esto puede ser casi cualquier cosa, es posoible jugar con este valor para ver distintos resultados
+
+#es posible que desee guardar el conjunto de datos generados y trabajar siempre con los mismos datos, con las siguientes líneas:
+
+np.save('learningMachineLearning/11zClustersMeanShiftClustering.npy', X)
+X = np.load('learningMachineLearning/11zClustersMeanShiftClustering.npy')
+
+#a continuación , llegaremos a la funcionalidad específica de Mean Shift. Primero, definimos lo que se conoce como el "ancho de banda" del algoritmo, como se puede ver aqui:
+
+#bandwith estimado
+
+bandwidth = estimate_bandwidth(X, quantile = 0.2, n_samples = 500)
+
+#Mean Shift mira a su alrededor y determina la dirección a la que debe moverse una muestra, es decir, donde probablemente esté el centroide del cluster. Sin embargo, sería demasiado costoso computacionalmente hacerlo para todas las muestras, porque entonces el algoritmo se atascaría.
+#es por eso que el "ancho de banda" ayuda: simplemente define un área alrededor de las muestras donde mirar el cambio medio para determinar la ruta más probable dada la estimación de densidad. Pero, ¿cuál debería ser este valor de ancho de banda? Ahí es donde entra en juego, y estima el ancho de banda m´sa adecuado en función del dataset.estimate_bandwidth
+
+#Inmediatamente usamos el ancho de bando en la instanciacion de algoritmo Mean Shift, después de lo cual ajustamos los datos y generamos algunos datos consecuentes, como el número de etiquetas:
+
+#fit Mean Shift con Scikit
+
+meanshift = MeanShift(bandwidth=bandwidth)
+meanshift.fit(X)
+labels = meanshift.labels_
+labels_unique = np.unique(labels)
+n_clusters_ = len(labels_unique)
+
+#Luego, generamos predicciones para todas las muestras de nuestro conjunto de datos.
+
+P = meanshift.predict(X)
+
+#finalmente generamos una visualizacion para ver si nuestra operación de clustering es exitosa.
+
+colors = list(map(lambda x: '#3b4cc0' if x == 1 else '#b40426' if x == 2 else '#67c614', P))
+
+plt.scatter(X[:,0], X[:,1], c=colors, marker="o", picker=True)
+plt.title(f'Numero estimado de clusteres = {n_clusters_}')
+plt.xlabel('Temperatura ayer')
+plt.ylabel('Temperatura hoy')
+plt.show()
+
+#IMPORTANTE: EL CODIGO TARDA UN PAR DE MINUTOS EN EJECUTARSE.
+
+
+
+
+
+
+###################        METODO OPTICS
+
+#Con el siguiente código podemos realizar clustering basado en OPTICS en un conjunto de datos aleatorio similar a un blob. Funciona de la siguiente manera:
+
+# 1- Hacemos todas las importaciones para generar los datos, para la agrupacion en clusteres y Numpy y Matplotlib para el procesamiento y la visualizacion.
+# 2- Especificamos una gama de opciones de configuración. Generamos 1000 muestras en total alrededor de dos centros, de modo que obtendremos dos blobs de datos. Establecimos epsilon y min_smaples a valores que derivamos durante las pruebas, así como el método para agrupar y la métrica de distancia.
+# 3- La distancia de Minkowski es la métrica predeterminada
+# 4- A continuación generamos datos: dos blobs de datos, con .make_blobs
+# 5- En vase a estos datos, realizamos clustering basado en OPTICS, con epsilon, número mínimo de muestras, método de cluster y métrica definida. Inmediatamente ajustamos los datos para que se generen los clusteres.
+# 6- Luego imprimimos información sobre el úmero de clusteres y muestras ruidosas y finalmente generamos un diagrama de dispersion.
+
+from sklearn.datasets import make_blobs
+from sklearn.cluster import OPTICS
+import numpy as np
+import matplotlib.pyplot as plt
+
+#configuración
+num_samples_total = 1000
+cluster_centers = [(3,3),(7,7)]
+num_classes = len(cluster_centers)
+epsilon = 2.0
+min_samples = 22
+cluster_method = 'xi'
+metric = 'minkowski'
+#generar datos
+X,y = make_blobs(n_samples = num_samples_total, centers = cluster_centers, n_features = num_classes, center_box=(0,1), cluster_std = 0.5)
+#computar OPTICS
+db = OPTICS(max_eps = epsilon, min_samples = min_samples, cluster_method = cluster_method, metric = metric).fit(X)
+
+labels = db.labels_
+no_clusters = len(np.unique(labels))
+no_noise = np.sum(np.array(labels) == -1, axis=0)
+print('Estimado nº clusters: %d' % no_clusters)
+print('Estimado nº noise points: %d' % no_noise)
+
+#generar scatter plot para training data
+
+colors = list(map(lambda x: '#3b4cc0' if x == 1 else '#b40426', labels))
+plt.scatter(X[:,0], X[:,1], c=colors, marker='o', picker=True)
+plt.title('OPTICS clustering')
+plt.xlabel('Axis X[0]')
+plt.ylabel('Axis X[1]')
+plt.show()
+
+#tambien podemos generar la grafica de accesibilidad
+reachability = db.reachability_[db.ordering_]
+plt.plot(reachability)
+plt.title('Reachability plot')
+plt.show()
+
+
+
+###################        METODO AGGLOMERATIVE HIERARCHY CLUSTERING
+
+#los pasos para realizar el algorimto son:
+
+# 1- tratar cada punto de datos como un solo cluster. Por lo tanto, tendremos, K grupos al principio. El número de puntos de datos también será K al principio.
+
+# 2- necesitamos formar un gran cluster uniendo dos puntos de datos de armario. Esto dará como resultado un total de clusteres K-1
+
+# 3- para formar más clusteres necesitamos unir los dos puntos más cercanos. Esto dará como resultado un total de clusteres K-2
+
+# 4- para fomar un gran cluster, repetimos los tres pasos anteriores hasta que K se convierta en 0, es decir, no queden más puntos de datos para unirse
+
+# 5- por último, después de hacer un sólo clúster grande, se utilizarán dendogramas para dividir en múltiples grupos dependiendo del problema.
+
+# %matplotlib inline (esta es la primera linea en el ejemplo del curso, pero aqui no funciona, es una linea de IPython).
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+#a continuación trazaremos los puntos de datos que hemos tomado para este ejemplo.
+
+X = np.array([[7,8],[12,20],[17,19],[26,15],[32,37],[87,75],[73,85],[62,80],[73,60],[87,96]])
+
+labels = range(1,11)
+plt.figure(figsize=(10,7))
+plt.subplots_adjust(bottom=0.1)
+plt.scatter(X[:,0],X[:,1], label='True Position')
+for label, x, y in zip(labels, X[:,0],X[:,1]):
+    plt.annotate(label,xy=(x,y), xytext=(-3,3), textcoords='offset points', ha='right', va='bottom')
+    plt.show()
+
+
+# A partir del diagrama anterior, es muy fácil ver que tenemos dos clusteres en nuestros puntos de datos, pero en los datos del mundo real, puede haber miles de clusteres. A continuación, trazaremos los dendogramas de nuestros puntos de datos utilizando la biblioteca Scipy
+
+from scipy.cluster.hierarchy import dendrogram, linkage
+import matplotlib.pyplot as plt
+linked = linkage(X, 'single')
+labelList = range(1,11)
+plt.figure(figsize=(10,7))
+dendrogram(linked, orientation='top', labels=labelList, distance_sort='descending', show_leaf_counts=True)
+plt.show()
+
+#Ahora que una vez que se forma el gran cúmulo, se selecciona la distancia vertical más larga. A continuación, se dibuja una línea horizontal a través de ella. Como la línea horizontal cruza la linea azul en dos puntos, el número de grupos seria de dos.
+# A continuación, debemos importar la clase para la agrupación en clusteres y llamar a su método fit_predict para predecir el cluster. Estamos importando la clase AgglomerativeClustering de la biblioteca sklearn.cluster.
+
+from sklearn.cluster import AgglomerativeClustering
+cluster = AgglomerativeClustering(n_clusters=2, affinity='euclidean', linkage='ward')
+cluster.fit_predict(X)
+#a continuación trazamos el cluster
+plt.scatter(X[:,0],X[:,1], c=cluster.labels_, cmap='rainbow')

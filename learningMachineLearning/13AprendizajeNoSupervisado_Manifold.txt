@@ -1,0 +1,71 @@
+---------- MANIFOLDS. REDUCCION DE DIMENSIONALIDAD -------------------
+
+Los conjuntos de datos de alta dimensión (muchas dimensiones) pueden ser difíciles de visualizar. Si bien los datos en dos o 3 dimensiones pueden trazarse para mostrar la estructura inherente de los datos, los gráficos de alta dimensión equivalentes cson menos intuitivos. Para ayudar a visualizar la estructua de un conjunto de datos, la dimmensión debe reducirse de alguna manera.
+
+La forma de conseguir esta reducción de dimensionalidad es tiomando una proyección aleatoria de los datos. Aunque esto permite cierto grado de visualización de la estructura de datos, la aleatoriedad de la elección deja mucho que desear. En una proyección aleatoria, es probable que se pierda la estructura más interesante dentro de los datos.
+
+Para abordar esta cuestión, se han diseñado varios marcos de reducción de dimensionalidad lineal supervisados y no supervisados, como el análisis de componentes principales (PCA), el análisis de componentes independientes, el análisis discriminante lineal y otros. Estos algoritmos definen rúbricas específicas para elegir una proyección lineal interesante de los datos. Estos m´ñetodos pueden ser poderosos, pero a menudo pierden una estructura no lineal importante en los datos.
+
+El Aprendizaje Manifold (múltiple) se puede considerar como un intento de gneralizar marcos lineales como PCA para que sean sensibles a la estructura no lineal de los datos. Aunque existen variantes supervisadas, el típico problema de aprendizaje múltiple no está supervisado: aprende la estructura de alta dimensión de los datos a partir de los datos mismos, sin el uso de clasificaciones predeterminadas.
+
+
+Tipos de aprendizaje Manifold -------------------------------------------------------
+
+ISOMAP:
+
+    Uno de los primeros enfoques para el aprendizaje múltiple es este algoritmo (isometric mapping). Isomap puede verse como una extensión del Escalado multidimensional (MDS) o Kernel PCA. Isomap busca una incrustación de menor dimensión que mantenga las distancias geodésicas entre todos los puntos.
+
+INCRUSTACION LOCALMENTE LINEAL (LLE)
+
+    Busca una proyección de menor dimensión de los datos que preserva las distancias dentro de los vecindarios locales. Se puede considerar como una serie de análisis de componentes principales locales que se comparan globalmente para encontrar la mejor integración no lineal.
+
+INCRUSTACION LINEAL LOCALMENTE MODIFICADA
+
+    Un problema bien conocido con LLE es el problema de regularización. Cuando el número de vecinos es mayor que el número de dimensiones de entrada, la matriz que define cada vecindario local es deficiente en rango. Para abordar esto, LLE estándar aplica un parámetro de regularización arbitrario, que se elige en relación con la traza de la matriz de peso local. Aunque se peude demostrar formalmente que como r tiende a 0, la solución converge a la incustración deseada, no hay garantía de que se encontrará la solución óptima para r mayor que 0. Este problema se manifiesta en incrustraciones que distorsionan la geometría subyacente del manifold.
+
+EIGENMAPPING DE HESSE (HLLE)
+
+    El mapeo propio de Hessian (también conocido como LLE basado en Hessian: HLLE) es otro método para resolver el problema de regularización de LLE. Gira en torno a una forma cuadrática basada en Hessian para cada vecino que se utiliza para recuperar la estructura lineal local.
+
+INCRUSTRACIÓN ESPECTRAL
+
+    Es un método para calcular una incrustración no lineal. SciKit-learn implementa Laplacian Eigenmaps, que encuentra una representación de baja dimensión de los datos utilizando una descomposición espectral del gráfico laplaciano. El gráfico generado se puede considerar como una aproximación discreta del manifold de baja dimensión en el espacio de alta dimensión. La minimización de una función de coste basada en el gráfico asegura que los puntos cercanos entre sí en el manifold se mapeen cerca entre sí en el espacio de baja dimensiíon, preservando las distancias locales.
+
+ALINEACIÓN DEL ESPACIO TANGENTE LOCAL (LTSA)
+
+    Aunque tecnicamente no es una variante de LLE, la alineación del espacio tangente local (LTSA) es algoritmicamente lo suficientemente similar a LLE que puede incluirse en esta categoría. En lugar de centrarse en preservar las distancias del vecindario como en LLE, LTSA busca categorizar la geometría local en cada vecindario a través de su espacio tangente y realliza una optimización global para alinear estos espacios tangentes locales para aprender la incrustación.
+
+ESCALADO MULTIDIMENSIONAL 
+
+    MDS busca una representación de baja dimensión de los datos en la que las distancias respeten bien las distancias en el espacio original de alta dimensión.
+
+    En general, MDS es una técnica que se utiliza para analizar datos de similitud o disimilitud. Intenta modelar datos de similitud o disimilitud como distancias en espacios geométricos. Los datos pueden ser calificaciones de similitud entre objetos, frecuencias de interaccion de moléculas o índices comerciales entre paises.
+
+    Existen dos tipos de algoritmos MDS: métrico y no métrico.
+
+INCRUSTRACION DE VECINOS ESTOCASTICOS DISTRIBUIDOS EN t (t-SNE)
+
+    t-distributed Stochastic Neighbor Embedding , t-SNE (TSNE) convierte afinidades de puntos de datos en probabilidades. Las afinidades en el espacio original está representadas por probabilidades conjuntas de Gauss y las afinidades en el espacio incrustrado están representadas por distribuciones t de Student. Esto permite que t-SNE sea particularmente sensible a la estructura local y tiene algunas otras ventajas sobre las técnicas existentes:
+        - Revela la estructuraa muchas escalas en un solo mapa
+        - Revela datos que se encuentran en múltiples, diferentes agrupaciones
+        - Reduce la tendencia a agrupar puntos en el centro
+    
+    Si bien Isomap, LLE y las variantes son las más adecuadas para desplegar una única variedad continua de baja dimensión, tSNE se centrará en la estructura local de los datos y tenderá a extraer grupos de muestras locales agrupados como se destaca en el ejemplo de la curva S. Esta capacidad de agrupar muestras en función de la estructura local podría ser beneficiosa para desenredar visualmetne un conjunto de datos que comprenda varias variedades a la vez, como es el caso en el conjunto de datos de dígitos.
+
+BARNES-HUT t-SNE 
+
+    El t-SNE de Barnes-Hut suele ser mucho más lento que otros algoritmos d aprendizaje múltiples. La optimización es bastante difícil y el cálculo del gradiente es O[dNlog(N)], donde d es el número de dimensiones de salida y N es el número de muestras. EL método de Barnes_Hut mejora el método exacto donde la complejidad de t-SNE es O[dN2], pero tiene otras diferencias notables:
+        - La implementación de Barnes-Hut sólo funciona cuando la dimensionalidad objetivo es 3 o menos. El caso 2D es típico cuando se crean visualizaciones.
+        - Barnes-Hut solo funciona con datos de entrada densos. Las matrices de datos dispersos solo se pueden incrustrar con el método exacto o se pueden aproximar mediante una proyección densa de rango bajo, por ejemplo, utilizando TruncatedSVD.
+        - Barnes-Hut es una aproximación del método exacto. La aproximación se parametriza con el parámetro de ánguo, por lo tanto, el parámetro de ángulo no se utiliza cuando método = "exacto".
+        - Barnes-Hut es significativamente más escalable. Barnes-Hut se puede utilizar para incrustar cientos de miles de puntos de datos, mientras que el método exacto puede manejar miles de muestras antes de volverse intratable computacionalmente.
+    
+    Para fines de visualización ( que es el caso de uso principale de t-SNE), se recomienda encarecidamente utilizar el método Barnes-Hut. EL método t-SNE exacto es útil para verificar las propiedades teóricas de la incrustración posiblemente en un espacio dimensional superior, pero se limita a pequeños conjuntos de datos debido a restricciones computacionales.
+
+    Hay que tener en centa que las etiquetas de dígitos coinciden aprox con la agrupacion natural wncintrada por t-SNE, mientras que la proyección 2D lineal del modelo PCA produce una representación donde las regiones de etiquetas se superponen en gran medida. Esta es una piusta sólida de que estos datos pueden separarse bien mediante no lineales que se centran en la estructura local (por ejemplo, una SVM con un kernel RBF gaussiano).
+
+    Sin embargo, no poder visualizar grupos bien separados etiquetados homogeneamente con t-SNE en 2D no implica necesariamente que los datos no puedan ser clasificados correctamente por un modelo supervisado. Puede darse el caso de que dos dimensiones no sean lo suficientemente altas para representar con precisión la estrucutura interna de los datos.
+
+    
+
+
