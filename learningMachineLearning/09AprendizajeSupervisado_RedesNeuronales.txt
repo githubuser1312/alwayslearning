@@ -434,7 +434,19 @@ LSTM controla la decisión sobre que entradas deben tomarse dentro de la neurona
 
 
 
-ver ejemplo de Deep Learning en 09zEjemplos.py
+ver ejemplo de Deep Learning en 09zEjemplos.py†
+
+
+
+-- EL ALGORITMO DE PROPAGACION DIRECTA --------------------------------------------------------
+
+En esta sección se verá como escribir código para hacer propagación hacia adeante (predicción) para una red neuronal simple.
+
+ver ejemplo de Deep Learning en 09zEjemplos.py†
+
+
+
+
 
 
 
