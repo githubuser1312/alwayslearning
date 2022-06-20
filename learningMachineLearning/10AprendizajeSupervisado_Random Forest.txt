@@ -1,0 +1,27 @@
+-- COMBINACION DE MODELOS. RANDOM FOREST. ------------------------------------------------
+
+Cada arbol de decisión tiene una alta varianza, pero cuando los combinamos todos juntos en paralelo, la varianza resultante es baja, ya que cada árbol de decisión se entrena perfectamente en esos datos de muestra en particular y por lo tanto la salida no depende de un árbol de decisión sino de múltiples árboles de decisión. En el caso de un problema de clasificación, el resultado final se obtiene utilizando el clasificador de voto mayoritario. En el caso de un problema de regresión, la salida final es la media de todas las salidas. Esta parte es la AGREGACION.
+
+Un RANDOM FOREST es una técnica de conjunto (ensamblado) capaz de realizar tareas tanto de regresión como de clasificicación con el uso de múltiples árboles de decisión y una técnica llamada BOOTSTRAP y AGGREGATION, comunmente conocida como embolsado (BAGGING). La idea básica detrás de esto es combinar múltiples árboles de decisión para determinar el resultado final en lugar de confiar en árboles de decisión individuales.
+
+Random Forest tiene múltiples árboles de decisión como modelos de aprendizaje base. Realizamos aleatoriamente el muestreo de filas y el muestreo de características del conjunto de datos que forman conjuntos de datos de muestra para cada modelo. Esta parte se llama Bootstrap.
+
+El bosque aleatorio es un modelo de conjunto que hace crecer múltiples árboles y clasifica objetos según los votos de todos los árboles, es decir, un objeto se asigna a una clase que tiene más votos de todos los árboles. Al hacerlo, el problema con un alto sesgo (sobreajuste) podría aliviarse.
+
+Random Forest es un metaestimulador que se ajusta a varios árboles de decisión en varias submuestras de conjuntos de datos y utiliza el promedio para mejorar la precisión predictiva del modelo y controla el sobreajuste. EL tamaño de la submuestra siempre es el mismo que el tamaño de la muestra de entrada original, pero las muestras se extraen con reemplazo.
+
+Características de Random Forest:
+
+        - Podría manejar un gran conjunto de datos con alta dimensionalidad, salida en función de la importancia de la variable, útil para explorar los datos.
+        - Podría manejar falta de datos mientras se mantiene la precisión.
+        - En la mayoría de los casos, la reducción y ajuste del clasificador Random Forest son más precisos que los árboles de decisión.
+        - Las desventajas son:
+                _ Podría ser una caja negra, los usuarios tienen poco control sobre lo que hace el modelo.
+                _ La predicción es lenta en tiempo real, difícil de implementar y el algoritmo es complejo.
+                _ Si comparamos Random Forest con Arbol de Decisión, encontramos las siguientes diferencias:
+                    * Los bosques aleatorios son un conjunto de múltiples árboles de decisión.
+                    * Los árboles de decisión profunda pueden sufrir de sobreajuste, pero los bosques aleatorios evitan el sobreajuste mediante la creación de árboles en subconjuntos aleatorios.
+
+Los árboles de decisión son computacionalmente más rápidos. Los bosque aleatorios son difíciles de interpretar, mientras que un árbol de decisión es fácilmente interpretables y se puede convertir en reglas.
+
+ver ejemplo de implementacion de random forest en 10zEjemplos.py
