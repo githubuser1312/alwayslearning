@@ -461,3 +461,28 @@ cluster = AgglomerativeClustering(n_clusters=2, affinity='euclidean', linkage='w
 cluster.fit_predict(X)
 #a continuación trazamos el cluster
 plt.scatter(X[:,0],X[:,1], c=cluster.labels_, cmap='rainbow')
+
+
+
+
+#EJEMPLO DEL PROFESOR EN LA MASTERCLASS
+from pandas import DataFrame
+Data = {'x': [25,34,22,27,33,33,31,22,35,34,67,54,57,43,50,57,59,52,65,47,49,48,35,33,44,45,38,43,51,46],
+        'y':[79,51,53,78,59,74,73,57,69,75,51,32,40,47,53,36,35,58,59,50,25,20,14,12,20,5,29,27,8,7]}
+
+df = DataFrame(Data,columns=['x','y'])
+df
+#visualizamos en el grafico de dispersion
+import matplotlib.pyplot as plt
+plt.scatter(df['x'],df['y'])
+plt.show()
+from sklearn.cluster import KMeans
+Buscando_Centroides = KMeans(n_clusters=3).fit(df)
+centroids = Buscando_Centroides.cluster_centers_
+#mostramos valores que se ha generado
+print(centroids)
+#poner los grupos en el gráfico
+plt.scatter(df['x'],df['y'], c=Buscando_Centroides.labels_.astype(float),s=50, alpha=0.8)
+#añadimos los centroides
+plt.scatter(centroids[:,0],centroids[:,1], c='red', s=50)
+plt.show()
