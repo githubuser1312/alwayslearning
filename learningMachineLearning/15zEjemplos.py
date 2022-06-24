@@ -1,10 +1,10 @@
 #IMPLEMENTACION DEL ANÁLISIS DE CESTA
 
-#Los datos específicos del ejemplo provienen dek Repositorio de Aprendizaje Automático de la UCI y representan datos transaccionales de un minorista del Reino Unido de 2010-2011. Esto representa principalmente las ventas a mayoristas, por lo que es ligeremanente diferente de los patrones de compra del consumidor, pero sigue siendi un caso de estudio útil.
+#Los datos específicos del ejemplo provienen del Repositorio de Aprendizaje Automático de la UCI y representan datos transaccionales de un minorista del Reino Unido de 2010-2011. Esto representa principalmente las ventas a mayoristas, por lo que es ligeremanente diferente de los patrones de compra del consumidor, pero sigue siendo un caso de estudio útil.
 
 #El objetivo es utilizar esta biblioteca para analizar un conjunto de datos minoritstas en línea relativamente grande e intentar encontrar combinaciones de compra interesantes.
 
-#El dataset es bastante grande pr que puede tardar varios minutos.
+#El dataset es bastante grande por que puede tardar varios minutos.
 
 #instalamos MLxtend con pip (1 vez y comento la linea)
 #pip install mlxtend

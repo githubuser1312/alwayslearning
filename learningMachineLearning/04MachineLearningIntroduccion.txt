@@ -60,11 +60,11 @@ Tipos de algoritmos de aprendizaje automático:
 
         * Algoritmos de APRENDIZAJE AUTOMATICO SEMI SUPERVISADOS. Están entre los anteriores, usan datos etiquetados (en pequeña cantidad, generalmente) y no etiquetados (en gran cantidad, generalmente) para el entrenamiento. Los sistemas que usan este método pueden mejorar considerablemente la precisión del aprendizaje. EL aprendizaje semi-supervisado se elige cuando los datos etiquetados adquiridos requieren recursos calificados y relevantes para capacitarlos / aprender de ellos. De lo contrario, la adquisición de datos no etiquetados generalmente no requiere recursos adicionales.
 
-        * Algortimos de APRENDIZAJE AUTOMATICO DE REFUERZO son un método de aprendizaje que interactúa con su entorno mediante la produción de acciones y descubre errores o recompensas (se requiere una retroalimentacion de recompensa simplepara que el agente aprenda que accion es la mejor "señal de refuerzo").
+        * Algortimos de APRENDIZAJE AUTOMATICO DE REFUERZO son un método de aprendizaje que interactúa con su entorno mediante la produción de acciones y descubre errores o recompensas (se requiere una retroalimentacion de recompensa simple para que el agente aprenda que accion es la mejor "señal de refuerzo").
 
 El sistema aprendizaje de un algoritmo de aprendizaje automático se divide en tres partes:
 
-        1.- PROCESO DE DECISION: en general, los algoritmos de aprendizaje automático se utilizan para hacer una predicción o clasificación. Basado en algunos datos de entrada, que pueden ser etiquetados o no etiquetados, nuestro algoritmo producirá una estimaciòn sobre un patron en los datos.
+        1.- PROCESO DE DECISION: en general, los algoritmos de aprendizaje automático se utilizan para hacer una predicción o clasificación. Basado en algunos datos de entrada, que pueden ser etiquetados o no etiquetados, nuestro algoritmo producirá una estimación sobre un patron en los datos.
 
         2.- FUNCION DE ERROR: sirve para evaluar la prediccion del modelo. Si hay ejemplos conocidos, una función de error puede hacer una comparación para evaluar la precisión del modelo.
 

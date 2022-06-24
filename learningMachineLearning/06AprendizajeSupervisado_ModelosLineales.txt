@@ -22,7 +22,7 @@ para ello habrá que encontrar a y b que hagan que ese error sea el menor posibl
 Ver ejemplo en en el archivo 06Ejemplos.py
 
 ----------------------REGRESION LINEAL MULTIPLE-----------------------------
-Este tipo de regresión intenta modelar la relación entre dos o más características y una respuesta ajustando una ecucación lineal a los datos observados (es una extensión de la regresión lineal).
+Este tipo de regresión intenta modelar la relación entre dos o más características y una respuesta ajustando una ecuación lineal a los datos observados (es una extensión de la regresión lineal).
 En este caso consideramos un conjunto de datos con p características ( o variables independientes) y una respuesta (o variable dependiente). El conjunto de datos contiene n filas/observaciones.
 
 Sea X (matriz de características) = una matriz de tamaño n x p donde x_{ij} denota los valores de la característica j-ésima para la observación i-ésima.

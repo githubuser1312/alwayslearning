@@ -7,15 +7,15 @@ Una aplicación específica a menudo se llama ANÁLISIS DE CESTA de mercado. El 
 
 Probablemente esta historia sea una leyenda urbana de datos. Sin embargo, es un ejemplo ilustrativo del tipo de información que se puede obtener al extraer datos transaccionales.
 
-Si bien este tipo de asociaciones se utilizan normalmente para examinar las transacciones de venta, el análisis bñasico se puede aplicar a otras situaciones como el seguimiento del flujo de clics, el pedido de piezas de repuesto y los motores de recomendación en línea, sólo por nombrar algunos.
+Si bien este tipo de asociaciones se utilizan normalmente para examinar las transacciones de venta, el análisis basico se puede aplicar a otras situaciones como el seguimiento del flujo de clics, el pedido de piezas de repuesto y los motores de recomendación en línea, sólo por nombrar algunos.
 
-Como hemos visto en tantos casos , lo primero sería mirar scikit-learn para un algoritmo ya hecho. Sin embargo, scikit-learn no es compatible con este algoritmo. afortunadamente, la biblioteca MLxtend de Sebastian Raschka tiene una implementación del algoritmo llamada apriori para extraer conjuntos de elementos frecuentes para su posterior análisis.
+Como hemos visto en tantos casos, lo primero sería mirar scikit-learn para un algoritmo ya hecho. Sin embargo, scikit-learn no es compatible con este algoritmo. afortunadamente, la biblioteca MLxtend de Sebastian Raschka tiene una implementación del algoritmo llamada apriori para extraer conjuntos de elementos frecuentes para su posterior análisis.
 
 ---- ANALISIS DE ASOCIACION ------------
 
 En el mundo actual, existen muchas formas complejas de analizar datos (clustering, regresion, RedesNeuronales, Bosques Aleatorios, SVM, etc). El desafío con muchos de estos enfoques es que pueden ser difíciles de ajustar, difíciles de interpretar y requieren bastante preparación de datos e ingeniería de características para obtener resultados. En otras palabras, pueden ser muy poderosos, pero requieren mucho conocimiento para implementarlos correctamente.
 
-El análisis de asociación es relativamente ligero en los conceptos matemáticos y fácil de explicar a las personas no técnicas. Además, es una herramienta de aprendizaje no supervisada que busca patrones ocultos, pro loq eu existe una necesidad limitada de preparación de datos e ingeniería de características. Es un buen comienzo para ciertos casos de exploración de datos y puede señalar el camino para una inmersión más profunnda en los datos utilizando enfoques.
+El análisis de asociación es relativamente ligero en los conceptos matemáticos y fácil de explicar a las personas no técnicas. Además, es una herramienta de aprendizaje no supervisada que busca patrones ocultos, por lo que existe una necesidad limitada de preparación de datos e ingeniería de características. Es un buen comienzo para ciertos casos de exploración de datos y puede señalar el camino para una inmersión más profunnda en los datos utilizando enfoques.
 
 Como una ventaja adicional, la implementación de Python en MLxtend debería ser muy familiar para cualquiera que tenga experiencia con scikit-learn y pandas. Por todas estas razones, es una herramienta útil para estar familiarizado y puede ayudarnos con los problemas de análisis de datos.
 

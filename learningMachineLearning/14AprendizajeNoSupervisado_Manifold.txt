@@ -2,9 +2,9 @@
 
 Los conjuntos de datos de alta dimensión (muchas dimensiones) pueden ser difíciles de visualizar. Si bien los datos en dos o 3 dimensiones pueden trazarse para mostrar la estructura inherente de los datos, los gráficos de alta dimensión equivalentes cson menos intuitivos. Para ayudar a visualizar la estructua de un conjunto de datos, la dimmensión debe reducirse de alguna manera.
 
-La forma de conseguir esta reducción de dimensionalidad es tiomando una proyección aleatoria de los datos. Aunque esto permite cierto grado de visualización de la estructura de datos, la aleatoriedad de la elección deja mucho que desear. En una proyección aleatoria, es probable que se pierda la estructura más interesante dentro de los datos.
+La forma de conseguir esta reducción de dimensionalidad es tomando una proyección aleatoria de los datos. Aunque esto permite cierto grado de visualización de la estructura de datos, la aleatoriedad de la elección deja mucho que desear. En una proyección aleatoria, es probable que se pierda la estructura más interesante dentro de los datos.
 
-Para abordar esta cuestión, se han diseñado varios marcos de reducción de dimensionalidad lineal supervisados y no supervisados, como el análisis de componentes principales (PCA), el análisis de componentes independientes, el análisis discriminante lineal y otros. Estos algoritmos definen rúbricas específicas para elegir una proyección lineal interesante de los datos. Estos m´ñetodos pueden ser poderosos, pero a menudo pierden una estructura no lineal importante en los datos.
+Para abordar esta cuestión, se han diseñado varios marcos de reducción de dimensionalidad lineal supervisados y no supervisados, como el análisis de componentes principales (PCA), el análisis de componentes independientes, el análisis discriminante lineal y otros. Estos algoritmos definen rúbricas específicas para elegir una proyección lineal interesante de los datos. Estos métodos pueden ser poderosos, pero a menudo pierden una estructura no lineal importante en los datos.
 
 El Aprendizaje Manifold (múltiple) se puede considerar como un intento de gneralizar marcos lineales como PCA para que sean sensibles a la estructura no lineal de los datos. Aunque existen variantes supervisadas, el típico problema de aprendizaje múltiple no está supervisado: aprende la estructura de alta dimensión de los datos a partir de los datos mismos, sin el uso de clasificaciones predeterminadas.
 
@@ -21,7 +21,7 @@ INCRUSTACION LOCALMENTE LINEAL (LLE)
 
 INCRUSTACION LINEAL LOCALMENTE MODIFICADA
 
-    Un problema bien conocido con LLE es el problema de regularización. Cuando el número de vecinos es mayor que el número de dimensiones de entrada, la matriz que define cada vecindario local es deficiente en rango. Para abordar esto, LLE estándar aplica un parámetro de regularización arbitrario, que se elige en relación con la traza de la matriz de peso local. Aunque se peude demostrar formalmente que como r tiende a 0, la solución converge a la incustración deseada, no hay garantía de que se encontrará la solución óptima para r mayor que 0. Este problema se manifiesta en incrustraciones que distorsionan la geometría subyacente del manifold.
+    Un problema bien conocido con LLE es el problema de regularización. Cuando el número de vecinos es mayor que el número de dimensiones de entrada, la matriz que define cada vecindario local es deficiente en rango. Para abordar esto, LLE estándar aplica un parámetro de regularización arbitrario, que se elige en relación con la traza de la matriz de peso local. Aunque se puede demostrar formalmente que como r tiende a 0, la solución converge a la incustración deseada, no hay garantía de que se encontrará la solución óptima para r mayor que 0. Este problema se manifiesta en incrustraciones que distorsionan la geometría subyacente del manifold.
 
 EIGENMAPPING DE HESSE (HLLE)
 
@@ -54,7 +54,7 @@ INCRUSTRACION DE VECINOS ESTOCASTICOS DISTRIBUIDOS EN t (t-SNE)
 
 BARNES-HUT t-SNE 
 
-    El t-SNE de Barnes-Hut suele ser mucho más lento que otros algoritmos d aprendizaje múltiples. La optimización es bastante difícil y el cálculo del gradiente es O[dNlog(N)], donde d es el número de dimensiones de salida y N es el número de muestras. EL método de Barnes_Hut mejora el método exacto donde la complejidad de t-SNE es O[dN2], pero tiene otras diferencias notables:
+    El t-SNE de Barnes-Hut suele ser mucho más lento que otros algoritmos de aprendizaje múltiples. La optimización es bastante difícil y el cálculo del gradiente es O[dNlog(N)], donde d es el número de dimensiones de salida y N es el número de muestras. EL método de Barnes_Hut mejora el método exacto donde la complejidad de t-SNE es O[dN2], pero tiene otras diferencias notables:
         - La implementación de Barnes-Hut sólo funciona cuando la dimensionalidad objetivo es 3 o menos. El caso 2D es típico cuando se crean visualizaciones.
         - Barnes-Hut solo funciona con datos de entrada densos. Las matrices de datos dispersos solo se pueden incrustrar con el método exacto o se pueden aproximar mediante una proyección densa de rango bajo, por ejemplo, utilizando TruncatedSVD.
         - Barnes-Hut es una aproximación del método exacto. La aproximación se parametriza con el parámetro de ánguo, por lo tanto, el parámetro de ángulo no se utiliza cuando método = "exacto".

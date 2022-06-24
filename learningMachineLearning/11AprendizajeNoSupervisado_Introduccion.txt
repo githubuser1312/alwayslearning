@@ -1,6 +1,6 @@
 ------- APRENDIZAJE NO SUPERVISADO ----------------------------------
 
-En el Aprendizaje No Supervisado queremos conocer la estructura de nuestros datos sin usar etiquetas proporcionadas explicimente. La idea es exponer las máquinas a grandes volumenses de datos variables y permitirles aprender de esos daos para proporcionar informacion que antes era desconocida e identificar patrones ocultos. La maquina necesita ser programada para aprender por si misma.
+En el Aprendizaje No Supervisado queremos conocer la estructura de nuestros datos sin usar etiquetas proporcionadas explicimente. La idea es exponer las máquinas a grandes volumenses de datos variables y permitirles aprender de esos datos para proporcionar informacion que antes era desconocida e identificar patrones ocultos. La maquina necesita ser programada para aprender por si misma.
 
 Las tareas más comunes dentro del aprendizaje No supervisado son:
 

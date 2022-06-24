@@ -2,7 +2,7 @@ Python es un lenguaje MULTIPARADIGMA osea soporta: POO (progamacion orientada a 
 
 Python usa TIPADO DINAMICO (osea una variable puede tomar valores de distintos tipos), es multiplataforma y tiene infinidad de librerías creadas por la comunidad de desarrolladores Python por ser este un lenguaje libre.
 
-Python en CASE SENSITIVE.
+Python es CASE SENSITIVE.
 
 ANACONDA:
 
@@ -55,7 +55,7 @@ ANACONDA:
             *Celda para el código: Es el espacio donde se escribe el código.
 
     Jupyter QTConsole:
-        Es una aplicación muy ligera que se asemeja a un terminal pero tiene mejoras coo figuras en línea, edición de varias líneas con realtado de sintais, gráficos, etc. La posibildad de incrustar figuras en línea se representan con matploit en IPython o la biblioteca plotting elegida en el kernel seleccionado.
+        Es una aplicación muy ligera que se asemeja a un terminal pero tiene mejoras como figuras en línea, edición de varias líneas con resaltado de sintaxis, gráficos, etc. La posibildad de incrustar figuras en línea se representan con matploit en IPython o la biblioteca plotting elegida en el kernel seleccionado.
         
 
 

@@ -8,7 +8,7 @@ Los algoritmos de APRENDIZAJE SUPERVISADO definen modelos que capturan las RELAC
             ** VARIABLES INDEPENDIENTES (llamados tambien ENTRADAS o PREDICTORES), no dependen de otras características de interés (o al menos se asume así a efectos del análisis).
             ** VARIABLES DEPENDIENTES (tambien llamadas SALIDAS o RESPUESTAS) dependen de las VARIABLES INDEPENDIENTES.
 
-En el ejemplo anterior, podríamos considerar que el nivel de educación , la edad y el tiempo en la posición actual son mutuamente independientes, meintras que el salario y las probabilidades de ascenso podrían ser las salidaes que dependen de las entradas.
+En el ejemplo anterior, podríamos considerar que el nivel de educación , la edad y el tiempo en la posición actual son mutuamente independientes, mientras que el salario y las probabilidades de ascenso podrían ser las salidas que dependen de las entradas.
 
 ------------------------------------------------------------------------
 LOS ALGORITMOS DE APRENDIZAJE AUTOMÁTICO SUPERVISADO ANALIZAN UNA SERIE DE OBSERVACIONES Y TRATAN DE EXPRESAR MATEMÁTICAMENTE LA DEPENDENCIA ENTRA LAS ENTRADAS Y LAS SALIDAS. ESTAS REPRESENTACIONES MATEMÁTICAS DE DEPENDENCIAS SON LOS   --------- MODELOS --------------
@@ -77,7 +77,7 @@ Todos los algoritmos en Aprendizaje Supervisado son algoritmos complejos en MODE
 *MEDIDAS DE RENDIMIENTO (es el proceso de medir objetivamente cómo de bien los modelos de aprendizaje, supervisados o no supervisados, realizan las tareas para las que fueron diseñados). La tarea de medir qué de bien funciona un modelo de aprendizaje supervisado es más fácil que para el caso de un modelo NO supervisado. Esto se debe a que el entrenamiento de los modelos en el aprendizaje supervisado se hace con datos de entrenamiento etiquetados y las pruebas se hacen con datos de la misma población (y por lo tanto tienen las misma etiquetas).
 
             ** CONJUNTO DE ENTRENAMIENTO Y PRUEBA.
-            Por ejemplo digamos que necesitamos clasificar si una transaccion con tarjeta de crédito es fraudulenta y tenemos un conjunto de datos de transacciones con etiquetas de fraude o no fraude. Podemos entrenar nuestro modelo utilizando todos los datos disponibles, pero esto nos impide evaluarlo de manera adecuada porque no quedan datos 'independientes' para las pruebas y el sobreajuste (OVERFITING) se vuelve difícil de detectar. Es problema se evita dividiendo el conjunto de datos en: DATOS DE ENTRANAMIENTO (normalemente un 70% del conjunto de datos) y DATOS DE PRUEBA (30%).
+            Por ejemplo digamos que necesitamos clasificar si una transaccion con tarjeta de crédito es fraudulenta y tenemos un conjunto de datos de transacciones con etiquetas de fraude o no fraude. Podemos entrenar nuestro modelo utilizando todos los datos disponibles, pero esto nos impide evaluarlo de manera adecuada porque no quedan datos 'independientes' para las pruebas y el sobreajuste (OVERFITING) se vuelve difícil de detectar. Este problema se evita dividiendo el conjunto de datos en: DATOS DE ENTRANAMIENTO (normalemente un 70% del conjunto de datos) y DATOS DE PRUEBA (30%).
 
                 EL SOBREAJUSTE SOBREVIENE CUANDO UN MODELO HACE GENERALIZACIONES SOBRE ELEMENTOS DE DATOS COINCIDENTES QUE EN REALIDAD NO ESTÁN RELACIONADOS CON EL ANÁLISIS (por ejemplo, en la deteccion de fraude del pago con tarjeta, un sobreajuste se produce si el entrenamiento del modelo detecta una correlación entre la longitud del nombre de un cliente y la probabilidad de que una transaccion sea fraudulenta).
 

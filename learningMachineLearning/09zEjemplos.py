@@ -359,3 +359,68 @@ output = predict_with_network(input_data)
 print(output)
 
 #la salida es 364
+
+
+#EJEMPLO DE LA MASTERCLASS
+
+#masterclass 6 (el tutor dio la clase con GOOGLE COLAB)
+#REDES NEURONALES
+import tensorflow as tf
+import numpy as np
+celsius=np.array([-40,-10,0,8,15,22,34], dtype=float)
+fahrenheit = np.array([-40, 14,32,46,58,71,100], dtype=float)
+capa = tf.keras.layers.Dense(units=1, imput_shape=[1])
+#units son las neuronas de las capas
+#input_shape = las neuronas de salida
+modelo = tf.keras.Sequential([capa])
+#creamos un modelo secuencial porque nuestro ejemplo es sencillo
+#compilamos
+optimizer = tf.keras.optimizers.Adam(0,1),loss='mean_squared_error')
+#usamos un compilador como ADAM: la idea es que vaya mejorando y no desaprendiendo. Tasa de Aprendizaje=0.1, con valores mayores es posible que se pase, es mejor ir poco a poco
+
+#'mean_squared_error' es una función de perdida y significa poca cantidad de errores grandes es peor que mas cantidad de errores pequeños.
+#vamos a entrenarlo
+print('comenzando entrenamiento...')
+historial = modelo.fit(celsius, fahrenheit, epochs=1000, verbose=False)
+#epochs=vueltas de entrenamiento
+print('Modelo entrenado')
+#vamos a ver un gráfico para ver como ha ido aprendiendo la red con el numero de vueltas que se ha dado a los datos (epochs)
+import matplotlib.pyplot as plt
+plt.xlabel('Num. vueltas')
+plt.ylabel('Magnitud de pérdida')
+plt.plot(historial.history('loss'))
+#hagamos una prediccion
+print('hagamos una prediccion')
+resultado=modelo.predict([37.0])
+print('El resultado es '+str(resultado)+'fahrenheit')
+#vamos a ver que peso y sesgos ha reconocido
+print('variables internas del modelo')
+print(capa.get_weights())
+#el resultado es muy cercano a la realidad que es peso=1.8 y sesgo=32 (ver formula de c a F)
+
+#ahora haremos lo mismo con 2 capas y 3 neuronas
+oculta1 =tf.keras.layers.Dense(units=3, imput_shape=[1])
+oculta2 = tf.keras.layers.Dense(units=3 )
+salida = tf.keras.layers.Dense(units=1)
+modelo=tf.keras.Sequential([oculta1, oculta2,salida])
+#el resto de codigo es igual
+optimizer = tf.keras.optimizers.Adam(0,1),loss='mean_squared_error')
+#usamos un compilador como ADAM: la idea es que vaya mejorando y no desaprendiendo. Tasa de Aprendizaje=0.1, con valores mayores es posible que se pase, es mejor ir poco a poco
+
+#'mean_squared_error' es una función de perdida y significa poca cantidad de errores grandes es peor que mas cantidad de errores pequeños.
+#vamos a entrenarlo
+print('comenzando entrenamiento...')
+historial = modelo.fit(celsius, fahrenheit, epochs=1000, verbose=False)
+#epochs=vueltas de entrenamiento
+print('Modelo entrenado')
+#vamos a ver un gráfico para ver como ha ido aprendiendo la red con el numero de vueltas que se ha dado a los datos (epochs)
+import matplotlib.pyplot as plt
+plt.xlabel('Num. vueltas')
+plt.ylabel('Magnitud de pérdida')
+plt.plot(historial.history('loss'))
+#hagamos una prediccion
+print('hagamos una prediccion')
+resultado=modelo.predict([37.0])
+print('El resultado es '+str(resultado)+'fahrenheit')
+
+#reconocer ropa fashion_mnist zalando
