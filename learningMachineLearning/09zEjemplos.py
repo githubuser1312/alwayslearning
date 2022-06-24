@@ -404,7 +404,7 @@ oculta2 = tf.keras.layers.Dense(units=3 )
 salida = tf.keras.layers.Dense(units=1)
 modelo=tf.keras.Sequential([oculta1, oculta2,salida])
 #el resto de codigo es igual
-optimizer = tf.keras.optimizers.Adam(0,1),loss='mean_squared_error')
+optimizer = tf.keras.optimizers.Adam((0,1),loss='mean_squared_error')
 #usamos un compilador como ADAM: la idea es que vaya mejorando y no desaprendiendo. Tasa de Aprendizaje=0.1, con valores mayores es posible que se pase, es mejor ir poco a poco
 
 #'mean_squared_error' es una función de perdida y significa poca cantidad de errores grandes es peor que mas cantidad de errores pequeños.
