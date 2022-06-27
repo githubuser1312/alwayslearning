@@ -375,7 +375,7 @@ capa = tf.keras.layers.Dense(units=1, imput_shape=[1])
 modelo = tf.keras.Sequential([capa])
 #creamos un modelo secuencial porque nuestro ejemplo es sencillo
 #compilamos
-optimizer = tf.keras.optimizers.Adam(0,1),loss='mean_squared_error')
+modelo.compile(optimizer = tf.keras.optimizers.Adam(0,1),loss='mean_squared_error')
 #usamos un compilador como ADAM: la idea es que vaya mejorando y no desaprendiendo. Tasa de Aprendizaje=0.1, con valores mayores es posible que se pase, es mejor ir poco a poco
 
 #'mean_squared_error' es una función de perdida y significa poca cantidad de errores grandes es peor que mas cantidad de errores pequeños.
