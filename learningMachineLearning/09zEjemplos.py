@@ -388,7 +388,7 @@ print('Modelo entrenado')
 import matplotlib.pyplot as plt
 plt.xlabel('Num. vueltas')
 plt.ylabel('Magnitud de pérdida')
-plt.plot(historial.history('loss'))
+plt.plot(historial.history['loss'])
 #hagamos una prediccion
 print('hagamos una prediccion')
 resultado=modelo.predict([37.0])
